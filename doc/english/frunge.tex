@@ -1,26 +1,58 @@
-%This has to be proceſſed with  XeLaTeX
+%This has to be proceſſed with (a recent verſion of?) XeLaTeX
 
 %This document contains only my opinion, not that of the whole team.
 
-\documentclass[ngerman,titlepage=on]{scrartcl}
-\usepackage{polyglossia,verbatim,xltxtra}
+\documentclass[
+  ngerman,
+  titlepage=no
+]{scrartcl}
+
+\usepackage{
+  polyglossia,
+  relsize,
+  verbatim,
+  xcolor,
+  xspace,
+  xltxtra
+}
+
+\usepackage[
+  breaklinks,
+  colorlinks=true,
+  pdfborder=0 0 0,
+  pdftitle={Frunge Font Documentation},
+  linkcolor=blue,
+  urlcolor=blue,
+  xetex
+]{hyperref}
+
+\newcommand*\team{Dennis Heidſiek\and Martin Roppelt\and Arno Trautmann}
+\newcommand*\smiley{{\larger[3]☺}} % I like the smileys from the Libertine fonts …
+\newcommand*\frowney{{\larger[3]☹}}
+\newcommand*\winkey{;)}       % no idea if this is a good name …
+\newcommand*\spokenlanguage[1]{\mbox{#1}} % for spoken language. You wouldn’t want a break inside this, would you? Maybe another font would be nice, too
+\newcommand*\pkg[1]{\textsf{#1}}
+
 \setmainlanguage{english}
-\setmainfont{Linux Libertine O}
-\setsansfont{Linux Biolinum O}
+%\setmainfont{Linux Libertine O}
+\setmainfont{Linux Libertine} % Arno: Option O appereantly makes problems on my system
+\setsansfont[Scale=MatchLowercase]{Linux Biolinum O}
 %\setmainfont{Befreiungsschrift Mono}
 %\setsansfont{Befreiungsschrift Mono}
 %\setmainfont{Frunge Mixtura} % Italic
-\frenchspacing %What was this for?
+\frenchspacing %What was this for? changing the spacing after interpunctuation. Here it has no effect at all. 
 %\usepackage{syntonly}
 %\syntaxonly
 %\includeonly{}
-\usepackage[xetex,pdftitle={Frunge Fonts
-Documentation},colorlinks=false]{hyperref}
 
+\subject{The Documentation of}
+\title{The Frunge Font Family}
+\author{\team}
 
+\let\addpart\addsec   % I don’t think the usage of part is appropriate here. Change it in the code, too.
+\addtokomafont{section}{\LARGE}
 
 \begin{document}
-
 \begin{comment}
 Engliſh long s rules:
 End of word: s / Elſe: ſ
@@ -31,77 +63,67 @@ Italic writing: ſſ -> ſs
 17th century: ſb ſk -> sb sk
 \end{comment}
 
-\subject{The Documentation of}
-\title{The Frunge Font Family}
-\author{Dennis Heidſiek\and Martin Roppelt\and Arno Trautmann}
-\publishers{
-\parbox{\textwidth}{
+%If we plan to include (non-trivial?) ſource code:
+\begin{comment}
+This document is free ſoftware: you can rediſtribute it and/or
+modify it under the terms of the GNU General Public Licenſe as publiſhed by the
+Free Software Foundation, either verſion 3 of the Licenſe, or (at your option)
+any later verſion.
+
+This document is diſtributed in the hope that it will be uſeful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public Licenſe for more
+details.
+
+You ſhould have received a copy of the GNU General Public Licenſe
+along with this document. If not, see: http://www.gnu.org/licenses/gpl.html
+\end{comment}
+
+\maketitle
+\thispagestyle{empty}
+\begin{abstract}
+\large
 Copyright 2009
 Dennis Heidſiek (\href{mailto:heidsiekb@aol.com}{heidsiekb@aol.com}),
-Martin Roppelt (\href{mailto:m.p.roppelt@web.de}{m.p.roppelt@web.de}) and
+Martin Roppelt \break(\href{mailto:m.p.roppelt@web.de}{m.p.roppelt@web.de}) and
 Arno Trautmann (\href{mailto:arno.trautmann@gmx.de}{arno.trautmann@gmx.de})
 
-\makebox[1em]{}Permiſſion is granted to copy, diſtribute and/or modify this
+Permiſſion is granted to copy, diſtribute and/or modify this
 document under the terms of the GNU Free Documentation Licenſe, Version 1.3 or
 any later verſion publiſhed by the Free Software Foundation; with no Invariant
 Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the licenſe
 is included in the ſection entitled “\hyperlink{fdl}{GNU Free Documentation
 Licenſe}”.
 
-\makebox[1em]{}This work is licenſed under the Creative Commons
+This work is licenſed under the Creative Commons
 Attribution-ShareAlike 3.0 Unported Licenſe. To view a copy of this licenſe,
-viſit \href{http://creativecommons.org/licenses/by-sa/3.0/legalcode}
-{http://creativecommons.org/licenses/by-sa/3.0/legalcode}; or, (b) ſend a letter
-to Creative Commons, 171 2$^{nd}$ Street, Suite 300, San Franciſco, California,
-94105, USA.}
-}
-
-%If we plan to include (non-trivial?) ſource code:
-\begin{comment}
-\makebox[1em]{}This document is free ſoftware: you can rediſtribute it and/or
-modify it under the terms of the GNU General Public Licenſe as publiſhed by the
-Free Software Foundation, either verſion 3 of the Licenſe, or (at your option)
-any later verſion.
-
-\makebox[1em]{}This document is diſtributed in the hope that it will be uſeful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
-or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public Licenſe for more
-details.
-
-\makebox[1em]{}You ſhould have received a copy of the GNU General Public Licenſe
-along with this document. If not, see: http://www.gnu.org/licenses/gpl.html
-\end{comment}
-
-\maketitle
-
-
-
+viſit \href{http://creativecommons.org/licenses/by-sa/3.0/legalcode}{this page}; or, (b) ſend a letter
+to Creative Commons, 171 2\textsuperscript{nd} Street, Suite 300, San Franciſco, California,
+94105, USA.
+% Why is there a (b), but no (a) ?
+\end{abstract}
+\clearpage
+\tableofcontents
 \addpart{Frunge Fonts Project}
-
 We at the Frunge Fonts Project want to create free, high-quality and Unicode
 complete ſubſtitutes to the proprietary blackletter fonts. Frunge is an
 abbreviation of the German “FRei UNd GEbrochen” (= free and blackletter).
 
-Therefore it is pronounced [fʁʊŋə]. But as we tend to pronounce the Gentium SIL
-not as [dʒɛntɪʊm], but rather as [gɛntɪʊm] or even [gɛntsɪʊm], you may feel free
-to pronounce it as [frʌndʒ], or as you like it.
+Therefore it is pronounced \spokenlanguage{[fʁʊŋə]}. But as we tend to pronounce the Gentium SIL
+not as \spokenlanguage{[dʒɛntɪʊm]}, but rather as \spokenlanguage{[gɛntɪʊm]} or even \spokenlanguage{[gɛntsɪʊm]}, you may feel free to pronounce it as \spokenlanguage{[frʌndʒ]}, or as you like it.
 
 We alſo found out, that ſome online dictionaries define frunge as “neck
-maſſage”. This is what it gives us when we finiſhed a font :)
-
-
+maſſage”. This is what it gives us when we finiſhed a font \smiley
 
 \addpart{We Care About Your Freedom}
-
 Blackletter fonts are uſually very expenſive. Even if not, you may not ſtudy,
-change or even rediſtribute modified verſions :(
+change or even rediſtribute modified verſions \frowney
 
 Becauſe we didn’t want to wait until thoſe publiſhers relicenſe their fonts as
 free ſoftware, we ſtarted this project. A little bit preſſure can help them, as
-well ;)
+well \winkey
 
-Our fonts are free ſoftware, i. e. you may
-
+Our fonts are free ſoftware, i.\,e. you may
 \begin{itemize}
 \item use
 \item ſtudy
@@ -111,13 +133,13 @@ Our fonts are free ſoftware, i. e. you may
 
 Uſually you can get them without fee.
 
-We want to enſure, that our fonts cannot be made proprietary again, ſo we
-chooſed to licenſe them under a
+We want to enſure that our fonts cannot be made proprietary again, ſo we
+choſe to licenſe them under a
 \href{http://en.wikipedia.org/wiki/Copyleft}{copyleft} licenſe:
 
 To avoid licenſe proliferation and to enſure greateſt font combining
-poſſibilities, our fonts are licenſed under GPL, ((OFL)) (and CC-BY-SA?). %If
-%you feel that this is not enough, pleaſe \hyperlink{contact}{contact} us.
+poſſibilities, our fonts are licenſed under GPL, ((OFL)) (and CC-BY-SA?). 
+%If you feel that this is not enough, pleaſe \hyperlink{contact}{contact} us.
 
 If you want to want to rediſtribute our fonts (probably changed), have a look at
 the full licenſe text(s) to make ſure, that you meet the conditions!
@@ -133,22 +155,16 @@ GPL:
 %\item you may ſell our fonts unbundled with other ſoftware
 \end{itemize}
 
-
-
 \addpart{Feature Goals}
-
 \begin{itemize}
-\item XeTeX Math Fonts
+\item \XeTeX\ Math Fonts
 \item Language specific typography
 \item r rotunda
-\item Umlauts with superscript e
+\item vowels with an ”e“ as umlaut mark
 \end{itemize}
 
-
-
 \addpart{Font Faces}
-
-\addsec{Frunge Mixtura}
+\addsec*{Frunge Mixtura}
 
 This is a draft and learning example. Its outlines are drawn as if their ſtrokes
 were written with a thick feather, hold by 45 degrees (is to be decreased) only,
@@ -157,25 +173,18 @@ in the lower and upper right direction.
 It can be altered through options heavily.
 …
 
-
-
 \addpart{\XeTeX-Usage}
+The usage of the fonts with \XeTeX\ is quite easy. If you know how to \TeX, just load the package \href{http://www.ctan.org/tex-archive/macros/xetex/latex/xltxtra/}{\pkg{xltxtra}} (which loads the \pkg{fontspec}-package that does all the work). Load the font saying \verb|\setmainfont{Frunge Font}|, where \verb|Frunge Font| is the name of the font as it is known to your operating system. This will change the main font of your document to the given font. Say \verb|\fontspec{Frunge Font}| to change to the font locally.
 
-…
-
-
+The usage of advanced OpenType features will be described in this place as soon as they are implemented in the fonts.
 
 \addpart{Internal Implementation}
-
 Accented letters are diſſolved via a ccmp-table and reſurrected by
 abvm/etc.-tables. Therefore your font rendering engine ſhould fully ſupport
 OpenType (otherwiſe no glyphs are ſhown for thoſe).
 …
 
-
-
 \addpart{Input of Long s}
-
 Xmodmap
 …
 
@@ -183,10 +192,7 @@ Neo – ergonomically optimized keyboard layout for German (and Engliſh);
 ſets long s on firſt level and makes blackletter typing eaſy.
 \href{http://wiki.neo-layout.org/wiki/Neo\%20unter\%20Linux\%20einrichten/Lang-s-Tastatur}{Inſtallation inſtructions for GNU/Linux}
 
-
-
 \addpart{Similar Projects}
-
 \begin{itemize}
 \item \href{http://fontforge.ſourceforge.net/sfds/toyfonts.html}{FontForge’s Toy
 Fonts}
@@ -194,22 +200,14 @@ Fonts}
 Haralambous’s [?] Blackletter Metafonts}
 \end{itemize}
 
-
-
 \addpart[contact]{Contact}
-
 If you want to contribute ſome patches or feature or bug requeſts, viſit our
-\href{http://ſv.nongnu.org/p/frunge}{project ſite}
-
+\href{http://ſv.nongnu.org/p/frunge}{project ſite}\\
 \hypertarget{contact}{You can write us email, too:
-\href{mailto:frunge-external@nongnu.org}{frunge-external@nongnu.org}}
-
-If you want to contribute / diſcuſs on a regular baſis, ſubſcribe to our
+\href{mailto:frunge-external@nongnu.org}{frunge-external@nongnu.org}}.\\
+If you want to contribute\,/\,diſcuſs on a regular baſis, ſubſcribe to our
 \href{http://liſts.nongnu.org/mailman/listinfo/frunge-internal}{mailing
-liſt}
-
-
+liſt}.
 
 \include{fdl}
-
 \end{document}
