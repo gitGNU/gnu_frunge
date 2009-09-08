@@ -1,6 +1,7 @@
-%This has to be proceſſed with (a recent verſion of?) XeLaTeX
+%%This has to be proceſſed with (a recent verſion of?) XeLaTeX:
+%% xelatex frunge.tex
 
-%This document contains only my opinion, not that of the whole team.
+%%This document contains only my opinion, not that of the whole team.
 
 \documentclass[
   ngerman,
@@ -33,17 +34,23 @@
 \newcommand*\spokenlanguage[1]{\mbox{#1}} % for spoken language. You wouldn’t want a break inside this, would you? Maybe another font would be nice, too
 \newcommand*\pkg[1]{\textsf{#1}}
 
-\setmainlanguage{english}
+%% font settings
 %\setmainfont{Linux Libertine O}
 \setmainfont{Linux Libertine} % Arno: Option O appereantly makes problems on my system
 \setsansfont[Scale=MatchLowercase]{Linux Biolinum O}
 %\setmainfont{Befreiungsschrift Mono}
 %\setsansfont{Befreiungsschrift Mono}
 %\setmainfont{Frunge Mixtura} % Italic
+
+%% polyglossia settings
+\setmainlanguage{english}
 \frenchspacing %What was this for? changing the spacing after interpunctuation. Here it has no effect at all. 
+\setotherlanguage[spelling=new, latesthyphen=true, babelshorthands=true]{german}
+
 %\usepackage{syntonly}
 %\syntaxonly
 %\includeonly{}
+
 
 \subject{The Documentation of}
 \title{The Frunge Font Family}
