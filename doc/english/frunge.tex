@@ -34,6 +34,9 @@
 \newcommand*\spokenlanguage[1]{\mbox{#1}} % for spoken language. You wouldn’t want a break inside this, would you? Maybe another font would be nice, too
 \newcommand*\pkg[1]{\textsf{#1}}
 
+\newcommand\frungepangramm{\IfFileExists{frunge-pangramm.txt}{\input{frunge-pangramm.txt}}{Test}}
+
+
 %% font settings
 %\setmainfont{Linux Libertine O}
 \setmainfont{Linux Libertine} % Arno: Option O appereantly makes problems on my system
@@ -198,6 +201,14 @@ Xmodmap
 Neo—ergonomically optimized keyboard layout for German (and Engliſh);
 ſets long s on firſt level and makes blackletter typing eaſy.
 \href{http://wiki.neo-layout.org/wiki/Neo\%20unter\%20Linux\%20einrichten/Lang-s-Tastatur}{Inſtallation inſtructions for GNU/Linux}
+
+\addpart{Testing of Fonts}
+You can teſt the Frunge fonts in this document with the command \verb|\frungepangramm| wich will type the following text:
+\begin{quote}
+\frungepangramm
+\end{quote}
+This (non-ſenſical) text has all important glyphs to ſhow how a blackletter font would look like. The text is ſaved in the file \verb|frunge-pangramm.txt| and might change from time to time—if we have better ideas for it \winkey
+
 
 \addpart{Similar Projects}
 \begin{itemize}
