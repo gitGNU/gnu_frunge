@@ -34,7 +34,7 @@
 \newcommand*\spokenlanguage[1]{\mbox{#1}} % for spoken language. You wouldn’t want a break inside this, would you? Maybe another font would be nice, too
 \newcommand*\pkg[1]{\textsf{#1}}
 
-\newcommand\frungepangramm{\IfFileExists{frunge-pangramm.txt}{\input{frunge-pangramm}}{Test}}
+\newcommand\frungepangramm{\IfFileExists{frunge-pangramm}{\input{frunge-pangramm}}{Test}}
 
 
 %% font settings
@@ -58,8 +58,6 @@
 \subject{The Documentation of}
 \title{The Frunge Font Family}
 \author{\team}
-
-\let\addpart\addsec   % I don’t think the usage of part is appropriate here. Change it in the code, too.
 \addtokomafont{section}{\LARGE}
 
 \begin{document}
@@ -114,7 +112,7 @@ to Creative Commons, 171 2\textsuperscript{nd} Street, Suite 300, San Franciſco
 \end{abstract}
 \clearpage
 \tableofcontents
-\addpart{Frunge Fonts Project}
+\addsec{Frunge Fonts Project}
 We at the Frunge Fonts Project want to create free, high-quality and Unicode
 complete ſubſtitutes to the proprietary blackletter fonts. Frunge is an
 abbreviation of the German “FRei UNd GEbrochen” (= free and blackletter).
@@ -125,7 +123,7 @@ not as \spokenlanguage{[dʒɛntɪʊm]}, but rather as \spokenlanguage{[gɛntɪʊ
 We alſo found out, that ſome online dictionaries define frunge as “neck
 maſſage”. This is what it gives us when we finiſhed a font \smiley
 
-\addpart{We Care About Your Freedom}
+\addsec{We Care About Your Freedom}
 Blackletter fonts are uſually very expenſive. Even if not, you may not ſtudy,
 change or even rediſtribute modified verſions \frowney
 
@@ -137,7 +135,7 @@ Our fonts are free ſoftware, i.\,e. you may
 \begin{itemize}
 \item use
 \item ſtudy
-\item modify / improve and
+\item modify\,/\,improve and
 \item rediſtribute them.
 \end{itemize}
 
@@ -165,7 +163,7 @@ GPL:
 %\item you may ſell our fonts unbundled with other ſoftware
 \end{itemize}
 
-\addpart{Feature Goals}
+\addsec{Feature Goals}
 \begin{itemize}
 \item \XeTeX\ Math Fonts
 \item Language specific typography
@@ -173,7 +171,7 @@ GPL:
 \item vowels with an ”e“ as umlaut mark
 \end{itemize}
 
-\addpart{Font Faces}
+\addsec{Font Faces}
 \addsec*{Frunge Mixtura}
 
 This is a draft and learning example. Its outlines are drawn as if their ſtrokes
@@ -183,18 +181,18 @@ in the lower and upper right direction.
 It can be altered through options heavily.
 …
 
-\addpart{\texorpdfstring{\XeTeX-Usage}{XeTeX-Usage}}
-The usage of the fonts with \XeTeX\ is quite easy. If you know how to \TeX, just load the package \href{http://www.ctan.org/tex-archive/macros/xetex/latex/xltxtra/}{\pkg{xltxtra}} (which loads the \pkg{fontspec}-package that does all the work). Load the font saying \verb|\setmainfont{Frunge Font}|, where \verb|Frunge Font| is the name of the font as it is known to your operating system. This will change the main font of your document to the given font. Say \verb|\fontspec{Frunge Font}| to change to the font locally.
+\addsec{\texorpdfstring{\XeTeX-Usage}{XeTeX-Usage}}
+The uſage of the fonts with \XeTeX\ is quite eaſy. If you know how to uſe \TeX, just load the package \href{http://www.ctan.org/tex-archive/macros/xetex/latex/xltxtra/}{\pkg{xltxtra}} (which loads the \pkg{fontspec}-package that does moſt of the work). Load the font ſaying \verb|\setmainfont{Frunge Font}|, where \verb|Frunge Font| is the name of the font as it is known to your operating ſyſtem. This will change the main font of your document to the given font. Say \verb|\fontspec{Frunge Font}| to change to the font locally.
 
-The usage of advanced OpenType features will be described in this place as soon as they are implemented in the fonts.
+The uſage of advanced OpenType features will be described in this place as ſoon as they are implemented in the fonts.
 
-\addpart{Internal Implementation}
+\addsec{Internal Implementation}
 Accented letters are diſſolved via a ccmp-table and reſurrected by
 abvm/etc.-tables. Therefore your font rendering engine ſhould fully ſupport
 OpenType (otherwiſe no glyphs are ſhown for thoſe).
 …
 
-\addpart{Input of Long s}
+\addsec{Input of Long s}
 Xmodmap
 …
 
@@ -202,15 +200,15 @@ Neo—ergonomically optimized keyboard layout for German (and Engliſh);
 ſets long s on firſt level and makes blackletter typing eaſy.
 \href{http://wiki.neo-layout.org/wiki/Neo\%20unter\%20Linux\%20einrichten/Lang-s-Tastatur}{Inſtallation inſtructions for GNU/Linux}
 
-\addpart{Testing of Fonts}
-You can teſt the Frunge fonts in this document with the command \verb|\frungepangramm| wich will type the following text:
+\addsec{Testing of Fonts}
+You can teſt the Frunge fonts in this document with the command \verb|\frungepangramm| wich will input the file \verb|frunge-pangramm|:
 \begin{quote}
 \frungepangramm
 \end{quote}
-This (non-ſenſical) text has all important glyphs to ſhow how a blackletter font would look like. The text is ſaved in the file \verb|frunge-pangramm.txt| and might change from time to time—if we have better ideas for it \winkey
+This (non-ſenſical) text has all important glyphs to ſhow how a blackletter font would look like. The text may change from time to time as we might find better words \winkey
 
 
-\addpart{Similar Projects}
+\addsec{Similar Projects}
 \begin{itemize}
 \item \href{http://fontforge.ſourceforge.net/sfds/toyfonts.html}{FontForge’s Toy
 Fonts}
@@ -219,7 +217,7 @@ Haralambous’s [?] Blackletter Metafonts}
 \item \href{http://www.peter-wiegel.de/Fonts.html}{Peter Wiegel’s Blackletter and Kurrent fonts}
 \end{itemize}
 
-\addpart[contact]{Contact}
+\addsec[contact]{Contact}
 If you want to contribute ſome patches or feature or bug requeſts, viſit our
 \href{http://ſv.nongnu.org/p/frunge}{project ſite}\\
 \hypertarget{contact}{You can write us email, too:
