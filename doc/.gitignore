@@ -1,0 +1,10 @@
+# Manual: http://www.kernel.org/pub/software/scm/git/docs/gitignore.html
+
+# Ignore temp files created by LaTeX:
+*.aux
+*.log
+*.out
+*.toc
+
+# Ignore this final documents (but trac PDF images):
+frunge.pdf
