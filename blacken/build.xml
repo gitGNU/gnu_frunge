@@ -1,9 +1,9 @@
 <project name="blacken" default="dist" basedir=".">
   <description>
-  build file for the blacken program.
+  build file for the blacken program (s to ſ).
   </description>
   
-  <!-- set global properties for this build -->
+  <!-- set global directory properties for this build -->
   <property name="src" location="src"/>
   <property name="res" location="res"/>
   <property name="bin" location="bin"/>
@@ -11,6 +11,8 @@
   <property name="api" location="${out}/api"/>
   <property name="jar" location="${out}/blacken.jar"/>
   
+  <!-- other program specific properties -->
+  <property name="p.main" value="org.nognu.frunge.Parser"/>
   
   <target name="clean" description="clean up the output directories">
     <delete dir="${bin}"/>
@@ -51,23 +53,22 @@
     <!-- Put everything in ${build} into the Frunge.jar file -->
     <jar jarfile="${jar}" basedir="${bin}">
       <manifest>
-        <attribute name="Main-Class" value="org.nognu.frunge.Parser"/>
+        <attribute name="Main-Class" value="${p.main}"/>
       </manifest>
     </jar>
     <!-- Pack the documentation -->
     <tar destfile="${out}/api.tar.bz2" basedir="${api}" compression="bzip2"/>
   </target>
   
-  <target name="test" description="runs the selftest of the distribution">
+  <target name="test" description="runs the selftest of the jar file distribution">
     <java jar="${jar}" fork="true">
       <arg value="-test"/>
     </java>
   </target>
   
-  <target name="run" description="runs the distribution">
-    <java jar="${jar}" fork="true">
-      <arg value="-verbose"/>
-      <arg value="This is a sensless test sentence!"/>
+  <target name="testl" description="runs the selftest of the local bin files">
+    <java classname="${p.main}" dir="${bin}" fork="true">
+      <arg value="-test"/>
     </java>
   </target>
   
