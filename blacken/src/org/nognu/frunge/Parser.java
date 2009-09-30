@@ -23,7 +23,7 @@ public class Parser {
 	public static void main(String... arg) {
 		printAbout(System.out);
 
-		System.out.format("Arguments:%n");
+		System.out.format("Your typed the arguments:%n");
 		for (int i = 0; i < arg.length; i++) {
 			System.out.format("arg[%d]=%s%n", i, arg[i]);
 		}

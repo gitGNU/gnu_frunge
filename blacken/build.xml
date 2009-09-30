@@ -4,9 +4,9 @@
   </description>
   
   <!-- set global directory properties for this build -->
+  <property name="bin" location="bin"/>
   <property name="src" location="src"/>
   <property name="res" location="res"/>
-  <property name="bin" location="bin"/>
   <property name="out" location="out"/>
   <property name="api" location="${out}/api"/>
   <property name="jar" location="${out}/blacken.jar"/>
@@ -40,12 +40,21 @@
         overview="${res}/api/overview.html"
         windowtitle="Blacken Developer API">
       <doctitle><![CDATA[<h1>Blacken Developer API</h1>]]></doctitle>
+      <bottom><![CDATA[<h2>Licence</h2>
+<p>Copyright (C) 2009 Dennis Heidsiek</p>
+
+<p>This program is free software; you can redistribute it and/or modify it under the terms of the <strong>GNU General Public License</strong> as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.</p>
+
+<p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
+
+<p>You should have received a copy of the GNU General Public License along with this program; if not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/<a>.</p>]]></bottom>
     </javadoc>
     <!--
+    <![CDATA[<h1>BLUB</h1><i>Copyright &#169; 2000 Dummy Corp. All Rights Reserved.</i>]]></bottom>
+    
       stylesheetfile=${res}/api/.css"
-        <bottom><![CDATA[<i>Copyright &#169; 2000 Dummy Corp. All Rights Reserved.</i>]]></bottom>
-      <link offline="true" href="http://java.sun.com/j2se/1.5.0/docs/api/" packagelistLoc="C:\tmp"/>
       <link href="http://developer.java.sun.com/developer/products/xml/docs/api/"/>
+      <link offline="true" href="http://java.sun.com/j2se/1.5.0/docs/api/" packagelistLoc="C:\tmp"/>
       -->
   </target>
   
