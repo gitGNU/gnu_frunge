@@ -1,0 +1,74 @@
+<project name="blacken" default="dist" basedir=".">
+  <description>
+  build file for the blacken program.
+  </description>
+  
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="res" location="res"/>
+  <property name="bin" location="bin"/>
+  <property name="out" location="out"/>
+  <property name="api" location="${out}/api"/>
+  <property name="jar" location="${out}/blacken.jar"/>
+  
+  
+  <target name="clean" description="clean up the output directories">
+    <delete dir="${bin}"/>
+    <delete dir="${out}"/>
+  </target>
+  
+  <target name="init" depends="clean" description="create the output directories">
+    <mkdir dir="${bin}"/>
+    <mkdir dir="${out}"/>
+    <mkdir dir="${api}"/>
+  </target>
+  
+  <target name="compile" depends="init" description="compile the source">
+    <javac srcdir="${src}" destdir="${bin}" encoding="UTF-8"/>
+    <copy todir="${bin}">
+      <fileset dir="${res}/data"/>
+    </copy>
+  </target>
+  
+  <target name="javadoc" depends="init" description="creates the deleloper javadoc">
+    <javadoc
+        sourcepath="${src}" destdir="${api}"
+        private="true" author="true" version="true" use="true"
+        encoding="UTF-8" docencoding="utf-8"
+        overview="${res}/api/overview.html"
+        windowtitle="Blacken Developer API">
+      <doctitle><![CDATA[<h1>Blacken Developer API</h1>]]></doctitle>
+    </javadoc>
+    <!--
+      stylesheetfile=${res}/api/.css"
+        <bottom><![CDATA[<i>Copyright &#169; 2000 Dummy Corp. All Rights Reserved.</i>]]></bottom>
+      <link offline="true" href="http://java.sun.com/j2se/1.5.0/docs/api/" packagelistLoc="C:\tmp"/>
+      <link href="http://developer.java.sun.com/developer/products/xml/docs/api/"/>
+      -->
+  </target>
+  
+  <target name="dist" depends="compile, javadoc" description="generate the distribution">
+    <!-- Put everything in ${build} into the Frunge.jar file -->
+    <jar jarfile="${jar}" basedir="${bin}">
+      <manifest>
+        <attribute name="Main-Class" value="org.nognu.frunge.Parser"/>
+      </manifest>
+    </jar>
+    <!-- Pack the documentation -->
+    <tar destfile="${out}/api.tar.bz2" basedir="${api}" compression="bzip2"/>
+  </target>
+  
+  <target name="test" description="runs the selftest of the distribution">
+    <java jar="${jar}" fork="true">
+      <arg value="-test"/>
+    </java>
+  </target>
+  
+  <target name="run" description="runs the distribution">
+    <java jar="${jar}" fork="true">
+      <arg value="-verbose"/>
+      <arg value="This is a sensless test sentence!"/>
+    </java>
+  </target>
+  
+</project>
