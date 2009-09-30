@@ -3,3 +3,4 @@
 # Ignore the output directories:
 bin/
 out/
+src/org/nognu/frunge/sink/
