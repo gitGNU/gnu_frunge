@@ -28,9 +28,7 @@ public class Parser {
 			System.out.format("arg[%d]=%s%n", i, arg[i]);
 		}
 		System.out.format("%n");
-
-		if ((arg.length==0) || (arg[0].equals("-test"))) {
-			new TestRunner();
-		}
+		
+		new TestRunner();
 	}
 }
