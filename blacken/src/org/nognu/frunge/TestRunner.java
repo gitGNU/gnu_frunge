@@ -19,8 +19,14 @@ public class TestRunner {
 	public TestRunner() {
 		for(String lang : LANGUAGES) {
 			System.out.format("Run test cases for language %s:%n", lang);
-			Patterns p = new Patterns(lang);
-			//System.out.format("%s%n", p);
+			Metric m = new Metric();			
+			final Patterns p = new Patterns(lang);
+			Converter<String> c = new Converter<String>() {
+				@Override
+				public String apply(String in) {
+					return p.apply(in); // idiotic
+				}
+			};
 			
 			try {
 				BufferedReader r = IO.getReader("testcases/"+lang+".csv");
@@ -28,16 +34,18 @@ public class TestRunner {
 				String line;
 				while ((line = r.readLine()) != null) {
 					int pos = line.indexOf(";");
-					String in = line.substring(0, pos);
-					String out = line.substring(pos + 1, line.length());
+					String input = line.substring(0, pos);
+					String expected = line.substring(pos + 1, line.length());
+					String actual = c.apply(input);
+					m.addCase(expected, actual);
 
-					System.out.format("%s -> %s%n", in, out);
+					System.out.format("%s -> %s: %s%n", input, expected, actual);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			
-			System.out.format("%n");
+			System.out.format("%s%n", m);
 		}
 	}
 
