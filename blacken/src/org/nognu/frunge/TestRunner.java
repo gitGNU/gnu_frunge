@@ -16,7 +16,7 @@ public class TestRunner {
 	
 	public TestRunner() {
 		for(String lang : LANGUAGES) {
-			System.out.format("Run tests for %s:%n", lang);
+			System.out.format("Run test cases for language %s:%n", lang);
 			
 			try {
 				BufferedReader r = IO.getReader("testcases/"+lang+".csv");
@@ -27,7 +27,7 @@ public class TestRunner {
 					String in = line.substring(0, pos);
 					String out = line.substring(pos + 1, line.length());
 
-					System.out.format("Testcase: %s -> %s%n", in, out);
+					System.out.format("%s -> %s%n", in, out);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
