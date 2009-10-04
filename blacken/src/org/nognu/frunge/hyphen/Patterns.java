@@ -4,15 +4,21 @@ import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.Formattable;
 import java.util.Formatter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
+import org.nognu.frunge.Converter;
 import org.nognu.frunge.IO;
 
 
-public class Patterns implements Formattable {
+public class Patterns implements Formattable, Converter<String> {
 	
-	protected List<String> pat;
+	protected final static boolean TEST = false;
+	
+	protected Map<String, String> pat;
 	
 	protected List<String> exc;
 	
@@ -21,9 +27,11 @@ public class Patterns implements Formattable {
 	 * @param l language
 	 */
 	public Patterns(String l) {
-		this.pat = new ArrayList<String>();
+		this.pat = TEST ?
+				new HashMap<String, String>() : // better Performace
+				new TreeMap<String, String>(); // better to read
 		this.exc = new ArrayList<String>();
-		
+				
 		l = l.equalsIgnoreCase("de") ? "de-1901" : l;
 		l = l.equalsIgnoreCase("en") ? "en-gb" : l;
 		
@@ -32,8 +40,8 @@ public class Patterns implements Formattable {
 	
 	protected void load(BufferedReader r) {
 		try {
-			boolean pattern = true; // true => pattern, false => exception
-						
+			boolean pattern = true; // State: true => pattern, false => exception
+			
 			String line;
 			while ((line = r.readLine()) != null) {
 				int pos = line.indexOf("%");
@@ -55,24 +63,80 @@ public class Patterns implements Formattable {
 				
 				Scanner s = new Scanner(line);
 				while(s.hasNext()) {
-					if(pattern) {
-						this.pat.add(s.next());
-					} else {
-						this.exc.add(s.next());
+					if(pattern) {					
+						addPattern(s.next());
+					} else {		
+						addException(s.next());						
 					}
 				}
+			}
+			if(TEST) {
+				System.out.format("Pattern: %s%n", this);
+				apply("Bundestag");
+				System.exit(-1);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/*
+	 * p=|.ru5s6ses|
+	 * k=|.russes|
+	 * v=|   5 6   |
+	 */ 
 	protected void addPattern(String p) {
-		;
+		StringBuilder k = new StringBuilder();
+		StringBuilder v = new StringBuilder();
+		
+		for(int i=0; i<p.length(); i++) {
+			char c = p.charAt(i);
+			if(Character.isDigit(c)) {
+				v.append(c);				
+			} else { // no letter
+				k.append(c);
+				v.append(c);
+				//v.append(' ');
+			}
+		}
+				
+		this.pat.put(k.toString(), v.toString());
 	}
 	
-	protected void addException(String p) {
-		;
+	protected void addException(String e) {
+		this.exc.add(e);
+	}
+
+	@Override
+	public String apply(String input) {
+		Formatter f = new Formatter(TEST ? System.out : new StringBuilder());
+		f.format("Word: %s%n", input);
+		
+		//if exception return it;
+		
+		int N = input.length();
+		int[] weight = new int[N];
+		
+		String in =  "." + input.toLowerCase() + ".";
+		
+		for(int l=2; l<=in.length(); l++) {
+			f.format("%2d: ", l);
+			for(int p=0;p<(in.length()-l+1);p++) {
+				String key = in.substring(p, p+l);
+				f.format("[%s] ", key);
+				String val;
+				if((val = this.pat.get(key)) != null) {
+					f.format("_%s_%s_ ", key, val);
+					for(int i=0; i<l; i++) {
+						
+					}
+				}
+			}
+			f.format("%n");
+		}
+		String out = input;
+		f.format("-> %s%n", out);
+		return out;
 	}
 
 	@Override
