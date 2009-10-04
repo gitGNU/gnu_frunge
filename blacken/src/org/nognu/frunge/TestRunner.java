@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.List;
 
+import org.nognu.frunge.hyphen.Patterns;
+
 
 /**
  * Executes some nasty s or ſ tests.
@@ -17,6 +19,8 @@ public class TestRunner {
 	public TestRunner() {
 		for(String lang : LANGUAGES) {
 			System.out.format("Run test cases for language %s:%n", lang);
+			Patterns p = new Patterns(lang);
+			//System.out.format("%s%n", p);
 			
 			try {
 				BufferedReader r = IO.getReader("testcases/"+lang+".csv");
