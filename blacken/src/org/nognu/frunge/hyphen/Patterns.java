@@ -15,19 +15,26 @@ import org.nognu.frunge.IO;
 
 
 public class Patterns implements Formattable, Converter<String> {
-	
-	protected final static boolean TEST = false;
-	
+		
 	protected Map<String, String> pat;
 	
 	protected List<String> exc;
 	
-	
+	protected boolean verbose;
+
 	/**
 	 * @param l language
 	 */
 	public Patterns(String l) {
-		this.pat = TEST ?
+		this(l, false);
+	}
+
+	/**
+	 * @param l language
+	 * @param v verbose
+	 */
+	public Patterns(String l, boolean v) {
+		this.pat = (this.verbose = v) ?
 				new HashMap<String, String>() : // better Performace
 				new TreeMap<String, String>(); // better to read
 		this.exc = new ArrayList<String>();
@@ -70,7 +77,7 @@ public class Patterns implements Formattable, Converter<String> {
 					}
 				}
 			}
-			if(TEST) {
+			if(verbose) {
 				System.out.format("Pattern: %s%n", this);
 				apply("Bundestag");
 				System.exit(-1);
@@ -109,7 +116,7 @@ public class Patterns implements Formattable, Converter<String> {
 
 	@Override
 	public String apply(String input) {
-		Formatter f = new Formatter(TEST ? System.out : new StringBuilder());
+		Formatter f = new Formatter(verbose ? System.out : new StringBuilder());
 		f.format("Word: %s%n", input);
 		
 		//if exception return it;

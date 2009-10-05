@@ -16,11 +16,11 @@ public class TestRunner {
 
 	protected final static List<String> LANGUAGES = Arrays.asList("de", "en");
 	
-	public TestRunner() {
+	public TestRunner(boolean verbose) {
 		for(String lang : LANGUAGES) {
 			System.out.format("Run test cases for language %s:%n", lang);
 			Metric m = new Metric();			
-			final Patterns p = new Patterns(lang);
+			final Patterns p = new Patterns(lang, verbose);
 			Converter<String> c = new Converter<String>() {
 				@Override
 				public String apply(String in) {

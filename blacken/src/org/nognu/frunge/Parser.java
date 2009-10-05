@@ -26,26 +26,38 @@ public class Parser {
 	}
 
 	public static void main(String... arg) {
-		printAbout(System.out);
-
-		System.out.format("Your typed %d arguments:%n", arg.length);
-		for (int i = 0; i < arg.length; i++) {
-			System.out.format("arg[%d]=%s%n", i, arg[i]);
-		}
+		Cli<CliOptions> cli = CliFactory.createCli(CliOptions.class);
 		
-		System.out.format("%n");
+		if(arg.length==0) {
+			printAbout(System.out);
+			System.out.format("%s%n", cli.getHelpMessage());			
+			return;
+		}		
+		
+		CliOptions op = null;
 		try {
-			Cli<CliOptions> cli = CliFactory.createCli(CliOptions.class);
-	        System.out.format("%s%n%n", cli.getHelpMessage());
-	        
-	        CliOptions op = cli.parseArguments(arg);
-	        System.out.format("(%s)%n", op);
-	        System.out.format("Test: %b%n%n", op.isTest());
-	    } catch(ArgumentValidationException ave) {
-	        ave.printStackTrace(System.err);
+			op = cli.parseArguments(arg);
+	    } catch(ArgumentValidationException e) {
+	    	printAbout(System.err);
+			System.err.format("Error:%n%s%n%s%n", e.getMessage(), cli.getHelpMessage());
+			return;
 	    }
-		
-		
-		//new TestRunner();
+	    
+	    // Now we can interpret the options
+	    if(op.isSilent()) {
+	    	System.out.format("Shush!%n");
+	    }
+	    
+	    if(op.isVerbose()) {
+	    	System.out.format("Your typed %d arguments:%n", arg.length);
+			for (int i = 0; i < arg.length; i++) {
+				System.out.format("arg[%d]=%s%n", i, arg[i]);
+			}
+			System.out.format("Evaluated to %s%n", op);
+	    }
+	    
+	    if(op.isTest()) {
+	    	new TestRunner(op.isVerbose());
+	    }
 	}
 }
