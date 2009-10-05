@@ -18,7 +18,7 @@ public class TestRunner {
 	
 	public TestRunner(boolean verbose) {
 		for(String lang : LANGUAGES) {
-			System.out.format("Run test cases for language %s:%n", lang);
+			System.out.format("Run test cases for language (%s):%n", lang);
 			Metric m = new Metric();			
 			final Patterns p = new Patterns(lang, verbose);
 			Converter<String> c = new Converter<String>() {
@@ -38,8 +38,10 @@ public class TestRunner {
 					String expected = line.substring(pos + 1, line.length());
 					String actual = c.apply(input);
 					m.addCase(expected, actual);
-
-					System.out.format("%s -> %s: %s%n", input, expected, actual);
+					
+					if(verbose) {
+						System.out.format("%s -> %s: %s%n", input, expected, actual);
+					}
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
