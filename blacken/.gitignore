@@ -3,5 +3,7 @@
 # Ignore the output directories:
 bin/
 out/
-src/org/nognu/frunge/sink/
+
+# Ignore directories with highly experimental code:
 res/sink/
+src/org/nognu/frunge/sink/

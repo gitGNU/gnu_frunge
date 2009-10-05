@@ -2,6 +2,11 @@ package org.nognu.frunge;
 
 import java.io.PrintStream;
 
+
+import uk.co.flamingpenguin.jewel.cli.ArgumentValidationException;
+import uk.co.flamingpenguin.jewel.cli.Cli;
+import uk.co.flamingpenguin.jewel.cli.CliFactory;
+
 /**
  * Parser for command line invocation.
  * 
@@ -23,12 +28,24 @@ public class Parser {
 	public static void main(String... arg) {
 		printAbout(System.out);
 
-		System.out.format("Your typed the arguments:%n");
+		System.out.format("Your typed %d arguments:%n", arg.length);
 		for (int i = 0; i < arg.length; i++) {
 			System.out.format("arg[%d]=%s%n", i, arg[i]);
 		}
-		System.out.format("%n");
 		
-		new TestRunner();
+		System.out.format("%n");
+		try {
+			Cli<CliOptions> cli = CliFactory.createCli(CliOptions.class);
+	        System.out.format("%s%n%n", cli.getHelpMessage());
+	        
+	        CliOptions op = cli.parseArguments(arg);
+	        System.out.format("(%s)%n", op);
+	        System.out.format("Test: %b%n%n", op.isTest());
+	    } catch(ArgumentValidationException ave) {
+	        ave.printStackTrace(System.err);
+	    }
+		
+		
+		//new TestRunner();
 	}
 }
