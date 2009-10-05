@@ -19,7 +19,7 @@
   
   <!-- other program specific properties -->
   
-  <property name="p.main" value="org.nognu.frunge.Parser"/>
+  <property name="p.main" value="org.nognu.frunge.CliParser"/>
   
   <!-- Creates the used classpath(s)-->
   

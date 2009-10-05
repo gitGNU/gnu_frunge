@@ -11,21 +11,24 @@ import uk.co.flamingpenguin.jewel.cli.Option;
 public interface CliOptions {
 
 	@Option(shortName = "h", longName = "help", description = "print a detailed help message")
-	boolean isHelp();
+	boolean help();
 	
 	@Option(shortName = "s", longName = "silent", description = "suppresses the whole output")
-	boolean isSilent();
+	boolean silent();
 
 	@Option(shortName = "v", longName = "verbose", description = "output detailed messages what you are doing")
-	boolean isVerbose();
+	boolean verbose();
 	
 	@Option(shortName = "t", longName = "test", description = "run some testsuits")
-	boolean isTest();
+	boolean test();
 	
 	@Option(shortName = "p", longName = "pipe", description = "run this program in the middle of a linux pipe")
-	boolean isPipe();
-	
-	@Option(shortName = "f", longName = "format", description = "the input format", defaultValue="plain", pattern = "plain|tex|html")
+	boolean pipe();
+   
+	@Option(shortName = "f", longName = "format", description = "the file format to deal with", defaultValue="plain", pattern = "plain|tex|html")
 	String getFormat();
 	
+	@Option(shortName = "l", longName = "lang", description = "the language of the input", defaultValue="de", pattern = "de|en")
+	String getLang();
+   
 }
