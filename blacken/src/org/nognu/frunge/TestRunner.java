@@ -21,12 +21,7 @@ public class TestRunner {
 			System.out.format("Run test cases for language (%s):%n", lang);
 			Metric m = new Metric();			
 			final Patterns p = new Patterns(lang, verbose);
-			Converter<String> c = new Converter<String>() {
-				@Override
-				public String apply(String in) {
-					return p.apply(in); // idiotic
-				}
-			};
+			Function<String, String> f = Functions.stringValue();
 			
 			try {
 				BufferedReader r = IO.getReader("testcases/"+lang+".csv");
@@ -36,7 +31,7 @@ public class TestRunner {
 					int pos = line.indexOf(";");
 					String input = line.substring(0, pos);
 					String expected = line.substring(pos + 1, line.length());
-					String actual = c.apply(input);
+					String actual = f.apply(input);
 					m.addCase(expected, actual);
 					
 					if(verbose) {

@@ -10,11 +10,11 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-import org.nognu.frunge.Converter;
+import org.nognu.frunge.Function;
 import org.nognu.frunge.IO;
 
 
-public class Patterns implements Formattable, Converter<String> {
+public class Patterns implements Formattable, Function<String, String> {
 		
 	protected Map<String, String> pat;
 	
