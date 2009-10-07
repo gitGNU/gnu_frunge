@@ -1,5 +1,5 @@
 /**
- * <p>A implementation of the TeX hyphenation algorithm.</p>
+ * <p>A <em>simple</em> implementation of the TeX hyphenation algorithm.</p>
  * 
  * <p>The algorithm was developed by Frank Liang in his Ph.D. thesis which is available online:
  * <a href="http://tug.org/docs/liang/">Word Hy-phen-a-tion by Com-put-er</a>.</p>

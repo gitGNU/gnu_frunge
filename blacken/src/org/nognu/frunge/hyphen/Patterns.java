@@ -34,9 +34,10 @@ public class Patterns implements Formattable, Function<String, String> {
 	 * @param v verbose
 	 */
 	public Patterns(String l, boolean v) {
-		this.pat = (this.verbose = v) ?
-				new HashMap<String, String>() : // better Performace
-				new TreeMap<String, String>(); // better to read
+		this.verbose = v;
+		this.pat = this.verbose ?
+				new TreeMap<String, String>() : // better to read
+				new HashMap<String, String>(); // better Performance
 		this.exc = new ArrayList<String>();
 				
 		l = l.equalsIgnoreCase("de") ? "de-1901" : l;
@@ -70,17 +71,12 @@ public class Patterns implements Formattable, Function<String, String> {
 				
 				Scanner s = new Scanner(line);
 				while(s.hasNext()) {
-					if(pattern) {					
+					if(pattern) {
 						addPattern(s.next());
 					} else {		
-						addException(s.next());						
+						addException(s.next());
 					}
 				}
-			}
-			if(verbose) {
-				System.out.format("Pattern: %s%n", this);
-				apply("Bundestag");
-				System.exit(-1);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -106,7 +102,7 @@ public class Patterns implements Formattable, Function<String, String> {
 				//v.append(' ');
 			}
 		}
-				
+		
 		this.pat.put(k.toString(), v.toString());
 	}
 	
@@ -147,8 +143,22 @@ public class Patterns implements Formattable, Function<String, String> {
 	}
 
 	@Override
+	public String toString() {
+		return String.format("Pattern (%d Words, %d Exceptions)", this.pat.size(), this.exc.size());
+	}
+	
+	@Override
 	public void formatTo(Formatter f, int flags, int width, int precision) {
 		f.format("Pattern (Words: %s, Exceptions: %s)", this.pat, this.exc);
+	}
+
+
+	public static void main(String... arg) {
+		Patterns p = new Patterns("de", true);
+		System.out.format("Pattern: %s%n", p);
+		
+		String k = "Bundestagssitzung";
+		System.out.format("Pattern(%s)=%s%n", k, p.apply(k));
 	}
 	
 }

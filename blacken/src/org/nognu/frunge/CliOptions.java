@@ -2,10 +2,13 @@ package org.nognu.frunge;
 
 //import java.util.List;
 
+import java.io.File;
+import java.util.List;
+
 import uk.co.flamingpenguin.jewel.cli.CommandLineInterface;
 import uk.co.flamingpenguin.jewel.cli.Option;
+import uk.co.flamingpenguin.jewel.cli.Unparsed;
 
-//import uk.co.flamingpenguin.jewel.cli.Unparsed;
 
 @CommandLineInterface(application = "java -jar blacken.jar")
 public interface CliOptions {
@@ -30,5 +33,8 @@ public interface CliOptions {
 	
 	@Option(shortName = "l", longName = "lang", description = "the language of the input", defaultValue="de", pattern = "de|en")
 	String getLang();
-   
+	
+	@Unparsed(name="[inputfile outputfile]")
+	List<File> getUnparsed();
+	
 }

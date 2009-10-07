@@ -1,7 +1,9 @@
 package org.nognu.frunge;
 
-//import java.util.Formatter;
 
+
+import java.io.Console;
+import java.io.PrintStream;
 
 import uk.co.flamingpenguin.jewel.cli.ArgumentValidationException;
 import uk.co.flamingpenguin.jewel.cli.Cli;
@@ -42,16 +44,26 @@ public class CliParser {
 				);
 	}
 	
-	protected static String toString(CliOptions op) {
-		return String.format("CliOptions (help=%b, silent=%b, verbose=%b, test=%b, pipe=%b, format=%s, lang=%s)%n",
+	protected static void formatTo(PrintStream f, CliOptions op) {
+		f.format("CliOptions (help=%b, silent=%b, verbose=%b, test=%b, pipe=%b, format=%s, lang=%s, unparsed=%s)%n",
 				op.help(),
 				op.silent(),
 				op.verbose(),
 				op.test(),
 				op.pipe(),
-            op.getFormat(),
-				op.getLang()
+				op.getFormat(),
+				op.getLang(),
+				op.getUnparsed()
             );
+		/*
+		if(op.getUnparsed() == null) {
+			f.format("No unparsed arguments.%n");
+		} else {
+			for(String s: op.getUnparsed()) {
+				f.format("Unparsed: %s%n", s);
+			}
+		}
+		*/
 	}
 	
 	public static void main(String... arg) {
@@ -76,17 +88,27 @@ public class CliParser {
 			System.out.format("Shush!%n");
 		}
 		
+		if(op.pipe()) {
+			new Task(System.in, System.out);
+			return;
+		}
+		
 		if(op.help()) {
 			System.out.format("%s%n%s%n%s%n%n%s%n", getName(), getLinks(), cli.getHelpMessage(), getExamples());			
 			return;
 	    }
 
 		if(op.verbose()) {
+			Console con = System.console();
+			System.out.format("Console found: %s%n", (con==null) ? "No :-(" : "Yes!");
+			
 			System.out.format("Your typed %d argument(s):%n", arg.length);
 			for (int i = 0; i < arg.length; i++) {
 				System.out.format("arg[%d]=%s%n", i, arg[i]);
 			}
-			System.out.format("Evaluated to %s%n", toString(op));
+			
+			System.out.format("Evaluated to:%n");
+			formatTo(System.out, op);
 		}
 		
 		if(op.test()) {

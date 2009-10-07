@@ -75,7 +75,7 @@
   <target name="javadoc" depends="init" description="creates the deleloper javadoc">
     <javadoc
         sourcepath="${src}" destdir="${api}"
-        private="true" author="true" version="true" use="true"
+        private="true" author="true" version="true" use="true" linksource="yes"
         encoding="UTF-8" docencoding="utf-8"
         overview="${bld}/overview.html"
         windowtitle="Blacken Developer API">

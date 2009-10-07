@@ -21,6 +21,7 @@ public class TestRunner {
 			System.out.format("Run test cases for language (%s):%n", lang);
 			Metric m = new Metric();			
 			final Patterns p = new Patterns(lang, verbose);
+			System.out.format("Using %s%n", verbose ? p : p.toString());
 			Function<String, String> f = Functions.stringValue();
 			
 			try {
