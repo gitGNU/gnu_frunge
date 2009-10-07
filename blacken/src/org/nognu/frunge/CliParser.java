@@ -1,13 +1,13 @@
 package org.nognu.frunge;
 
 
-
 import java.io.Console;
 import java.io.PrintStream;
 
 import uk.co.flamingpenguin.jewel.cli.ArgumentValidationException;
 import uk.co.flamingpenguin.jewel.cli.Cli;
 import uk.co.flamingpenguin.jewel.cli.CliFactory;
+
 
 /**
  * CliParser for command line invocation.

@@ -22,7 +22,15 @@ public class TestRunner {
 			Metric m = new Metric();			
 			final Patterns p = new Patterns(lang, verbose);
 			System.out.format("Using %s%n", verbose ? p : p.toString());
+			
 			Function<String, String> f = Functions.stringValue();
+			f = new Function<String, String>(){
+				@Override
+				public String apply(String in) {
+					String out = in.replace('s', 'ſ').substring(0, in.length()-1);
+					return out + in.charAt(in.length()-1);
+				}
+			};
 			
 			try {
 				BufferedReader r = IO.getReader("testcases/"+lang+".csv");
@@ -30,13 +38,13 @@ public class TestRunner {
 				String line;
 				while ((line = r.readLine()) != null) {
 					int pos = line.indexOf(";");
-					String input = line.substring(0, pos);
+					String key = line.substring(0, pos);
 					String expected = line.substring(pos + 1, line.length());
-					String actual = f.apply(input);
+					String actual = f.apply(key);
 					m.addCase(expected, actual);
 					
-					if(verbose) {
-						System.out.format("%s -> %s: %s%n", input, expected, actual);
+					if(verbose && !expected.equals(actual)) {
+						System.out.format("%s -> %s: %s%n", key, expected, actual);
 					}
 				}
 			} catch (Exception e) {

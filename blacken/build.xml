@@ -147,7 +147,14 @@
     </java>
   </target>
   
-  <target name="testl" description="runs the verbose selftest of the local bin files">
+  <target name="testl" description="runs the selftest of the local bin files">
+    <java classname="${p.main}" fork="true">
+      <classpath refid="cp.bin"/>
+      <arg value="--test"/>
+    </java>
+  </target>
+  
+  <target name="testlv" description="runs the verbose selftest of the local bin files">
     <java classname="${p.main}" fork="true">
       <classpath refid="cp.bin"/>
       <arg value="--verbose"/>
