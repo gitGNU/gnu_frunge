@@ -101,6 +101,9 @@ public class CliParser {
 		if(op.verbose()) {
 			Console con = System.console();
 			System.out.format("Console found: %s%n", (con==null) ? "No :-(" : "Yes!");
+			if(con!=null) {
+				con.writer().format("Console test: uiaeüöä UIAEÜÖÄ sſß%n");
+			}
 			
 			System.out.format("Your typed %d argument(s):%n", arg.length);
 			for (int i = 0; i < arg.length; i++) {

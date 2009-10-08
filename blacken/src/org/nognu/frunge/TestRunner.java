@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.List;
 
+import org.nognu.frunge.converter.Converter;
+import org.nognu.frunge.converter.Converters;
 import org.nognu.frunge.hyphen.Patterns;
 
 
@@ -19,18 +21,12 @@ public class TestRunner {
 	public TestRunner(boolean verbose) {
 		for(String lang : LANGUAGES) {
 			System.out.format("Run test cases for language (%s):%n", lang);
-			Metric m = new Metric();			
-			final Patterns p = new Patterns(lang, verbose);
-			System.out.format("Using %s%n", verbose ? p : p.toString());
+			Metric m = new Metric();
+			final Patterns p = new Patterns(lang, verbose);		
+			Converter f = Converters.simpleOne();
 			
-			Function<String, String> f = Functions.stringValue();
-			f = new Function<String, String>(){
-				@Override
-				public String apply(String in) {
-					String out = in.replace('s', 'ſ').substring(0, in.length()-1);
-					return out + in.charAt(in.length()-1);
-				}
-			};
+			System.out.format("Using %s%n", verbose ? p : p.toString());
+			if(verbose) System.out.format("All incorrect transformed testcases:%n");		
 			
 			try {
 				BufferedReader r = IO.getReader("testcases/"+lang+".csv");
@@ -51,7 +47,7 @@ public class TestRunner {
 				e.printStackTrace();
 			}
 			
-			System.out.format("%s%n", m);
+			System.out.format("%s%n%n", m);
 		}
 	}
 

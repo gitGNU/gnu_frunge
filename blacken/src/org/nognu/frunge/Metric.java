@@ -47,6 +47,6 @@ public class Metric implements Formattable {
 	}
 	
 	protected String percent(int a, int b) {
-		return String.format("%.2f%% = %3d / %3d", (double) (100*a) / b, a, b);
+		return String.format("%.2f%% = %3d/%3d", (double) (100*a) / b, a, b);
 	}
 }
