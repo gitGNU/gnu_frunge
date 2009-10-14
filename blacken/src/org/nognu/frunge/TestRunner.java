@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.nognu.frunge.converter.Converter;
-import org.nognu.frunge.converter.Converters;
+import org.nognu.frunge.converter.LaConverter;
 import org.nognu.frunge.hyphen.Patterns;
 
 
@@ -23,7 +23,7 @@ public class TestRunner {
 			System.out.format("Run test cases for language (%s):%n", lang);
 			Metric m = new Metric();
 			final Patterns p = new Patterns(lang, verbose);		
-			Converter f = Converters.simpleOne();
+			Converter f = new LaConverter();
 			
 			System.out.format("Using %s%n", verbose ? p : p.toString());
 			if(verbose) System.out.format("All incorrect transformed testcases:%n");		

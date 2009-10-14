@@ -30,7 +30,7 @@ public interface CliOptions {
 	@Option(shortName = "f", longName = "format", description = "the file format to deal with", defaultValue="plain", pattern = "plain|tex|html")
 	String getFormat();
 	
-	@Option(shortName = "l", longName = "lang", description = "the language of the input", defaultValue="de", pattern = "de|en")
+	@Option(shortName = "l", longName = "lang", description = "the language of the input", defaultValue="de", pattern = "de|en|la")
 	String getLang();
 	
 	@Unparsed(name="[inputfile outputfile]")
