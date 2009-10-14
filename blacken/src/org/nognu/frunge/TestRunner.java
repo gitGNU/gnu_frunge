@@ -22,10 +22,10 @@ public class TestRunner {
 		for(String lang : LANGUAGES) {
 			System.out.format("Run test cases for language (%s):%n", lang);
 			Metric m = new Metric();
-			final Patterns p = new Patterns(lang, verbose);		
+			final Patterns p = new Patterns(lang);		
 			Converter f = new LaConverter();
 			
-			System.out.format("Using %s%n", verbose ? p : p.toString());
+			System.out.format("Using %s%n", p.toString());
 			if(verbose) System.out.format("All incorrect transformed testcases:%n");		
 			
 			try {
@@ -40,7 +40,8 @@ public class TestRunner {
 					m.addCase(expected, actual);
 					
 					if(verbose && !expected.equals(actual)) {
-						System.out.format("%s -> %s: %s%n", key, expected, actual);
+						System.out.format("%s -> %s: %s (%s)%n",
+								key, expected, actual, p.apply(key));
 					}
 				}
 			} catch (Exception e) {

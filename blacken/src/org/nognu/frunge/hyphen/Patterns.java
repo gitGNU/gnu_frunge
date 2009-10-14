@@ -2,6 +2,7 @@ package org.nognu.frunge.hyphen;
 
 import java.io.BufferedReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Formattable;
 import java.util.Formatter;
 import java.util.HashMap;
@@ -17,6 +18,10 @@ import org.nognu.frunge.IO;
 public class Patterns implements Formattable, Function<String, String> {
 		
 	protected Map<String, String> pat;
+
+	protected int maxLength;
+	
+	protected int minLength;
 	
 	protected List<String> exc;
 	
@@ -39,7 +44,10 @@ public class Patterns implements Formattable, Function<String, String> {
 				new TreeMap<String, String>() : // better to read
 				new HashMap<String, String>(); // better Performance
 		this.exc = new ArrayList<String>();
-				
+		
+		this.maxLength = 0;
+		this.minLength = Integer.MAX_VALUE;
+		
 		l = l.equalsIgnoreCase("de") ? "de-1901" : l;
 		l = l.equalsIgnoreCase("en") ? "en-gb" : l;
 		
@@ -84,24 +92,43 @@ public class Patterns implements Formattable, Function<String, String> {
 	}
 	
 	/*
-	 * p=|.ru5s6ses|
-	 * k=|.russes|
-	 * v=|   5 6   |
+	 * p=|2z1um.| (6)
+	 * k=|zum.| (4)
+	 * v=|21000| (5=4+1)
 	 */ 
 	protected void addPattern(String p) {
 		StringBuilder k = new StringBuilder();
 		StringBuilder v = new StringBuilder();
+		boolean lastDigit = false;
 		
 		for(int i=0; i<p.length(); i++) {
 			char c = p.charAt(i);
 			if(Character.isDigit(c)) {
-				v.append(c);				
-			} else { // no letter
-				k.append(c);
 				v.append(c);
-				//v.append(' ');
+				lastDigit = true;
+			} else { // is letter
+				k.append(c);
+				if(lastDigit) {					
+					lastDigit = false;
+				} else {
+					v.append('0');					
+				}
+				if(i == p.length()-1) {
+					v.append('0');	
+				}
 			}
 		}
+		
+		//*
+		if(verbose) {
+			System.out.format("Add %10s (%d), %10s (%d) = %10s (%d)%n",
+					p, p.length(),
+					k, k.length(),
+					v, v.length());
+		}//*/
+
+		this.maxLength = Math.max(this.maxLength, k.length());
+		this.minLength = Math.min(this.minLength, k.length());
 		
 		this.pat.put(k.toString(), v.toString());
 	}
@@ -113,14 +140,18 @@ public class Patterns implements Formattable, Function<String, String> {
 	@Override
 	public String apply(String input) {
 		Formatter f = new Formatter(verbose ? System.out : new StringBuilder());
-		f.format("Word: %s%n", input);
 		
 		//if exception return it;
 		
 		int N = input.length();
-		int[] weight = new int[N];
+		StringBuilder weight = new StringBuilder(N+3);
+		for(int i=0; i<N+3; i++) {
+			weight.append('0');
+		}
 		
 		String in =  "." + input.toLowerCase() + ".";
+		
+		f.format("Input:%n%s%n", in);
 		
 		for(int l=2; l<=in.length(); l++) {
 			f.format("%2d: ", l);
@@ -129,36 +160,66 @@ public class Patterns implements Formattable, Function<String, String> {
 				f.format("[%s] ", key);
 				String val;
 				if((val = this.pat.get(key)) != null) {
-					f.format("_%s_%s_ ", key, val);
-					for(int i=0; i<l; i++) {
-						
+					f.format("%d:__(%s=%s)__ ", p, key, val);
+					
+					for(int i=0; i<val.length(); i++) {
+						char newChar = val.charAt(i);
+						int pos = p+i;						
+						if(weight.charAt(pos) < newChar) {
+							weight.setCharAt(pos, newChar);
+						}
 					}
 				}
 			}
 			f.format("%n");
 		}
-		String out = input;
-		f.format("-> %s%n", out);
-		return out;
+		f.format("->%s (weight)%n", weight);
+		
+		int hyphenCount = 0;
+		for(int i=0;i<weight.length();i++) {			
+			if(((weight.charAt(i) % 2) == 0) || (i<1+2) || (i>weight.length()-2-2)) {
+				weight.setCharAt(i, '0');
+			} else {
+				hyphenCount++;
+			}
+		}
+		f.format("->%s (weight)%n", weight);
+		
+		StringBuilder out = new StringBuilder(N+hyphenCount);
+		for(int i=0;i<input.length(); i++) {
+			out.append(input.charAt(i));
+			if(weight.charAt(2+i) != '0') {
+				out.append('­'); // soft hypen
+			}
+		}
+
+		f.format("->  %s%n", out);
+		return out.toString();
 	}
 
 	@Override
 	public String toString() {
-		return String.format("Pattern (%d Words, %d Exceptions)", this.pat.size(), this.exc.size());
+		return String.format("Pattern (min=%d, max=%d, %d Words, %d Exceptions)",
+				this.minLength, this.maxLength, this.pat.size(), this.exc.size());
 	}
 	
 	@Override
 	public void formatTo(Formatter f, int flags, int width, int precision) {
-		f.format("Pattern (Words: %s, Exceptions: %s)", this.pat, this.exc);
+		f.format("%s ", this.toString());		
+		f.format(" (Words: %s, Exceptions: %s)%n", this.pat, this.exc);
 	}
 
 
 	public static void main(String... arg) {
-		Patterns p = new Patterns("de", true);
-		System.out.format("Pattern: %s%n", p);
+		System.out.format("isDigit(.) = %b%n", Character.isDigit(','));
+		System.out.format("\'2\' is even = %b%n", (((int) '2') % 2) == 0);
 		
-		String k = "Bundestagssitzung";
-		System.out.format("Pattern(%s)=%s%n", k, p.apply(k));
+		Patterns p = new Patterns("de", true);
+		System.out.format("Pattern: %s%n", p.toString());
+		
+		for(String k : Arrays.asList("Bundestagssitzung", "Wasser")) {
+			System.out.format("Pattern(%s)=%s%n", k, p.apply(k));
+		}
 	}
 	
 }
