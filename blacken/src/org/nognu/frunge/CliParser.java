@@ -3,6 +3,10 @@ package org.nognu.frunge;
 
 import java.io.Console;
 import java.io.PrintStream;
+import java.util.Iterator;
+import java.util.ServiceLoader;
+
+import org.nognu.frunge.converter.Converter;
 
 import uk.co.flamingpenguin.jewel.cli.ArgumentValidationException;
 import uk.co.flamingpenguin.jewel.cli.Cli;
@@ -78,7 +82,8 @@ public class CliParser {
 		try {
 			op = cli.parseArguments(arg);
 		} catch(ArgumentValidationException e) {
-			System.err.format("%s%nError:%n%s%n%n%s%n", getName(), e.getMessage(), cli.getHelpMessage());
+			System.err.format("%s%nError:%n%s%n%n%s%n",
+					getName(), e.getMessage(), cli.getHelpMessage());
 			return;
 		}
 		
@@ -94,7 +99,8 @@ public class CliParser {
 		}
 		
 		if(op.help()) {
-			System.out.format("%s%n%s%n%s%n%n%s%n", getName(), getLinks(), cli.getHelpMessage(), getExamples());			
+			System.out.format("%s%n%s%n%s%n%n%s%n",
+					getName(), getLinks(), cli.getHelpMessage(), getExamples());			
 			return;
 	    }
 
@@ -115,7 +121,7 @@ public class CliParser {
 		}
 		
 		if(op.test()) {
-			new TestRunner(op.verbose());
+			new TestRunner(op.getLang(), op.verbose());
 		}
 	}
 }

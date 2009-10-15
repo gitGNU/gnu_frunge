@@ -2,7 +2,6 @@ package org.nognu.frunge.hyphen;
 
 import java.io.BufferedReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Formattable;
 import java.util.Formatter;
 import java.util.HashMap;
@@ -15,7 +14,7 @@ import org.nognu.frunge.Function;
 import org.nognu.frunge.IO;
 
 
-public class Patterns implements Formattable, Function<String, String> {
+public class PatternSet implements Formattable, Function<String, String> {
 		
 	protected Map<String, String> pat;
 
@@ -30,7 +29,7 @@ public class Patterns implements Formattable, Function<String, String> {
 	/**
 	 * @param l language
 	 */
-	public Patterns(String l) {
+	public PatternSet(String l) {
 		this(l, false);
 	}
 
@@ -38,7 +37,7 @@ public class Patterns implements Formattable, Function<String, String> {
 	 * @param l language
 	 * @param v verbose
 	 */
-	public Patterns(String l, boolean v) {
+	public PatternSet(String l, boolean v) {
 		this.verbose = v;
 		this.pat = this.verbose ?
 				new TreeMap<String, String>() : // better to read
@@ -177,7 +176,7 @@ public class Patterns implements Formattable, Function<String, String> {
 		
 		int hyphenCount = 0;
 		for(int i=0;i<weight.length();i++) {			
-			if(((weight.charAt(i) % 2) == 0) || (i<1+2) || (i>weight.length()-2-2)) {
+			if((i<1+2) || (i>weight.length()-2-2) || ((weight.charAt(i) % 2) == 0)) {
 				weight.setCharAt(i, '0');
 			} else {
 				hyphenCount++;
@@ -190,6 +189,7 @@ public class Patterns implements Formattable, Function<String, String> {
 			out.append(input.charAt(i));
 			if(weight.charAt(2+i) != '0') {
 				out.append('­'); // soft hypen
+				//out.append(weight.charAt(2+i)); // soft hypen
 			}
 		}
 
@@ -209,17 +209,23 @@ public class Patterns implements Formattable, Function<String, String> {
 		f.format(" (Words: %s, Exceptions: %s)%n", this.pat, this.exc);
 	}
 
+	/* Static test methods */
+	
+	protected static void testPattern(String lang, String ... words) {
+		PatternSet p = new PatternSet(lang, false);
+		System.out.format("Pattern: %s%n", p.toString());
+
+		for(String w : words) {
+			System.out.format("%s(%s)=%s%n", lang, w, p.apply(w));
+		}
+		
+		System.out.format("%n");
+		
+	}
 
 	public static void main(String... arg) {
-		System.out.format("isDigit(.) = %b%n", Character.isDigit(','));
-		System.out.format("\'2\' is even = %b%n", (((int) '2') % 2) == 0);
-		
-		Patterns p = new Patterns("de", true);
-		System.out.format("Pattern: %s%n", p.toString());
-		
-		for(String k : Arrays.asList("Bundestagssitzung", "Wasser")) {
-			System.out.format("Pattern(%s)=%s%n", k, p.apply(k));
-		}
+		testPattern("de", "Bundestagssitzung", "Wasser", "Hausstand", "schreien", "Silbentrennungsalgorithmus");
+		testPattern("en", "congress", "university", "crying", "hyphenation", "algorithm");
 	}
 	
 }
