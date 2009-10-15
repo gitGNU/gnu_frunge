@@ -1,7 +1,6 @@
 package org.nognu.frunge;
 
 
-import java.io.File;
 import java.util.List;
 
 import uk.co.flamingpenguin.jewel.cli.CommandLineInterface;
@@ -34,6 +33,6 @@ public interface CliOptions {
 	String getLang();
 	
 	@Unparsed(name="[inputfile outputfile]")
-	List<File> getUnparsed();
+	List<String> getUnparsed();
 	
 }

@@ -226,6 +226,7 @@ public class PatternSet implements Formattable, Function<String, String> {
 	public static void main(String... arg) {
 		testPattern("de", "Bundestagssitzung", "Wasser", "Hausstand", "schreien", "Silbentrennungsalgorithmus");
 		testPattern("en", "congress", "university", "crying", "hyphenation", "algorithm");
+		testPattern("la", "quarum", "appellantur", "institutis", "legibus", "prohibent");
 	}
 	
 }

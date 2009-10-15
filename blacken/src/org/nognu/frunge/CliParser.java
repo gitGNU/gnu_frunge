@@ -3,10 +3,10 @@ package org.nognu.frunge;
 
 import java.io.Console;
 import java.io.PrintStream;
-import java.util.Iterator;
-import java.util.ServiceLoader;
 
-import org.nognu.frunge.converter.Converter;
+import org.nognu.frunge.converter.Converters;
+import org.nognu.frunge.format.Formats;
+import org.nognu.frunge.format.PlainTextFormat;
 
 import uk.co.flamingpenguin.jewel.cli.ArgumentValidationException;
 import uk.co.flamingpenguin.jewel.cli.Cli;
@@ -93,11 +93,6 @@ public class CliParser {
 			System.out.format("Shush!%n");
 		}
 		
-		if(op.pipe()) {
-			new Task(System.in, System.out);
-			return;
-		}
-		
 		if(op.help()) {
 			System.out.format("%s%n%s%n%s%n%n%s%n",
 					getName(), getLinks(), cli.getHelpMessage(), getExamples());			
@@ -122,6 +117,26 @@ public class CliParser {
 		
 		if(op.test()) {
 			new TestRunner(op.getLang(), op.verbose());
+		}
+
+		if(op.pipe()) {
+			Formats.process(
+					new PlainTextFormat(),
+					IO.asUTF8(System.in),
+					IO.asUTF8(System.out),
+					Converters.get(op.getLang())
+					);
+		}
+		
+		if(op.getUnparsed() != null) {
+			if(op.getUnparsed().size() == 2) {
+				Formats.process(
+						new PlainTextFormat(),
+						IO.getReader(op.getUnparsed().get(0)),
+						IO.getWriter(op.getUnparsed().get(1)),
+						Converters.get(op.getLang())
+						);
+			}
 		}
 	}
 }
