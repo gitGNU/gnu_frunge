@@ -1,6 +1,8 @@
 package org.nognu.frunge.converter;
 
-
+/**
+ * A very simple {@link Converter} for the Latin language.
+ */
 public class LaConverter implements Converter {
 
 	@Override
