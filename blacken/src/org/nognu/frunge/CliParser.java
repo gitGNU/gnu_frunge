@@ -3,6 +3,7 @@ package org.nognu.frunge;
 
 import java.io.Console;
 import java.io.PrintStream;
+import java.util.concurrent.TimeUnit;
 
 import org.nognu.frunge.converter.Converters;
 import org.nognu.frunge.format.Formats;
@@ -71,8 +72,9 @@ public class CliParser {
 	}
 	
 	public static void main(String... arg) {
-		Cli<CliOptions> cli = CliFactory.createCli(CliOptions.class);
+		long timing = System.nanoTime();
 		
+		Cli<CliOptions> cli = CliFactory.createCli(CliOptions.class);		
 		if(arg.length==0) {
 			System.out.format("%s%n%s%n", getName(), cli.getHelpMessage());			
 			return;
@@ -137,6 +139,14 @@ public class CliParser {
 						Converters.get(op.getLang())
 						);
 			}
+		}
+		
+		if(op.verbose()) {
+			timing = System.nanoTime() - timing;
+			System.out.format("Time elapsed: %d seconds (%d milliseconds)%n",
+					TimeUnit.NANOSECONDS.toSeconds(timing),
+					TimeUnit.NANOSECONDS.toMillis(timing)
+					);
 		}
 	}
 }
