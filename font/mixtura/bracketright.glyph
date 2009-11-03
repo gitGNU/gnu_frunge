@@ -1,0 +1,24 @@
+
+StartChar: bracketright
+Encoding: 93 93 73
+Width: 200
+VWidth: 1900
+Flags: W
+HStem: -400 100<-200 -100> 1000 100<-200 -100> 1480 20G<180 200>
+VStem: 0 200<0 1200>
+DStem2: -200 1100 -200 1000 0.707107 0.707107<0 212.132> -200 -300 -200 -400 0.707107 0.707107<0 282.843>
+LayerCount: 2
+Fore
+SplineSet
+-200 1000 m 1
+ -200 1100 l 1
+ 200 1500 l 1
+ 200 0 l 1
+ -200 -400 l 1
+ -200 -300 l 1
+ 0 -100 l 1
+ 0 1200 l 1
+ -200 1000 l 1
+EndSplineSet
+Validated: 1
+EndChar

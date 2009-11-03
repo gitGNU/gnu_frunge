@@ -1,0 +1,28 @@
+
+StartChar: hungarumlautcmb
+Encoding: 779 779 196
+Width: 0
+VWidth: 1900
+Flags: W
+HStem: 0 100<-350 -250 0 100> 350 100<-100 0 250 350>
+VStem: -350 700
+DStem2: -350 100 -350 0 0.707107 0.707107<0 424.264> 0 100 0 0 0.707107 0.707107<0 424.264>
+AnchorPoint: "mkmk-abvm" 0 450 basemark 0
+AnchorPoint: "mkmk-abvm" 0 0 mark 0
+AnchorPoint: "abvm-common" 0 0 mark 0
+LayerCount: 2
+Fore
+SplineSet
+0 0 m 1
+ 0 100 l 1
+ 350 450 l 1
+ 350 350 l 1
+ 0 0 l 1
+-350 0 m 1
+ -350 100 l 1
+ 0 450 l 1
+ 0 350 l 1
+ -350 0 l 1
+EndSplineSet
+Validated: 1
+EndChar

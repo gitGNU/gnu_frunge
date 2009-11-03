@@ -1,0 +1,18 @@
+
+StartChar: backslash
+Encoding: 92 92 66
+Width: 900
+VWidth: 1900
+Flags: W
+DStem2: -100 1300 -300 1100 0.707107 -0.707107<0 1838.48>
+LayerCount: 2
+Fore
+SplineSet
+-300 1100 m 1
+ -100 1300 l 1
+ 1200 0 l 1
+ 1000 -200 l 1
+ -300 1100 l 1
+EndSplineSet
+Validated: 1
+EndChar

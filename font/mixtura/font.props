@@ -1,0 +1,269 @@
+SplineFontDB: 3.0
+FontName: Mixtura
+FullName: Frunge Mixtura
+FamilyName: Frunge Mixtura
+Weight: Regular
+Copyright: Copyright 2009 Dennis Heidsiek, Martin Roppelt, Arno Trautmann
+Version: Rolling Release
+DefaultBaseFilename: FrungeMixtura
+ItalicAngle: 0
+UnderlinePosition: -200
+UnderlineWidth: 100
+Ascent: 1860
+Descent: 400
+LayerCount: 2
+Layer: 0 0 "Background"  1
+Layer: 1 0 "Foreground"  0
+NeedsXUIDChange: 1
+XUID: [1021 93 633369114 13086549]
+FSType: 0
+OS2Version: 0
+OS2_WeightWidthSlopeOnly: 0
+OS2_UseTypoMetrics: 1
+CreationTime: 1239484215
+ModificationTime: 1253599927
+PfmFamily: 17
+TTFWeight: 400
+TTFWidth: 5
+LineGap: 171
+VLineGap: 0
+Panose: 2 7 6 7 7 5 8 8 3 4
+OS2TypoAscent: 0
+OS2TypoAOffset: 1
+OS2TypoDescent: 0
+OS2TypoDOffset: 1
+OS2TypoLinegap: 171
+OS2WinAscent: 0
+OS2WinAOffset: 1
+OS2WinDescent: 0
+OS2WinDOffset: 1
+HheadAscent: 0
+HheadAOffset: 1
+HheadDescent: 0
+HheadDOffset: 1
+OS2FamilyClass: 2306
+OS2Vendor: 'PfEd'
+Lookup: 2 0 0 "'ccmp' Zeichenzusammensetzung lookup decomposition"  {"'ccmp' Zeichenzusammensetzung lookup decomposition"  } ['ccmp' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 2 0 0 "'ccmp' Zeichenzusammensetzung lookup mark composition"  {"'ccmp' Zeichenzusammensetzung lookup mark composition"  } ['ccmp' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 6 0 0 "'calt' Contextual Alternates lookup 1"  {"'calt' Contextual Alternates lookup 1-1"  } ['calt' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 3 0 0 "'jalt' Justification Alternatives lookup 2"  {"'jalt' Justification Alternatives lookup 2-1"  } ['jalt' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 258 8 0 "'kern' Horizontales Kerning lookup 0"  {"'kern' Horizontales Kerning lookup 0-1"  } ['kern' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 260 0 0 "'abvm' Above Base Mark lookup oblique"  {"'abvm' Above Base Mark lookup oblique"  } [' RQD' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 260 8 0 "'abvm' Above Base Mark lookup common"  {"'abvm' Above Base Mark lookup common"  } [' RQD' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 262 0 0 "'mkmk' Mark to Mark lookup 2"  {"'mkmk' Mark to Mark lookup 2-1"  } [' RQD' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 260 0 0 "'blwm' Below Base Mark lookup oblique"  {"'blwm' Below Base Mark lookup oblique"  } [' RQD' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 260 0 0 "'blwm' Below Base Mark lookup common"  {"'blwm' Below Base Mark lookup common"  } [' RQD' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 260 0 0 "'mark' Mark Positioning lookup 4"  {"'mark' Mark Positioning lookup 4-1"  } ['mark' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
+DEI: 91125
+KernClass2: 11 7 "'kern' Horizontales Kerning lookup 0-1" 
+ 83 A B D G H I J M N Q U X Y Z a d g h l m n q t u x y z dotlessi dotlessj a.alt u.alt
+ 13 E F O P S V W
+ 1 C
+ 7 L L.alt
+ 3 K R
+ 1 T
+ 13 b o p r s v w
+ 17 f longs longs.alt
+ 1 e
+ 1 k
+ 1 T
+ 31 H I J K L M N U V W X Y Z L.alt
+ 23 A B C D E F G O P Q R S
+ 27 a c d e g o q s a.alt c.alt
+ 53 b h dotlessi dotlessj k l m n p r t u v w x y z u.alt
+ 17 f longs longs.alt
+ 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 600 {} 400 {} 400 {} 0 {} 200 {} 200 {} 0 {} 600 {} 400 {} 200 {} -200 {} -200 {} -200 {} 0 {} 800 {} 600 {} 400 {} 0 {} 0 {} 0 {} 0 {} 600 {} 400 {} 200 {} 0 {} 200 {} 200 {} 0 {} 600 {} 400 {} 200 {} 200 {} 200 {} 200 {} 0 {} 600 {} 400 {} 200 {} -200 {} 200 {} -200 {} 0 {} 400 {} 0 {} 0 {} -200 {} 200 {} 0 {} 0 {} 400 {} 0 {} 0 {} -400 {} -200 {} -200 {} 0 {} 0 {} 0 {} 0 {} -200 {} 0 {} 0 {} 0 {} 400 {} 200 {} 0 {} 0 {} 200 {} 200 {}
+ChainSub2: class "'calt' Contextual Alternates lookup 1-1"  7 6 5 10
+  Class: 5 longs
+  Class: 1 s
+  Class: 13 diaeresiscomb
+  Class: 1 L
+  Class: 1 u
+  Class: 1 c
+  BClass: 5 space
+  BClass: 3 a A
+  BClass: 5 longs
+  BClass: 19 S V W b e p r s v w
+  BClass: 3 o O
+  FClass: 17 longs longs.alt u
+  FClass: 5 space
+  FClass: 13 diaeresiscomb
+  FClass: 61 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z b f h k l
+ 1 0 2
+  ClsList: 1
+  BClsList:
+  FClsList: 1 3
+ 0
+ 1 0 1
+  ClsList: 1
+  BClsList:
+  FClsList: 1
+ 1
+  SeqLookup: 0 "'jalt' Justification Alternatives lookup 2" 
+ 1 1 1
+  ClsList: 2
+  BClsList: 1
+  FClsList: 2
+ 1
+  SeqLookup: 0 "'jalt' Justification Alternatives lookup 2" 
+ 1 1 0
+  ClsList: 3
+  BClsList: 2
+  FClsList:
+ 1
+  SeqLookup: 0 "'jalt' Justification Alternatives lookup 2" 
+ 1 1 0
+  ClsList: 3
+  BClsList: 5
+  FClsList:
+ 1
+  SeqLookup: 0 "'jalt' Justification Alternatives lookup 2" 
+ 1 0 1
+  ClsList: 4
+  BClsList:
+  FClsList: 1
+ 1
+  SeqLookup: 0 "'jalt' Justification Alternatives lookup 2" 
+ 1 0 1
+  ClsList: 4
+  BClsList:
+  FClsList: 4
+ 1
+  SeqLookup: 0 "'jalt' Justification Alternatives lookup 2" 
+ 1 1 0
+  ClsList: 5
+  BClsList: 4
+  FClsList:
+ 1
+  SeqLookup: 0 "'jalt' Justification Alternatives lookup 2" 
+ 1 1 0
+  ClsList: 5
+  BClsList: 5
+  FClsList:
+ 1
+  SeqLookup: 0 "'jalt' Justification Alternatives lookup 2" 
+ 1 1 1
+  ClsList: 6
+  BClsList: 3
+  FClsList: 4
+ 1
+  SeqLookup: 0 "'jalt' Justification Alternatives lookup 2" 
+EndFPST
+LangName: 1033 
+Encoding: UnicodeFull
+Compacted: 1
+UnicodeInterp: none
+NameList: Adobe Glyph List
+DisplaySize: -96
+AntiAlias: 1
+FitToEm: 1
+WinInfo: 216 9 8
+BeginPrivate: 0
+EndPrivate
+Grid
+-300 500 m 25
+ 1200 500 l 25
+-175 1100 m 1
+25 1100 m 1
+225 1100 m 1
+-100 1500 m 1
+-175 1500 m 1
+25 1500 m 1
+225 1500 m 1
+100 0 m 1
+-200 0 m 1
+250 550 m 1
+800 100 m 1
+ 800 400 l 1
+ 600 200 l 1
+ 600 -100 l 1
+ 800 100 l 1
+600 300 m 1
+ 800 500 l 1
+ 800 800 l 1
+ 600 600 l 1
+ 600 300 l 1
+800 900 m 1
+ 800 1200 l 1
+ 600 1000 l 1
+ 600 900 l 1
+ 600 700 l 1
+ 800 900 l 1
+400 100 m 1
+ 400 400 l 1
+ 200 200 l 1
+ 200 -100 l 1
+ 400 100 l 1
+400 500 m 1
+ 400 600 l 1
+ 400 700 l 1
+ 400 800 l 1
+ 200 600 l 1
+ 200 500 l 1
+ 200 400 l 1
+ 200 300 l 1
+ 400 500 l 1
+400 900 m 1
+ 400 1000 l 1
+ 400 1200 l 1
+ 300 1100 l 1
+ 200 1000 l 1
+ 200 700 l 1
+ 400 900 l 1
+0 1200 m 1
+ -100 1100 l 1
+ -200 1000 l 1
+ -200 1100 l 1
+ 0 1300 l 1
+ 200 1500 l 1
+ 200 1300 l 1
+ 200 1100 l 1
+ 400 1300 l 1
+ 600 1500 l 1
+ 600 1400 l 1
+ 600 1200 l 1
+ 600 1100 l 1
+ 800 1300 l 1
+ 1000 1500 l 1
+ 1000 1100 l 1
+ 1200 1300 l 1
+ 1200 1200 l 1
+ 1000 1000 l 1
+ 1000 700 l 1
+ 1200 900 l 1
+ 1200 800 l 1
+ 1000 600 l 1
+ 1000 300 l 1
+ 1200 500 l 1
+ 1200 400 l 1
+ 1000 200 l 1
+ 1000 -100 l 1
+ 1200 100 l 1
+ 1200 0 l 1
+ 800 -400 l 1
+ 800 0 l 1
+ 600 -200 l 1
+ 400 -400 l 1
+ 400 0 l 1
+ 200 -200 l 1
+ 0 -400 l 1
+ 0 -300 l 1
+ 0 0 l 1
+ -200 -200 l 1
+ -200 -100 l 1
+ 0 100 l 1
+ 0 200 l 1
+ 0 400 l 1
+ -200 200 l 1
+ -200 300 l 1
+ 0 500 l 1
+ 0 800 l 1
+ -200 600 l 1
+ -200 700 l 1
+ 0 900 l 1
+ 0 1100 l 1
+ 0 1200 l 1
+EndSplineSet
+TeXData: 1 0 0 441505 220752 147168 551880 -851852 147168 783286 444596 497025 792723 393216 433062 380633 303038 157286 324010 404750 52429 2506097 1059062 262144
+AnchorClass2: "blwm-oblique"  "'blwm' Below Base Mark lookup oblique" "abvm-oblique"  "'abvm' Above Base Mark lookup oblique" "blwm-cedilla"  "'blwm' Below Base Mark lookup common" "mkmk-blwm"  "'mkmk' Mark to Mark lookup 2-1" "mark-common"  "'mark' Mark Positioning lookup 4-1" "blwm-common"  "'blwm' Below Base Mark lookup common" "mkmk-abvm"  "'mkmk' Mark to Mark lookup 2-1" "abvm-common"  "'abvm' Above Base Mark lookup common" 
+EndSplineFont

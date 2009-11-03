@@ -1,0 +1,23 @@
+
+StartChar: acutecomb
+Encoding: 769 769 194
+Width: 0
+VWidth: 1900
+Flags: W
+HStem: 0 98<-175 -77> 348 100<75 175>
+VStem: -175 350
+DStem2: -175 98 -175 0 0.707107 0.707107<0 424.264>
+AnchorPoint: "mkmk-abvm" 0 450 basemark 0
+AnchorPoint: "mkmk-abvm" 0 0 mark 0
+AnchorPoint: "abvm-common" 0 0 mark 0
+LayerCount: 2
+Fore
+SplineSet
+-175 0 m 1
+ -175 98 l 1
+ 175 448 l 1
+ 175 348 l 1
+ -175 0 l 1
+EndSplineSet
+Validated: 1
+EndChar

@@ -1,0 +1,32 @@
+
+StartChar: section
+Encoding: 167 167 60
+Width: 600
+VWidth: 1900
+Flags: W
+HStem: -400 21G<0 20> 0 21G<0 20> 1080 20G<580 600> 1480 20G<580 600>
+VStem: 0 200<300 600 700 900> 400 200<200 400 500 800>
+LayerCount: 2
+Fore
+SplineSet
+0 -400 m 1
+ 0 -300 l 1
+ 400 100 l 1
+ 400 400 l 1
+ 0 0 l 1
+ 0 900 l 1
+ 600 1500 l 1
+ 600 1400 l 1
+ 200 1000 l 1
+ 200 700 l 1
+ 600 1100 l 1
+ 600 200 l 1
+ 0 -400 l 1
+400 500 m 1
+ 400 800 l 1
+ 200 600 l 1
+ 200 300 l 1
+ 400 500 l 1
+EndSplineSet
+Validated: 1
+EndChar

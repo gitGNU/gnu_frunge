@@ -1,0 +1,18 @@
+
+StartChar: minus
+Encoding: 8722 8722 115
+Width: 400
+VWidth: 1900
+Flags: W
+HStem: 400 200<0 400>
+LayerCount: 2
+Fore
+SplineSet
+-200 400 m 1
+ 0 600 l 1
+ 600 600 l 1
+ 400 400 l 1
+ -200 400 l 1
+EndSplineSet
+Validated: 1
+EndChar

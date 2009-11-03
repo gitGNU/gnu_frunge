@@ -1,0 +1,27 @@
+
+StartChar: ellipsis
+Encoding: 8230 8230 77
+Width: 1200
+VWidth: 1900
+HStem: 0 400
+LayerCount: 2
+Fore
+SplineSet
+900 0 m 1
+ 900 200 l 1
+ 1100 400 l 1
+ 1100 200 l 1
+ 900 0 l 1
+500 0 m 1
+ 500 200 l 1
+ 700 400 l 1
+ 700 200 l 1
+ 500 0 l 1
+100 0 m 1
+ 100 200 l 1
+ 300 400 l 1
+ 300 200 l 1
+ 100 0 l 1
+EndSplineSet
+Validated: 1
+EndChar

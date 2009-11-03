@@ -1,0 +1,26 @@
+
+StartChar: omicron
+Encoding: 959 959 171
+Width: 600
+VWidth: 1900
+Flags: W
+HStem: 0 21G<0 20> 1080 20G<580 600>
+VStem: 0 200<300 500> 400 200<600 800>
+DStem2: 0 500 200 600 0.707107 0.707107<212.132 494.975> 200 300 0 0 0.707107 0.707107<0 282.843>
+AnchorPoint: "abvm-common" 300 1100 basechar 0
+LayerCount: 2
+Fore
+SplineSet
+0 0 m 1
+ 0 500 l 1
+ 600 1100 l 1
+ 600 600 l 1
+ 0 0 l 1
+400 500 m 1
+ 400 800 l 1
+ 200 600 l 1
+ 200 300 l 1
+ 400 500 l 1
+EndSplineSet
+Validated: 1
+EndChar

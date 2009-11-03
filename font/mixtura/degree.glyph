@@ -1,0 +1,25 @@
+
+StartChar: degree
+Encoding: 176 176 91
+Width: 500
+VWidth: 1900
+Flags: W
+HStem: 1000 300<0 300> 1500 300<200 500>
+VStem: 0 500
+DStem2: 0 1300 200 1400 0.707107 0.707107<212.132 353.553> 200 1300 500 1500 0.707107 0.707107<0 141.421>
+LayerCount: 2
+Fore
+SplineSet
+300 1400 m 1
+ 300 1500 l 1
+ 200 1400 l 1
+ 200 1300 l 1
+ 300 1400 l 1
+0 1000 m 1
+ 0 1300 l 1
+ 500 1800 l 1
+ 500 1500 l 1
+ 0 1000 l 1
+EndSplineSet
+Validated: 1
+EndChar

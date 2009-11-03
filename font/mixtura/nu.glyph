@@ -1,0 +1,24 @@
+
+StartChar: nu
+Encoding: 957 957 169
+Width: 600
+VWidth: 0
+Flags: W
+HStem: 0 21G<0 20> 1080 20G<180 200 580 600>
+VStem: 0 200<300 900> 400 200<600 900>
+DStem2: 200 300 0 0 0.707107 0.707107<0 282.843>
+LayerCount: 2
+Fore
+SplineSet
+0 0 m 25
+ 0 900 l 25
+ 200 1100 l 25
+ 200 300 l 25
+ 400 500 l 25
+ 400 900 l 25
+ 600 1100 l 25
+ 600 600 l 25
+ 0 0 l 25
+EndSplineSet
+Validated: 1
+EndChar

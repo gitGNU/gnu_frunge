@@ -1,0 +1,12 @@
+
+StartChar: space
+Encoding: 32 32 147
+Width: 600
+VWidth: 1900
+Flags: W
+AnchorPoint: "abvm-common" 300 1100 basechar 0
+AnchorPoint: "blwm-common" 300 0 basechar 0
+AnchorPoint: "mark-common" 300 750 basechar 0
+AnchorPoint: "blwm-cedilla" 200 0 basechar 0
+LayerCount: 2
+EndChar

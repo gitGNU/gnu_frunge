@@ -1,0 +1,27 @@
+
+StartChar: tildecomb
+Encoding: 771 771 195
+Width: 0
+VWidth: 1900
+Flags: W
+HStem: 0 100<-375 -275> 350 100<275 375>
+VStem: -375 750
+DStem2: -375 100 -375 0 0.707107 0.707107<0 212.132> 175 250 375 350 0.707107 0.707107<0 212.132>
+AnchorPoint: "mkmk-abvm" 0 0 mark 0
+AnchorPoint: "mkmk-abvm" 0 450 basemark 0
+AnchorPoint: "abvm-common" 0 0 mark 0
+LayerCount: 2
+Fore
+SplineSet
+-375 0 m 1
+ -375 100 l 1
+ -25 450 l 1
+ 175 250 l 1
+ 375 450 l 1
+ 375 350 l 1
+ 25 0 l 1
+ -175 200 l 1
+ -375 0 l 1
+EndSplineSet
+Validated: 1
+EndChar

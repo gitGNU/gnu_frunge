@@ -1,0 +1,28 @@
+
+StartChar: ringcmb
+Encoding: 778 778 197
+Width: 0
+VWidth: 1900
+Flags: W
+HStem: 0 300<-250 50> 500 300<-50 250>
+VStem: -250 500
+DStem2: -250 300 -50 400 0.707107 0.707107<212.132 353.553> -50 300 250 500 0.707107 0.707107<0 141.421>
+AnchorPoint: "mkmk-abvm" 0 800 basemark 0
+AnchorPoint: "mkmk-abvm" 0 0 mark 0
+AnchorPoint: "abvm-common" 0 0 mark 0
+LayerCount: 2
+Fore
+SplineSet
+50 400 m 1
+ 50 500 l 1
+ -50 400 l 1
+ -50 300 l 1
+ 50 400 l 1
+-250 0 m 1
+ -250 300 l 1
+ 250 800 l 1
+ 250 500 l 1
+ -250 0 l 1
+EndSplineSet
+Validated: 1
+EndChar

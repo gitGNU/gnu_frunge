@@ -1,0 +1,25 @@
+
+StartChar: cedillacmb
+Encoding: 807 807 405
+Width: 0
+VWidth: 1900
+Flags: W
+HStem: -500 100<-150 -50> -20 20G<130 150>
+VStem: -150 300
+DStem2: -150 -400 -150 -500 0.707107 0.707107<0 141.421>
+AnchorPoint: "mkmk-blwm" 0 0 mark 0
+AnchorPoint: "mkmk-blwm" 0 -500 basemark 0
+AnchorPoint: "blwm-cedilla" -50 -200 mark 0
+LayerCount: 2
+Fore
+SplineSet
+-150 -500 m 1
+ -150 -400 l 1
+ -50 -300 l 1
+ -50 -200 l 1
+ 150 0 l 1
+ 150 -200 l 1
+ -150 -500 l 1
+EndSplineSet
+Validated: 1
+EndChar

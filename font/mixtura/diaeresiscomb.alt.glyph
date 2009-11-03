@@ -1,0 +1,26 @@
+
+StartChar: diaeresiscomb.alt
+Encoding: 1114114 -1 153
+Width: 0
+VWidth: 1900
+GlyphClass: 4
+Flags: W
+HStem: -400 21G<-300 -280> -20 20G<-120 -100> 0 21G<100 120>
+AnchorPoint: "abvm-common" 0 -200 mark 0
+AnchorPoint: "mkmk-abvm" 0 -400 mark 0
+AnchorPoint: "mkmk-abvm" 0 400 basemark 0
+LayerCount: 2
+Fore
+SplineSet
+-300 -400 m 1
+ -300 -200 l 1
+ -100 0 l 1
+ -100 -200 l 1
+ -300 -400 l 1
+100 0 m 1
+ 100 200 l 1
+ 300 400 l 1
+ 300 200 l 1
+ 100 0 l 1
+EndSplineSet
+EndChar

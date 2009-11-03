@@ -1,0 +1,20 @@
+
+StartChar: soliduslongoverlaycmb
+Encoding: 824 824 213
+Width: 0
+VWidth: 1900
+Flags: W
+HStem: -550 100<-500 -400> 450 100<400 500>
+DStem2: -500 -450 -500 -550 0.707107 0.707107<0 1343.5>
+AnchorPoint: "mark-common" 0 0 mark 0
+LayerCount: 2
+Fore
+SplineSet
+-500 -550 m 25
+ -500 -450 l 25
+ 500 550 l 25
+ 500 450 l 25
+ -500 -550 l 25
+EndSplineSet
+Validated: 1
+EndChar

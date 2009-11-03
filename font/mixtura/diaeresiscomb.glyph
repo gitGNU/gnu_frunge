@@ -1,0 +1,29 @@
+
+StartChar: diaeresiscomb
+Encoding: 776 776 67
+Width: 0
+VWidth: 1900
+GlyphClass: 4
+Flags: W
+HStem: 0 400
+VStem: -300 600
+AnchorPoint: "mkmk-abvm" 0 399 basemark 0
+AnchorPoint: "mkmk-abvm" 0 -1 mark 0
+AnchorPoint: "abvm-common" -1 -1 mark 0
+LayerCount: 2
+Fore
+SplineSet
+-300 0 m 1
+ -300 200 l 1
+ -100 400 l 1
+ -100 200 l 1
+ -300 0 l 1
+100 0 m 1
+ 100 200 l 1
+ 300 400 l 1
+ 300 200 l 1
+ 100 0 l 1
+EndSplineSet
+Validated: 1
+AlternateSubs2: "'jalt' Justification Alternatives lookup 2-1" diaeresiscomb.alt
+EndChar

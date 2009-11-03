@@ -1,0 +1,29 @@
+
+StartChar: a
+Encoding: 97 97 26
+Width: 600
+VWidth: 1900
+Flags: W
+HStem: 0 21G<0 20 400 420> 1080 20G<580 600>
+VStem: 0 200<300 500> 400 200<300 400 500 800>
+AnchorPoint: "abvm-common" 300 900 basechar 0
+LayerCount: 2
+Fore
+SplineSet
+400 500 m 1
+ 400 800 l 1
+ 200 600 l 1
+ 200 300 l 1
+ 400 500 l 1
+0 0 m 1
+ 0 500 l 1
+ 600 1100 l 1
+ 600 300 l 1
+ 800 500 l 1
+ 800 400 l 1
+ 400 0 l 1
+ 400 400 l 1
+ 0 0 l 1
+EndSplineSet
+AlternateSubs2: "'jalt' Justification Alternatives lookup 2-1" a.alt
+EndChar

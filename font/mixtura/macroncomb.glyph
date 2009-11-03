@@ -1,0 +1,22 @@
+
+StartChar: macroncomb
+Encoding: 772 772 356
+Width: 0
+VWidth: 1900
+Flags: W
+HStem: 100 200<-100 100>
+VStem: -300 600
+AnchorPoint: "mkmk-abvm" 0 400 basemark 0
+AnchorPoint: "mkmk-abvm" 0 0 mark 0
+AnchorPoint: "abvm-common" 0 0 mark 0
+LayerCount: 2
+Fore
+SplineSet
+-300 100 m 1
+ -100 300 l 1
+ 300 300 l 1
+ 100 100 l 1
+ -300 100 l 1
+EndSplineSet
+Validated: 1
+EndChar

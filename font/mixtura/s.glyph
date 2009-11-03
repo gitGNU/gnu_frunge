@@ -1,0 +1,30 @@
+
+StartChar: s
+Encoding: 115 115 42
+Width: 600
+VWidth: 1900
+Flags: W
+HStem: 0 21G<0 20> 600 300<300 600> 1000 100<500 600>
+VStem: 0 200<300 400>
+DStem2: 0 500 200 600 0.707107 0.707107<212.132 777.817> 200 500 200 400 0.707107 0.707107<0 212.132> 200 300 0 0 0.707107 0.707107<0 282.843>
+LayerCount: 2
+Fore
+SplineSet
+0 0 m 1
+ 0 500 l 1
+ 600 1100 l 1
+ 600 1000 l 1
+ 200 600 l 1
+ 200 500 l 1
+ 600 900 l 1
+ 600 600 l 1
+ 0 0 l 1
+200 300 m 1
+ 400 500 l 1
+ 400 600 l 1
+ 200 400 l 1
+ 200 300 l 1
+EndSplineSet
+Validated: 1
+AlternateSubs2: "'jalt' Justification Alternatives lookup 2-1" s.isol
+EndChar
