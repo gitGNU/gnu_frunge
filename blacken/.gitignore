@@ -1,0 +1,10 @@
+# Manual: http://www.kernel.org/pub/software/scm/git/docs/gitignore.html
+
+# Ignore the output directories:
+bin/
+out/
+
+# Ignore directories with highly experimental code:
+res/data/text/
+res/sink/
+src/org/nognu/frunge/sink/

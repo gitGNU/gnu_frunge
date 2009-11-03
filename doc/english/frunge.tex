@@ -1,13 +1,13 @@
  \documentclass[
-   titlepage=no ]{scrartcl} %cuſtom titlepage
+   titlepage=no]{scrartcl} %cuſtom titlepage
 
  \usepackage{
    polyglossia, %hyphenation
-   relsize, %what for?
+   relsize, %\larger and \smaller text ſize
    verbatim, %quotes
-   xcolor, %what for?
-   xspace, %what for?
-   xltxtra } %xetex enhancements and fixes
+   xcolor, %Driver-independent color extenſions
+   xspace, %guesses space after commands
+   xltxtra} %xetex enhancements and fixes
 
  \usepackage[
    breaklinks,
@@ -16,8 +16,19 @@
    pdftitle={Frunge Font Documentation},
    linkcolor=blue,
    urlcolor=blue,
-   xetex ]{hyperref}
+   xetex]{hyperref}
 
+%% font settings
+ \setmainfont{Linux Libertine} %without O (this is a feature/dirty fix)
+ \setsansfont[Scale=MatchLowercase]{Linux Biolinum O}
+ 
+%% polyglossia settings
+ \setmainlanguage{english}
+ \frenchspacing
+ \setotherlanguage[spelling=new, latesthyphen=true]{german}
+ % pleaſe add babelshorthands=true if TeXLive 2009 is realeaſed
+
+%% text commands
  \newcommand*\team{Dennis Heidſiek\and Martin Roppelt\and Arno 
 Trautmann}
 
@@ -28,19 +39,7 @@ Trautmann}
  \newcommand*\ipa[1]{\mbox{#1}} %another font would be nice
  \newcommand*\pkg[1]{\textsf{#1}}
 
- \newcommand\frungepangram{\IfFileExists{frunge-pangram}{\input{frunge-pangram}}{Test}}
-
-
-%% font settings
- \setmainfont{Linux Libertine} %without O (this is a feature/dirty fix)
- \setsansfont[Scale=MatchLowercase]{Linux Biolinum O}
- %\setmainfont
- 
-%% polyglossia settings
- \setmainlanguage{english}
- \frenchspacing
- \setotherlanguage[spelling=new, latesthyphen=true, 
-babelshorthands=true]{german}
+  \newcommand\frungepangram{\textgerman{\IfFileExists{frunge-pangram.tex}{\input{frunge-pangram.tex}}{Pangramm-Platzhalter}}}
 
 
  %\usepackage{syntonly}
