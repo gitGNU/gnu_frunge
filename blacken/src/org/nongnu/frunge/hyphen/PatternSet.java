@@ -1,4 +1,4 @@
-package org.nognu.frunge.hyphen;
+package org.nongnu.frunge.hyphen;
 
 import java.io.BufferedReader;
 import java.util.ArrayList;
@@ -10,8 +10,8 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-import org.nognu.frunge.Function;
-import org.nognu.frunge.IO;
+import org.nongnu.frunge.Function;
+import org.nongnu.frunge.IO;
 
 
 public class PatternSet implements Formattable, Function<String, String> {

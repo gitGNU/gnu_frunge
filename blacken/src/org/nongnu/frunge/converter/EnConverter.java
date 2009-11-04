@@ -1,4 +1,4 @@
-package org.nognu.frunge.converter;
+package org.nongnu.frunge.converter;
 
 /**
  * A {@link Converter} for the english language.

@@ -8,4 +8,4 @@
  * called <a href="http://sourceforge.net/projects/texhyphj">TeXHyphenator-J</a> and
  * licenced under the <em>GNU Lesser General Public License (LGPL)</em>.</p>
  */
-package org.nognu.frunge.hyphen;
+package org.nongnu.frunge.hyphen;

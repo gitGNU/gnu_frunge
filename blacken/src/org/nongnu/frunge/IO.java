@@ -1,4 +1,4 @@
-package org.nognu.frunge;
+package org.nongnu.frunge;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

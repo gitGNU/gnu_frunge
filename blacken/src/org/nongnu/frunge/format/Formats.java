@@ -1,10 +1,10 @@
-package org.nognu.frunge.format;
+package org.nongnu.frunge.format;
 
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 
-import org.nognu.frunge.converter.Converter;
+import org.nongnu.frunge.converter.Converter;
 
 public class Formats {
 	

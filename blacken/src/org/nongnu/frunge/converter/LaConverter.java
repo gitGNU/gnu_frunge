@@ -1,4 +1,4 @@
-package org.nognu.frunge.converter;
+package org.nongnu.frunge.converter;
 
 /**
  * A very simple {@link Converter} for the Latin language.

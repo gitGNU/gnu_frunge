@@ -1,4 +1,4 @@
-package org.nognu.frunge.converter;
+package org.nongnu.frunge.converter;
 
 import java.util.Arrays;
 import java.util.List;

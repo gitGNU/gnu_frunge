@@ -7,4 +7,4 @@ out/
 # Ignore directories with highly experimental code:
 res/data/text/
 res/sink/
-src/org/nognu/frunge/sink/
+src/org/nongnu/frunge/sink/

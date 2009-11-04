@@ -1,4 +1,4 @@
 /**
  * <p>Main Package.</p>
  */
-package org.nognu.frunge;
+package org.nongnu.frunge;
