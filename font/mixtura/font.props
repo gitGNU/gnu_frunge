@@ -14,14 +14,13 @@ Descent: 400
 LayerCount: 2
 Layer: 0 0 "Background"  1
 Layer: 1 0 "Foreground"  0
-NeedsXUIDChange: 1
 XUID: [1021 93 633369114 13086549]
 FSType: 0
 OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1239484215
-ModificationTime: 1253599927
+ModificationTime: 1257473172
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -48,11 +47,11 @@ Lookup: 2 0 0 "'ccmp' Zeichenzusammensetzung lookup mark composition"  {"'ccmp' 
 Lookup: 6 0 0 "'calt' Contextual Alternates lookup 1"  {"'calt' Contextual Alternates lookup 1-1"  } ['calt' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
 Lookup: 3 0 0 "'jalt' Justification Alternatives lookup 2"  {"'jalt' Justification Alternatives lookup 2-1"  } ['jalt' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
 Lookup: 258 8 0 "'kern' Horizontales Kerning lookup 0"  {"'kern' Horizontales Kerning lookup 0-1"  } ['kern' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
-Lookup: 260 0 0 "'abvm' Above Base Mark lookup oblique"  {"'abvm' Above Base Mark lookup oblique"  } [' RQD' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
-Lookup: 260 8 0 "'abvm' Above Base Mark lookup common"  {"'abvm' Above Base Mark lookup common"  } [' RQD' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
-Lookup: 262 0 0 "'mkmk' Mark to Mark lookup 2"  {"'mkmk' Mark to Mark lookup 2-1"  } [' RQD' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
-Lookup: 260 0 0 "'blwm' Below Base Mark lookup oblique"  {"'blwm' Below Base Mark lookup oblique"  } [' RQD' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
-Lookup: 260 0 0 "'blwm' Below Base Mark lookup common"  {"'blwm' Below Base Mark lookup common"  } [' RQD' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 260 0 0 "'abvm' Above Base Mark lookup oblique"  {"'abvm' Above Base Mark lookup oblique"  } ['abvm' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 260 0 0 "'abvm' Above Base Mark lookup common"  {"'abvm' Above Base Mark lookup common"  } ['abvm' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 262 0 0 "'mkmk' Mark to Mark lookup 2"  {"'mkmk' Mark to Mark lookup 2-1"  } ['mkmk' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 260 0 0 "'blwm' Below Base Mark lookup oblique"  {"'blwm' Below Base Mark lookup oblique"  } ['blwm' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 260 0 0 "'blwm' Below Base Mark lookup common"  {"'blwm' Below Base Mark lookup common"  } ['blwm' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
 Lookup: 260 0 0 "'mark' Mark Positioning lookup 4"  {"'mark' Mark Positioning lookup 4-1"  } ['mark' ('DFLT' <'dflt' > 'grek' <'dflt' > 'latn' <'dflt' > ) ]
 DEI: 91125
 KernClass2: 11 7 "'kern' Horizontales Kerning lookup 0-1" 
