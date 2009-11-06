@@ -3,7 +3,7 @@ StartChar: dotlessi
 Encoding: 305 305 69
 Width: 200
 VWidth: 1900
-Flags: WO
+Flags: W
 HStem: 0 21G<0 20> 1080 20G<180 200>
 VStem: 0 200<300 800>
 AnchorPoint: "abvm-common" 100 1100 basechar 0
@@ -20,4 +20,5 @@ SplineSet
  400 400 l 1
  0 0 l 1
 EndSplineSet
+Validated: 1
 EndChar
