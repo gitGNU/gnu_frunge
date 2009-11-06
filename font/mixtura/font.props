@@ -14,13 +14,14 @@ Descent: 400
 LayerCount: 2
 Layer: 0 0 "Background"  1
 Layer: 1 0 "Foreground"  0
+NeedsXUIDChange: 1
 XUID: [1021 93 633369114 13086549]
 FSType: 0
 OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1239484215
-ModificationTime: 1257473172
+ModificationTime: 1257502981
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
