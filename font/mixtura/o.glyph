@@ -7,6 +7,7 @@ Flags: W
 HStem: 0 21G<0 20> 1080 20G<580 600>
 VStem: 0 200<300 500> 400 200<600 800>
 DStem2: 0 500 200 600 0.707107 0.707107<212.132 494.975> 200 300 0 0 0.707107 0.707107<0 282.843>
+AnchorPoint: "abvm-common" 300 900 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -21,5 +22,4 @@ SplineSet
  200 300 l 1
  400 500 l 1
 EndSplineSet
-Validated: 1
 EndChar

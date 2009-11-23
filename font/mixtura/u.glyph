@@ -7,6 +7,7 @@ Flags: W
 HStem: 0 21G<0 20 400 420> 400 100<700 800> 1080 20G<180 200 580 600>
 VStem: 0 200<300 900> 400 200<300 400 500 900>
 DStem2: 200 300 400 400 0.707107 0.707107<0 212.132> 600 300 800 400 0.707107 0.707107<0 212.132>
+AnchorPoint: "abvm-common" 300 1100 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -24,6 +25,5 @@ SplineSet
  0 0 l 1
  0 900 l 1
 EndSplineSet
-Validated: 1
 AlternateSubs2: "'jalt' Justification Alternatives lookup 2-1" u.alt
 EndChar
