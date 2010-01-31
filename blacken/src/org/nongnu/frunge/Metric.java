@@ -21,7 +21,7 @@ public class Metric implements Formattable {
 		super();
 	}
 	
-	public void addCase(String expected, String actual) {		
+	public void addCase(String expected, String actual) {
 		for(int pos=0; pos<expected.length(); pos++) {
 			char e = expected.charAt(pos);
 			if(e=='s') {

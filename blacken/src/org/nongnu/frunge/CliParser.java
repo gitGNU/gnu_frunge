@@ -74,9 +74,9 @@ public class CliParser {
 	public static void main(String... arg) {
 		long timing = System.nanoTime();
 		
-		Cli<CliOptions> cli = CliFactory.createCli(CliOptions.class);		
+		Cli<CliOptions> cli = CliFactory.createCli(CliOptions.class);
 		if(arg.length==0) {
-			System.out.format("%s%n%s%n", getName(), cli.getHelpMessage());			
+			System.out.format("%s%n%s%n", getName(), cli.getHelpMessage());
 			return;
 		}
 		
@@ -97,7 +97,7 @@ public class CliParser {
 		
 		if(op.help()) {
 			System.out.format("%s%n%s%n%s%n%n%s%n",
-					getName(), getLinks(), cli.getHelpMessage(), getExamples());			
+					getName(), getLinks(), cli.getHelpMessage(), getExamples());
 			return;
 	    }
 
