@@ -31,7 +31,7 @@ public class TestRunner {
 		Converter f = Converters.get(lang);
 		
 		System.out.format("Using %s%n", p.toString());
-		if(verbose) System.out.format("All incorrect transformed testcases:%n");		
+		if(verbose) System.out.format("All incorrect transformed testcases:%n");
 		
 		try {
 			BufferedReader r = IO.getReader("testcases/"+lang+".csv");
@@ -44,7 +44,7 @@ public class TestRunner {
 				String actual = f.apply(key);
 				m.addCase(expected, actual);
 				
-				if(verbose && !expected.equals(actual)) {
+				if(verbose) {// && !expected.equals(actual)) {
 					System.out.format("%s -> %s: %s (%s)%n",
 							key, expected, actual, p.apply(key));
 				}
