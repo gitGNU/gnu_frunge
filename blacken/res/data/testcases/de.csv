@@ -13,6 +13,7 @@ Adresse;Adreſſe
 Adventssonntag;Adventsſonntag
 also;alſo
 Amtsschimmel;Amtsſchimmel
+Amtssitz;Amtsſitz
 Amtsstube;Amtsſtube
 Amtszeit;Amtszeit
 Angst;Angſt
@@ -27,6 +28,7 @@ Assessor;Aſſeſſor
 assimiliert;aſſimiliert
 Assistent;Aſſiſtent
 Ast;Aſt
+Ästhetik;Äſthetik
 aus;aus
 ausgesprochen;ausgeſprochen
 Ausguss;Ausguſs
@@ -51,6 +53,7 @@ aussitzen;ausſitzen
 ausspielen;ausſpielen
 aussprechen;ausſprechen
 ausstechen;ausſtechen
+Aussteller;Ausſteller
 Aussterben;Ausſterben
 Aussteuer;Ausſteuer
 Ausstieg;Ausſtieg
@@ -94,6 +97,7 @@ Bosheit;Bosheit
 brüsk;brüsk
 brüskieren;brüskieren
 Bundestagssitzung;Bundestagsſitzung
+Bundeswehr;Bundeswehr
 Busch;Buſch
 Busen;Buſen
 Butterstulle;Butterſtulle
@@ -168,6 +172,7 @@ Essenz;Eſſenz
 Essstörung;Eſsſtörung
 Ewigkeitssonntag;Ewigkeitsſonntag
 Existenz;Exiſtenz
+Expertise;Expertiſe
 Exzess;Exzeſs
 Exzesse;Exzeſſe
 exzessiv;exzeſſiv
@@ -181,6 +186,7 @@ Fessel;Feſſel
 fest;feſt
 Feſt;Feſt
 Festessen;Feſteſſen
+Festspiele;Feſtſpiele
 fies;fies
 finster;finſter
 Flachssamen;Flachsſamen
@@ -215,6 +221,7 @@ Genusssteigerung;Genuſsſteigerung
 Gerechtigkeitssinn;Gerechtigkeitsſinn
 Gerichtsverfassungsgesetz;Gerichtsverfaſſungsgeſetz
 Gesäß;Geſäß
+Gesang;Geſang
 Geschäftsschwerpunkt;Geſchäftsſchwerpunkt
 Geschäftsstelle;Geſchäftsſtelle
 Geschichte;Geſchichte
@@ -225,6 +232,7 @@ Geschichtsstunde;Geſchichtsſtunde
 Gesellschaftsschicht;Geſellſchaftsſchicht
 Gesinnung;Geſinnung
 gespenstisch;geſpenſtiſch
+Gestaltungssache;Gestaltungsſache
 gestern;geſtern
 gesundheitsschädlich;geſundheitsſchädlich
 Gewahrsam;Gewahrſam
@@ -238,6 +246,7 @@ Glückssträhne;Glücksſträhne
 Glückssymbol;Glücksſymbol
 Glossar;Gloſſar
 Glosse;Gloſſe
+grässlich;gräſſlich
 Großstadt;Großſtadt
 Gunst;Gunſt
 hässlich;häſſlich
@@ -248,6 +257,8 @@ Handlungsspielraum;Handlungsſpielraum
 Handlungsstrang;Handlungsſtrang
 Hanse;Hanſe
 Haschisch;Haſchiſch
+Häschen;Häschen
+Hase;Hase
 Hass;Haſs
 Hassausbruch;Haſsausbruch
 hassen;haſſen
@@ -296,6 +307,7 @@ komisch;komiſch
 Kommission;Kommiſſion
 Kompression;Kompreſſion
 Kompromiss;Kompromiſs
+kompromisslos;kompromiſslos
 kosmisch;kosmiſch
 kostenlos;koſtenlos
 Kongress;Kongreſs
@@ -354,6 +366,7 @@ Meerschweinchen;Meerſchweinchen
 Mensch;Menſch
 Mephistopheles;Mephiſtopheles
 Mesner;Mesner
+Messdiener;Meſſdiener
 Messe;Meſſe
 messen;meſſen
 mindestens;mindeſtens
@@ -402,6 +415,7 @@ passen;paſſen
 passiert;paſſiert
 Passion;Paſſion
 Physik;Phyſik
+physisch;phyſiſch
 pittoresk;pittoresk
 Pläsierchen;Pläſierchen
 Polizist;Poliziſt
@@ -416,6 +430,7 @@ Prestige;Prestige
 Professor;Profeſſor
 Prozessor;Prozeſſor
 Psyche;Pſyche
+psychisch;pſychiſch
 Qualitätssicherung;Qualitätsſicherung
 Quatsch;Quatſch
 Rätsel;Rätſel
@@ -430,6 +445,7 @@ Reise;Reiſe
 Residenz;Reſidenz
 Respekt;Reſpekt
 Resultat;Reſultat
+Resümee;Reſümee
 Ressort;Reſſort
 Rettungssanitäter;Rettungsſanitäter
 riesig;rieſig
@@ -501,6 +517,7 @@ Statussymbol;Statusſymbol
 stehen;ſtehen
 sterilisieren;ſteriliſieren
 still;ſtill
+stören;ſtören
 stolz;ſtolz
 Stuss;Stuſs
 stützen;ſtützen
@@ -536,6 +553,7 @@ Unterlassungsanspruch;Unterlaſſungsanſpruch
 Unternehmenssprecher;Unternehmensſprecher
 Untersuchungsergebnis;Unterſuchungsergebnis
 Valentinstag;Valentinstag
+vegetarisch;vegetariſch
 Verbesserung;Verbeſſerung
 Verbotsschild;Verbotsſchild
 Vergleichsstudie;Vergleichsſtudie
@@ -572,6 +590,8 @@ Vorsorge;Vorſorge
 Vorstandssitzung;Vorstandsſitzung
 Vorstellung;Vorſtellung
 Wachstum;Wachstum
+Wäsche;Wäſche
+waschen;waſchen
 Wasserlassen;Waſſerlaſſen
 Wasserspülung;Waſſerſpülung
 wechseln;wechſeln
