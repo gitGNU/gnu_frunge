@@ -21,6 +21,7 @@ Angst;Angſt
 Ansage;Anſage
 Anschlagsserie;Anschlagsſerie
 Arbeitsamt;Arbeitsamt
+Arbeitsbeschaffungsmaßnahme;Arbeitsbeſchaffungsmaßnahme
 arbeitsscheu;arbeitsſcheu
 Arbeitsstelle;Arbeitsſtelle
 Argusaugen;Argusaugen
@@ -31,6 +32,7 @@ Assistent;Aſſiſtent
 Ast;Aſt
 Ästhetik;Äſthetik
 aus;aus
+Ausgangsschrift;Ausgangsſchrift
 ausgesprochen;ausgeſprochen
 Ausguss;Ausguſs
 Auslandssemester;Auslandsſemeſter
@@ -41,7 +43,7 @@ ausscheiden;ausſcheiden
 ausschlafen;ausſchlafen
 ausschließen;ausſchließen
 ausschneiden;ausſchneiden
-Ausschnitt;Ausſchnitt 
+Ausschnitt;Ausſchnitt
 Ausschreibung;Ausſchreibung
 Ausschuss;Ausſchuſs
 ausschweifend;ausſchweifend
@@ -85,6 +87,7 @@ Besserwisser;Beſſerwiſſer
 Betriebssystem;Betriebsſyſtem
 Bewegungsspielraum;Bewegungsſpielraum
 Bewertungsstufe;Bewertungsſtufe
+Beziehungsstress;Beziehungsſtreſs
 Bildschirm;Bildſchirm
 Biss;Biſs
 bisschen;biſschen
@@ -171,6 +174,7 @@ erstaunen;erſtaunen
 Erstausstrahlung;Erſtausſtrahlung
 erstklassig;erſtklaſſig
 Eskalationsstufe;Eskalationsſtufe
+Esoterik;Eſoterik
 Essen;Eſſen
 Essenz;Eſſenz
 Essstörung;Eſsſtörung
@@ -182,6 +186,7 @@ Exzesse;Exzeſſe
 exzessiv;exzeſſiv
 falsch;falſch
 fassen;faſſen
+Fassung;Faſſung
 fast;faſt
 fasten;faſten
 Felsquellwasser;Felsquellwaſſer
@@ -283,6 +288,7 @@ hopsen;hopſen
 Idealist;Idealiſt
 Identitätskrise;Identitätskriſe
 Identitätsstörung;Identitätsſtörung
+Identitätssuche;Identitätsſuche
 idyllisch;idylliſch
 Imbiss;Imbiſs
 Imbissstand;Imbiſsſtand
@@ -374,6 +380,7 @@ Mäuschen;Mäuschen
 Mäuslein;Mäuslein
 Maustaste;Maustaſte
 Meerschweinchen;Meerſchweinchen
+Mehrwertsteuer;Mehrwertſteuer
 Mensch;Menſch
 Mephistopheles;Mephiſtopheles
 Mesner;Mesner
@@ -389,6 +396,7 @@ missachten;miſsachten
 Missionsschwestern;Miſſionsſchweſtern
 Missstand;Miſsſtand
 Misstrauen;Miſstrauen
+Missverständnis;Missverſtändnis
 Mist;Miſt
 Mittagsschlaf﻿;Mittagsſchlaf﻿
 Mittagsstunde;Mittagsſtunde
@@ -417,10 +425,12 @@ Obelisk;Obelisk
 Obst;Obſt
 offensiv;offenſiv
 Opposition;Oppoſition
+Organisationsstatut;Organiſationsſtatut
 Osten;Oſten
 Ostern;Oſtern
 Ostsee;Oſtſee
 Papst;Papſt
+Parlamentarismus;Parlamentarismus
 Parlamentssitzung;Parlamentsſitzung
 passen;paſſen
 passiert;paſſiert
@@ -496,6 +506,7 @@ Schriftsatz;Schriftſatz
 Schuhständer;Schuhſtänder
 schwanger;ſchwanger
 schwarz;ſchwarz
+schwer;ſchwer
 sechs;ſechs
 sehr;ſehr
 sei;ſei
@@ -518,6 +529,7 @@ Sommersprossen;Sommerſproſſen
 sozial;ſozial
 sozialistisch;ſozialiſtiſch
 spanisch;ſpaniſch
+spationieren;ſpationieren
 später;ſpäter
 sperren;ſperren
 spielen;ſpielen
@@ -557,6 +569,7 @@ Transport;Transport
 Transsexuellengesetz;Transſexuellengeſetz
 transsibirisch;transſibiriſch
 Transsylvannien;Transſylvannien
+Türsteher;Türſteher
 Übersee;Überſee
 umfassend;umfaſſend
 umgangssprachlich;umgangsſprachlich
@@ -586,6 +599,7 @@ verpasst;verpaſſt
 Verriss;Verriſs
 Verschlusssache;Verſchluſsſache
 versifft;verſifft
+Versionssprung;Verſionsſprung
 verspannt;verſpannt
 Verständnisschwierigkeit;Verſtändnisſchwierigkeit
 Versuch;Verſuch
@@ -609,6 +623,8 @@ Vorsorge;Vorſorge
 Vorstandssitzung;Vorstandsſitzung
 Vorstellung;Vorſtellung
 Wachstum;Wachstum
+Wachstumsbeschleunigungsgesetz;Wachstumsbeſchleunigungsgeſetz
+Wahlschein;Wahlſchein
 Wäsche;Wäſche
 waschen;waſchen
 Wasserlassen;Waſſerlaſſen
@@ -616,6 +632,7 @@ Wasserspülung;Waſſerſpülung
 wechseln;wechſeln
 Wechselstimmung;Wechſelſtimmung
 Weihnachtsstimmung;Weihnachtsſtimmung
+Weinlese;Weinleſe
 Weisheit;Weisheit
 Wertstoffsack;Wertſtoffſack
 Wesen;Weſen
@@ -633,8 +650,10 @@ Wunsch;Wunſch
 Wüste;Wüſte
 Zeugenschutzprogramm;Zeugenſchutzprogramm
 Zeugnisse;Zeugniſſe
+Zinssatz;Zinsſatz
 Zuchthäusler;Zuchthäusler
 Zukunftssorgen;Zukunftsſorgen
 Zusammenfassung;Zuſammenfaſſung
 Zwangssparen;Zwangsſparen
 Zwangsstörung;Zwangsſtörung
+Zwiebelfisch;Zwiebelfiſch
