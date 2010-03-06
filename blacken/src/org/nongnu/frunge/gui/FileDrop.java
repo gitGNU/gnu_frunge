@@ -117,7 +117,6 @@ public class FileDrop {
 	 * 
 	 * @param out
 	 *            PrintStream to record debugging info or null for no debugging.
-	 * @param out
 	 * @param c
 	 *            Component on which files will be dropped.
 	 * @param listener
@@ -145,7 +144,6 @@ public class FileDrop {
 	 * 
 	 * @param out
 	 *            PrintStream to record debugging info or null for no debugging.
-	 * @param out
 	 * @param c
 	 *            Component on which files will be dropped.
 	 * @param recursive
@@ -284,18 +282,19 @@ public class FileDrop {
 				} // end dragEnter
 
 				public void dragOver(java.awt.dnd.DropTargetDragEvent evt) { // This
-																				// is
-																				// called
-																				// continually
-																				// as
-																				// long
-																				// as
-																				// the
-																				// mouse
-																				// is
+					// is
+					// called
+					// continually
+					// as
+					// long
+					// as
+					// the
+					// mouse
+					// is
 					// over the drag target.
 				} // end dragOver
 
+				@SuppressWarnings("unchecked")
 				public void drop(java.awt.dnd.DropTargetDropEvent evt) {
 					log(out, "FileDrop: drop event.");
 					try { // Get whatever was dropped
@@ -315,7 +314,6 @@ public class FileDrop {
 							// Get a useful list
 							java.util.List fileList = (java.util.List) tr
 									.getTransferData(java.awt.datatransfer.DataFlavor.javaFileListFlavor);
-							java.util.Iterator iterator = fileList.iterator();
 
 							// Convert list to array
 							java.io.File[] filesTemp = new java.io.File[fileList
@@ -411,8 +409,8 @@ public class FileDrop {
 					log(out, "FileDrop: dropActionChanged event.");
 					// Is this an acceptable drag event?
 					if (isDragOk(out, evt)) { // evt.acceptDrag(
-												// java.awt.dnd.DnDConstants.ACTION_COPY_OR_MOVE
-												// );
+						// java.awt.dnd.DnDConstants.ACTION_COPY_OR_MOVE
+						// );
 						evt.acceptDrag(java.awt.dnd.DnDConstants.ACTION_COPY);
 						log(out, "FileDrop: event accepted.");
 					} // end if: drag ok
@@ -431,16 +429,19 @@ public class FileDrop {
 		} // end else: does not support DnD
 	} // end constructor
 
+	@SuppressWarnings("unchecked")
 	private static boolean supportsDnD() { // Static Boolean
 		if (supportsDnD == null) {
 			boolean support = false;
+			Class arbitraryDndClass = null;
 			try {
-				Class arbitraryDndClass = Class
-						.forName("java.awt.dnd.DnDConstants");
+				arbitraryDndClass = Class.forName("java.awt.dnd.DnDConstants");
 				support = true;
 			} // end try
 			catch (Exception e) {
 				support = false;
+				support = support && arbitraryDndClass == null;
+
 			} // end catch
 			supportsDnD = new Boolean(support);
 		} // end if: first time through
@@ -453,7 +454,7 @@ public class FileDrop {
 	private static File[] createFileArray(BufferedReader bReader,
 			PrintStream out) {
 		try {
-			java.util.List list = new java.util.ArrayList();
+			java.util.List<File> list = new java.util.ArrayList<File>();
 			java.lang.String line = null;
 			while ((line = bReader.readLine()) != null) {
 				try {
@@ -468,7 +469,7 @@ public class FileDrop {
 				}
 			}
 
-			return (java.io.File[]) list.toArray(new File[list.size()]);
+			return list.toArray(new File[list.size()]);
 		} catch (IOException ex) {
 			log(out, "FileDrop: IOException");
 		}
@@ -562,9 +563,9 @@ public class FileDrop {
 
 	/** Outputs <tt>message</tt> to <tt>out</tt> if it's not null. */
 	private static void log(java.io.PrintStream out, String message) { // Log
-																		// message
-																		// if
-																		// requested
+		// message
+		// if
+		// requested
 		if (out != null)
 			out.println(message);
 	} // end log
@@ -617,7 +618,7 @@ public class FileDrop {
 			return false;
 	} // end remove
 
-	/*  ******** I N N E R I N T E R F A C E L I S T E N E R ******** */
+	/*   ******** I N N E R I N T E R F A C E L I S T E N E R ******** */
 
 	/**
 	 * Implement this inner interface to listen for when files are dropped. For
@@ -646,13 +647,11 @@ public class FileDrop {
 
 	} // end inner-interface Listener
 
-	/*  ******** I N N E R C L A S S ******** */
+	/*   ******** I N N E R C L A S S ******** */
 
 	/**
-	 * This is the event that is passed to the
-	 * {@link FileDropListener#filesDropped filesDropped(...)} method in your
-	 * {@link FileDropListener} when files are dropped onto a registered drop
-	 * target.
+	 * This is the event that is passed to the filesDropped(...) method in your
+	 * FileDropListener when files are dropped onto a registered drop target.
 	 * 
 	 * <p>
 	 * I'm releasing this code into the Public Domain. Enjoy.
@@ -664,9 +663,6 @@ public class FileDrop {
 	 */
 	public static class Event extends java.util.EventObject {
 
-		/**
-		 * 
-		 */
 		private static final long serialVersionUID = -4951401222464818375L;
 		private java.io.File[] files;
 
@@ -676,7 +672,7 @@ public class FileDrop {
 		 * 
 		 * @param files
 		 *            The array of files that were dropped
-		 * @source The event source
+		 * @param source The event source
 		 * @since 1.1
 		 */
 		public Event(java.io.File[] files, Object source) {
@@ -697,7 +693,7 @@ public class FileDrop {
 
 	} // end inner class Event
 
-	/*  ******** I N N E R C L A S S ******** */
+	/*   ******** I N N E R C L A S S ******** */
 
 	/**
 	 * At last an easy way to encapsulate your custom objects for dragging and
@@ -840,14 +836,14 @@ public class FileDrop {
 			return customFlavor;
 		} // end getCustomDataFlavor
 
-		/*  ******** T R A N S F E R A B L E M E T H O D S ******** */
+		/*   ******** T R A N S F E R A B L E M E T H O D S ******** */
 
 		/**
 		 * Returns a two- or three-element array containing first the custom
 		 * data flavor, if one was created in the constructors, second the
 		 * default {@link #DATA_FLAVOR} associated with
 		 * {@link TransferableObject}, and third the
-		 * {@link java.awt.datatransfer.DataFlavor.stringFlavor}.
+		 * StringFlavor.
 		 * 
 		 * @return An array of supported data flavors
 		 * @since 1.1
@@ -857,13 +853,13 @@ public class FileDrop {
 				return new java.awt.datatransfer.DataFlavor[] { customFlavor,
 						DATA_FLAVOR,
 						java.awt.datatransfer.DataFlavor.stringFlavor }; // end
-																			// flavors
-																			// array
+			// flavors
+			// array
 			else
 				return new java.awt.datatransfer.DataFlavor[] { DATA_FLAVOR,
 						java.awt.datatransfer.DataFlavor.stringFlavor }; // end
-																			// flavors
-																			// array
+			// flavors
+			// array
 		} // end getTransferDataFlavors
 
 		/**
@@ -918,7 +914,7 @@ public class FileDrop {
 			return false;
 		} // end isDataFlavorSupported
 
-		/*  ******** I N N E R I N T E R F A C E F E T C H E R ******** */
+		/*   ******** I N N E R I N T E R F A C E F E T C H E R ******** */
 
 		/**
 		 * Instead of passing your data directly to the
@@ -930,7 +926,6 @@ public class FileDrop {
 		 * getObject()} method will be called.
 		 * 
 		 * @author Robert Harder
-		 * @copyright 2001
 		 * @version 1.1
 		 * @since 1.1
 		 */

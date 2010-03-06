@@ -19,7 +19,7 @@
   
   <!-- other program specific properties -->
   
-  <property name="p.main" value="org.nongnu.frunge.CliParser"/>
+  <property name="p.main" value="org.nongnu.frunge.cli.Parser"/>
   
   <!-- Creates the used classpath(s)-->
   
@@ -63,7 +63,7 @@
   </target>
   
   <target name="compile" depends="init" description="compile the source">
-    <javac srcdir="${src}" destdir="${bin}" encoding="UTF-8">
+    <javac srcdir="${src}" destdir="${bin}" encoding="UTF-8" includeAntRuntime="false">
       <classpath refid="cp.lib"/>
       <compilerarg value="-Xlint"/> <!-- We want to see all warnings -->
     </javac>
