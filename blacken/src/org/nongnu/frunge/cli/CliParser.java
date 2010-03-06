@@ -1,4 +1,4 @@
-package org.nongnu.frunge;
+package org.nongnu.frunge.cli;
 
 
 import java.io.Console;
@@ -6,8 +6,10 @@ import java.io.PrintStream;
 import java.util.concurrent.TimeUnit;
 
 import org.nongnu.frunge.converter.Converters;
+import org.nongnu.frunge.core.TestRunner;
 import org.nongnu.frunge.format.Formats;
 import org.nongnu.frunge.format.PlainTextFormat;
+import org.nongnu.frunge.util.IO;
 
 import uk.co.flamingpenguin.jewel.cli.ArgumentValidationException;
 import uk.co.flamingpenguin.jewel.cli.Cli;

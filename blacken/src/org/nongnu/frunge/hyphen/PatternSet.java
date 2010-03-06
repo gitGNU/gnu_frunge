@@ -10,8 +10,8 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-import org.nongnu.frunge.Function;
-import org.nongnu.frunge.IO;
+import org.nongnu.frunge.util.Function;
+import org.nongnu.frunge.util.IO;
 
 
 public class PatternSet implements Formattable, Function<String, String> {

@@ -1,4 +1,4 @@
-package org.nongnu.frunge;
+package org.nongnu.frunge.core;
 
 import java.util.Formattable;
 import java.util.Formatter;

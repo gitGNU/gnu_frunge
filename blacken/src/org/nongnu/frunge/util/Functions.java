@@ -1,4 +1,4 @@
-package org.nongnu.frunge;
+package org.nongnu.frunge.util;
 
 public class Functions {
 

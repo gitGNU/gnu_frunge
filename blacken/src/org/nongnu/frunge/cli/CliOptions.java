@@ -1,4 +1,4 @@
-package org.nongnu.frunge;
+package org.nongnu.frunge.cli;
 
 
 import java.util.List;

@@ -1,10 +1,11 @@
-package org.nongnu.frunge;
+package org.nongnu.frunge.core;
 
 import java.io.BufferedReader;
 
 import org.nongnu.frunge.converter.Converter;
 import org.nongnu.frunge.converter.Converters;
 import org.nongnu.frunge.hyphen.PatternSet;
+import org.nongnu.frunge.util.IO;
 
 
 /**
