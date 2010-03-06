@@ -9,6 +9,7 @@ import org.nongnu.frunge.converter.Converters;
 import org.nongnu.frunge.core.TestRunner;
 import org.nongnu.frunge.format.Formats;
 import org.nongnu.frunge.format.PlainTextFormat;
+import org.nongnu.frunge.gui.SwingGui;
 import org.nongnu.frunge.util.IO;
 
 import uk.co.flamingpenguin.jewel.cli.ArgumentValidationException;
@@ -74,6 +75,12 @@ public class Parser {
 	}
 	
 	public static void main(String... arg) {
+		
+		if((arg.length==0) && (System.console()==null)) {
+			// program was launched from a graphical entourage without console
+			new SwingGui();
+		}
+		
 		long timing = System.nanoTime();
 		
 		Cli<Options> cli = CliFactory.createCli(Options.class);
