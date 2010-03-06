@@ -9,7 +9,7 @@ import uk.co.flamingpenguin.jewel.cli.Unparsed;
 
 
 @CommandLineInterface(application = "java -jar blacken.jar")
-public interface CliOptions {
+public interface Options {
 
 	@Option(shortName = "h", longName = "help", description = "print a detailed help message")
 	boolean help();

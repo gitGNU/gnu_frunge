@@ -17,11 +17,11 @@ import uk.co.flamingpenguin.jewel.cli.CliFactory;
 
 
 /**
- * CliParser for command line invocation.
+ * Parser for command line invocation.
  * 
  * @author Dennis Heidsiek
  */
-public class CliParser {
+public class Parser {
 
 	protected static String getName() {
 		return String.format(
@@ -51,8 +51,8 @@ public class CliParser {
 				);
 	}
 	
-	protected static void formatTo(PrintStream f, CliOptions op) {
-		f.format("CliOptions (help=%b, silent=%b, verbose=%b, test=%b, pipe=%b, format=%s, lang=%s, unparsed=%s)%n",
+	protected static void formatTo(PrintStream f, Options op) {
+		f.format("Options (help=%b, silent=%b, verbose=%b, test=%b, pipe=%b, format=%s, lang=%s, unparsed=%s)%n",
 				op.help(),
 				op.silent(),
 				op.verbose(),
@@ -76,13 +76,13 @@ public class CliParser {
 	public static void main(String... arg) {
 		long timing = System.nanoTime();
 		
-		Cli<CliOptions> cli = CliFactory.createCli(CliOptions.class);
+		Cli<Options> cli = CliFactory.createCli(Options.class);
 		if(arg.length==0) {
 			System.out.format("%s%n%s%n", getName(), cli.getHelpMessage());
 			return;
 		}
 		
-		CliOptions op = null;
+		Options op = null;
 		try {
 			op = cli.parseArguments(arg);
 		} catch(ArgumentValidationException e) {
