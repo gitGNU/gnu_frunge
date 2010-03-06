@@ -62,7 +62,12 @@
     <mkdir dir="${api}"/>
   </target>
   
-  <target name="compile" depends="init" description="compile the source">
+  <target name="normalize" depends="init" description="ensure linux file endings">
+    <fixcrlf srcdir="${src}" includes="**/*.java" encoding="UTF-8" eol="lf" eof="remove"/>
+  </target>
+  
+  <target name="compile" depends="init, normalize" description="compile the source">
+    
     <javac srcdir="${src}" destdir="${bin}" encoding="UTF-8" includeAntRuntime="false">
       <classpath refid="cp.lib"/>
       <compilerarg value="-Xlint"/> <!-- We want to see all warnings -->
