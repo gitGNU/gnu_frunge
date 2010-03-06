@@ -618,7 +618,7 @@ public class FileDrop {
 			return false;
 	} // end remove
 
-	/*   ******** I N N E R I N T E R F A C E L I S T E N E R ******** */
+	/*     ******** I N N E R I N T E R F A C E L I S T E N E R ******** */
 
 	/**
 	 * Implement this inner interface to listen for when files are dropped. For
@@ -647,7 +647,7 @@ public class FileDrop {
 
 	} // end inner-interface Listener
 
-	/*   ******** I N N E R C L A S S ******** */
+	/*     ******** I N N E R C L A S S ******** */
 
 	/**
 	 * This is the event that is passed to the filesDropped(...) method in your
@@ -672,7 +672,8 @@ public class FileDrop {
 		 * 
 		 * @param files
 		 *            The array of files that were dropped
-		 * @param source The event source
+		 * @param source
+		 *            The event source
 		 * @since 1.1
 		 */
 		public Event(java.io.File[] files, Object source) {
@@ -693,7 +694,7 @@ public class FileDrop {
 
 	} // end inner class Event
 
-	/*   ******** I N N E R C L A S S ******** */
+	/*     ******** I N N E R C L A S S ******** */
 
 	/**
 	 * At last an easy way to encapsulate your custom objects for dragging and
@@ -836,14 +837,13 @@ public class FileDrop {
 			return customFlavor;
 		} // end getCustomDataFlavor
 
-		/*   ******** T R A N S F E R A B L E M E T H O D S ******** */
+		/*     ******** T R A N S F E R A B L E M E T H O D S ******** */
 
 		/**
 		 * Returns a two- or three-element array containing first the custom
 		 * data flavor, if one was created in the constructors, second the
 		 * default {@link #DATA_FLAVOR} associated with
-		 * {@link TransferableObject}, and third the
-		 * StringFlavor.
+		 * {@link TransferableObject}, and third the StringFlavor.
 		 * 
 		 * @return An array of supported data flavors
 		 * @since 1.1
@@ -914,7 +914,7 @@ public class FileDrop {
 			return false;
 		} // end isDataFlavorSupported
 
-		/*   ******** I N N E R I N T E R F A C E F E T C H E R ******** */
+		/*     ******** I N N E R I N T E R F A C E F E T C H E R ******** */
 
 		/**
 		 * Instead of passing your data directly to the
