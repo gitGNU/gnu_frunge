@@ -67,7 +67,6 @@
   </target>
   
   <target name="compile" depends="init, normalize" description="compile the source">
-    
     <javac srcdir="${src}" destdir="${bin}" encoding="UTF-8" includeAntRuntime="false">
       <classpath refid="cp.lib"/>
       <compilerarg value="-Xlint"/> <!-- We want to see all warnings -->
