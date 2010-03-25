@@ -1,5 +1,7 @@
  \documentclass[
-   titlepage=no]{scrartcl} %cuſtom titlepage: ſtill to come
+   titlepage=no,
+   bibtotoc,
+   ]{scrartcl} %cuſtom titlepage: ſtill to come
 
  \usepackage{
    xltxtra, %xetex enhancements and fixes
@@ -221,6 +223,17 @@ engine ſhould fully ſupport OpenType (otherwiſe no glyphs are ſhown for
 thoſe). …
 
 
+ \addsec{Testing of Fonts}
+ You can teſt the Frunge fonts in this document with the command 
+\verb|\frungepangram| wich will input the file \verb|frunge-pangram|:
+ \begin{quote}
+  \frungepangram
+ \end{quote}
+ This (non-ſenſical) text has all important glyphs to ſhow how a 
+blackletter font would look like. The text may change from time to time 
+as we might find better words \winkey
+
+
  \addsec{Typing of Long s}
 
 %Xmodmap …
@@ -231,15 +244,11 @@ Neo—ergonomically optimized keyboard layout for German (and Engliſh);
 inſtructions for GNU/Linux [German]}
 
 
- \addsec{Testing of Fonts}
- You can teſt the Frunge fonts in this document with the command 
-\verb|\frungepangram| wich will input the file \verb|frunge-pangram|:
- \begin{quote}
-  \frungepangram
- \end{quote}
- This (non-ſenſical) text has all important glyphs to ſhow how a 
-blackletter font would look like. The text may change from time to time 
-as we might find better words \winkey
+ \addsec{Blacken converter}
+This is a Java baſed program to convert text in antiqua to blackletter,
+reſpecting the language ſpecific rules, and vice verſa. It’s ſtill in a
+very early phaſe of development and rests upon Liangs’ widly uſed hyphenation
+algorithm introduced in \cite{liang}.
 
 
  \addsec{Similar Projects}
