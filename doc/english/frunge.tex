@@ -1,13 +1,18 @@
  \documentclass[
-   titlepage=no]{scrartcl} %cuſtom titlepage
+   titlepage=no]{scrartcl} %cuſtom titlepage: ſtill to come
 
  \usepackage{
+   xltxtra, %xetex enhancements and fixes
    polyglossia, %hyphenation
    relsize, %\larger and \smaller text ſize
    verbatim, %quotes
    xcolor, %Driver-independent color extenſions
    xspace, %guesses space after commands
-   xltxtra} %xetex enhancements and fixes
+   csquotes %language ſpecific quotation marks for BibLaTeX
+   }
+
+ \usepackage[style=authoryear]{biblatex}%for the bibliography
+ \bibliography{frunge-bibliography}%our database file
 
  \usepackage[
    breaklinks,
@@ -260,6 +265,11 @@ our
 \href{http://liſts.nongnu.org/mailman/listinfo/frunge-internal}{mailing 
 liſt}.
 
+
+ \printbibliography
+
+
  \include{fdl}
+
 
  \end{document}
