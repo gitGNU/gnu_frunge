@@ -35,8 +35,12 @@
  \setotherlanguage[spelling=new, latesthyphen=true, babelshorthands=true]{german}
 
 %% text commands
- \newcommand*\team{Dennis Heidſiek\and Chriſtian Kluge\and Martin Roppelt\and Arno 
-Trautmann}
+
+ \newcommand{\andnewline}{% a quick and dirty hack to typeset the authors in a 2×2 matrix
+ \end{tabular}\\%
+ \begin{tabular}[t]{c}}
+
+ \newcommand*\team{Dennis Heidſiek\and Chriſtian Kluge\andnewline Martin Roppelt\and Arno Trautmann}
 
  \newcommand*\smiley{{\larger[3]☺}}
  \newcommand*\frowney{{\larger[3]☹}}
