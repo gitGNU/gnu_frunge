@@ -1,6 +1,6 @@
 package org.nongnu.frunge.gui;
 
-import java.awt.*;
+//import java.awt.*;
 import java.io.File;
 
 import javax.swing.*;
