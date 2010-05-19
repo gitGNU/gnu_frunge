@@ -5,6 +5,7 @@
 *.log
 *.out
 *.toc
+*-blx.bib
 
 # Ignore this final documents (but trac PDF images):
 frunge.pdf
