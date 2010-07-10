@@ -8,3 +8,4 @@ out/
 res/data/text/
 res/sink/
 src/org/nongnu/frunge/sink/
+/src/org/nongnu/frunge/hyphen/LegacyHyphenator.java
