@@ -11,7 +11,7 @@ import javax.swing.*;
 public class SwingGui {
 
 	public SwingGui() {
-
+		
 		final JTextArea text = new JTextArea();
 		new FileDrop(text, new FileDrop.Listener() {
 			public void filesDropped(File[] files) {

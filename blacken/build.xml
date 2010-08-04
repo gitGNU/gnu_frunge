@@ -1,6 +1,6 @@
 <project name="blacken" default="dist" basedir=".">
   <description>
-  build file for the blacken program (s to ſ).
+  build file for the blacken program (s to ſ converter).
   </description>
   
   <!-- set global directory properties for this build -->
