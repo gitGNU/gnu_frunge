@@ -2,6 +2,8 @@
 
 # Ignore temp files created by LaTeX:
 *.aux
+*.bbl
+*.blg
 *.log
 *.out
 *.toc
