@@ -143,6 +143,14 @@
   <target name="dist" depends="compile, javadoc, make-jar" description="generate the distribution">    
     <!-- Pack the documentation -->
     <tar destfile="${out}/api.tar.bz2" basedir="${api}" compression="bzip2"/>
+    
+    <!-- creates a shortcut skript for the Linux terminal -->
+    <concat destfile="${out}/blacken">#!/bin/sh
+java -jar blacken.jar -p "$@"</concat>
+    <chmod file="${out}/blacken" perm="744"/>
+
+    <!-- creates a shortcut skript for the Windows terminal -->
+    <concat destfile="${out}/blacken.cmd">java -jar blacken.jar %*</concat>
   </target>
   
   <target name="test" description="runs the selftest of the jar file distribution">
