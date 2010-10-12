@@ -21,24 +21,25 @@ import java.util.List;
  */
 public class IO {
 	
-	protected final static List<String> PREFIXES = Arrays.asList("", "bin/", "out/");
+	protected final static List<String> PREFIXES = Arrays.asList("", "bin/",
+			"out/");
 	
 	protected final static ClassLoader SCL = ClassLoader.getSystemClassLoader();
-
-
+	
 	/**
-	 * @param s a relative link to a resource
+	 * @param s
+	 *          a relative link to a resource
 	 * @return null in case of an error
 	 */
 	public static InputStream getStream(String s) {
 		InputStream is = null;
-		for(String p : PREFIXES) {
-			is = SCL.getResourceAsStream(p.concat(s));
-			if(is != null) {
+		for (String p : IO.PREFIXES) {
+			is = IO.SCL.getResourceAsStream(p.concat(s));
+			if (is != null) {
 				break;
 			}
 		}
-		if(is == null) {
+		if (is == null) {
 			try {
 				is = new FileInputStream(new File(s));
 			} catch (FileNotFoundException e) {
@@ -47,7 +48,7 @@ public class IO {
 		}
 		return is;
 	}
-
+	
 	public static BufferedReader asUTF8(InputStream is) {
 		BufferedReader r = null;
 		try {
@@ -67,15 +68,16 @@ public class IO {
 		}
 		return w;
 	}
-
+	
 	/**
-	 * @param s a relative link to a UTF-8 encoded text file
-	 * @return null in case of an error 
+	 * @param s
+	 *          a relative link to a UTF-8 encoded text file
+	 * @return null in case of an error
 	 */
 	public static BufferedReader getReader(String s) {
 		return IO.asUTF8(IO.getStream(s));
 	}
-
+	
 	public static BufferedWriter getWriter(String s) {
 		BufferedWriter w = null;
 		try {

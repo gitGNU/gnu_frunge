@@ -13,11 +13,10 @@ import java.util.TreeMap;
 import org.nongnu.frunge.util.Function;
 import org.nongnu.frunge.util.IO;
 
-
 public class PatternSet implements Formattable, Function<String, String> {
-		
+	
 	protected Map<String, String> pat;
-
+	
 	protected int maxLength;
 	
 	protected int minLength;
@@ -25,22 +24,25 @@ public class PatternSet implements Formattable, Function<String, String> {
 	protected List<String> exc;
 	
 	protected boolean verbose;
-
+	
 	/**
-	 * @param l language
+	 * @param l
+	 *          language
 	 */
 	public PatternSet(String l) {
 		this(l, false);
 	}
-
+	
 	/**
-	 * @param l language
-	 * @param v verbose
+	 * @param l
+	 *          language
+	 * @param v
+	 *          verbose
 	 */
 	public PatternSet(String l, boolean v) {
 		this.verbose = v;
-		this.pat = this.verbose ?
-				new TreeMap<String, String>() : // better to read
+		this.pat = this.verbose ? new TreeMap<String, String>() : // better to
+				// read
 				new HashMap<String, String>(); // better Performance
 		this.exc = new ArrayList<String>();
 		
@@ -50,37 +52,42 @@ public class PatternSet implements Formattable, Function<String, String> {
 		l = l.equalsIgnoreCase("de") ? "de-1901" : l;
 		l = l.equalsIgnoreCase("en") ? "en-gb" : l;
 		
-		this.load(IO.getReader("hyphen/hyph-"+l+".tex"));
+		this.load(IO.getReader("hyphen/hyph-" + l + ".tex"));
 	}
 	
 	protected void load(BufferedReader r) {
 		try {
-			boolean pattern = true; // State: true => pattern, false => exception
+			boolean pattern = true; // State: true => pattern, false =>
+			// exception
 			
 			String line;
 			while ((line = r.readLine()) != null) {
 				int pos = line.indexOf("%");
-				if(pos!=-1) {
+				if (pos != -1) {
 					line = line.substring(0, pos);
 				}
-				line = line.replace("{","");
-				line = line.replace("}","");
+				line = line.replace("{", "");
+				line = line.replace("}", "");
 				line = line.trim();
 				
-				if(line.equals("")) {
+				if (line.equals("")) {
 					continue;
 				}
-				if(line.startsWith("\\")) {
-					if(line.equals("\\patterns")) pattern=true;
-					if(line.equals("\\hyphenation")) pattern=false;
+				if (line.startsWith("\\")) {
+					if (line.equals("\\patterns")) {
+						pattern = true;
+					}
+					if (line.equals("\\hyphenation")) {
+						pattern = false;
+					}
 					continue;
 				}
 				
 				Scanner s = new Scanner(line);
-				while(s.hasNext()) {
-					if(pattern) {
+				while (s.hasNext()) {
+					if (pattern) {
 						addPattern(s.next());
-					} else {		
+					} else {
 						addException(s.next());
 					}
 				}
@@ -91,41 +98,37 @@ public class PatternSet implements Formattable, Function<String, String> {
 	}
 	
 	/*
-	 * p=|2z1um.| (6)
-	 * k=|zum.| (4)
-	 * v=|21000| (5=4+1)
-	 */ 
+	 * p=|2z1um.| (6) k=|zum.| (4) v=|21000| (5=4+1)
+	 */
 	protected void addPattern(String p) {
 		StringBuilder k = new StringBuilder();
 		StringBuilder v = new StringBuilder();
 		boolean lastDigit = false;
 		
-		for(int i=0; i<p.length(); i++) {
+		for (int i = 0; i < p.length(); i++) {
 			char c = p.charAt(i);
-			if(Character.isDigit(c)) {
+			if (Character.isDigit(c)) {
 				v.append(c);
 				lastDigit = true;
 			} else { // is letter
 				k.append(c);
-				if(lastDigit) {					
+				if (lastDigit) {
 					lastDigit = false;
 				} else {
-					v.append('0');					
+					v.append('0');
 				}
-				if(i == p.length()-1) {
-					v.append('0');	
+				if (i == p.length() - 1) {
+					v.append('0');
 				}
 			}
 		}
 		
-		//*
-		if(verbose) {
-			System.out.format("Add %10s (%d), %10s (%d) = %10s (%d)%n",
-					p, p.length(),
-					k, k.length(),
-					v, v.length());
-		}//*/
-
+		// *
+		if (this.verbose) {
+			System.out.format("Add %10s (%d), %10s (%d) = %10s (%d)%n", p,
+					p.length(), k, k.length(), v, v.length());
+		}// */
+		
 		this.maxLength = Math.max(this.maxLength, k.length());
 		this.minLength = Math.min(this.minLength, k.length());
 		
@@ -135,36 +138,36 @@ public class PatternSet implements Formattable, Function<String, String> {
 	protected void addException(String e) {
 		this.exc.add(e);
 	}
-
+	
 	@Override
 	public String apply(String input) {
-		Formatter f = new Formatter(verbose ? System.out : new StringBuilder());
+		Formatter f = new Formatter(this.verbose ? System.out : new StringBuilder());
 		
-		//if exception return it;
+		// if exception return it;
 		
 		int N = input.length();
-		StringBuilder weight = new StringBuilder(N+3);
-		for(int i=0; i<N+3; i++) {
+		StringBuilder weight = new StringBuilder(N + 3);
+		for (int i = 0; i < N + 3; i++) {
 			weight.append('0');
 		}
 		
-		String in =  "." + input.toLowerCase() + ".";
+		String in = "." + input.toLowerCase() + ".";
 		
 		f.format("Input:%n%s%n", in);
 		
-		for(int l=2; l<=in.length(); l++) {
+		for (int l = 2; l <= in.length(); l++) {
 			f.format("%2d: ", l);
-			for(int p=0;p<(in.length()-l+1);p++) {
-				String key = in.substring(p, p+l);
+			for (int p = 0; p < (in.length() - l + 1); p++) {
+				String key = in.substring(p, p + l);
 				f.format("[%s] ", key);
 				String val;
-				if((val = this.pat.get(key)) != null) {
+				if ((val = this.pat.get(key)) != null) {
 					f.format("%d:__(%s=%s)__ ", p, key, val);
 					
-					for(int i=0; i<val.length(); i++) {
+					for (int i = 0; i < val.length(); i++) {
 						char newChar = val.charAt(i);
-						int pos = p+i;						
-						if(weight.charAt(pos) < newChar) {
+						int pos = p + i;
+						if (weight.charAt(pos) < newChar) {
 							weight.setCharAt(pos, newChar);
 						}
 					}
@@ -175,8 +178,9 @@ public class PatternSet implements Formattable, Function<String, String> {
 		f.format("->%s (weight)%n", weight);
 		
 		int hyphenCount = 0;
-		for(int i=0;i<weight.length();i++) {			
-			if((i<1+2) || (i>weight.length()-2-2) || ((weight.charAt(i) % 2) == 0)) {
+		for (int i = 0; i < weight.length(); i++) {
+			if ((i < 1 + 2) || (i > weight.length() - 2 - 2)
+					|| ((weight.charAt(i) % 2) == 0)) {
 				weight.setCharAt(i, '0');
 			} else {
 				hyphenCount++;
@@ -184,19 +188,19 @@ public class PatternSet implements Formattable, Function<String, String> {
 		}
 		f.format("->%s (weight)%n", weight);
 		
-		StringBuilder out = new StringBuilder(N+hyphenCount);
-		for(int i=0;i<input.length(); i++) {
+		StringBuilder out = new StringBuilder(N + hyphenCount);
+		for (int i = 0; i < input.length(); i++) {
 			out.append(input.charAt(i));
-			if(weight.charAt(2+i) != '0') {
+			if (weight.charAt(2 + i) != '0') {
 				out.append('­'); // soft hypen
-				//out.append(weight.charAt(2+i)); // soft hypen
+				// out.append(weight.charAt(2+i)); // soft hypen
 			}
 		}
-
+		
 		f.format("->  %s%n", out);
 		return out.toString();
 	}
-
+	
 	@Override
 	public String toString() {
 		return String.format("Pattern (min=%d, max=%d, %d Words, %d Exceptions)",
@@ -205,28 +209,31 @@ public class PatternSet implements Formattable, Function<String, String> {
 	
 	@Override
 	public void formatTo(Formatter f, int flags, int width, int precision) {
-		f.format("%s ", this.toString());		
+		f.format("%s ", this.toString());
 		f.format(" (Words: %s, Exceptions: %s)%n", this.pat, this.exc);
 	}
-
-	/* Static test methods */
 	
-	protected static void testPattern(String lang, String ... words) {
+	/* Static test methods */
+
+	protected static void testPattern(String lang, String... words) {
 		PatternSet p = new PatternSet(lang, false);
 		System.out.format("Pattern: %s%n", p.toString());
-
-		for(String w : words) {
+		
+		for (String w : words) {
 			System.out.format("%s(%s)=%s%n", lang, w, p.apply(w));
 		}
 		
 		System.out.format("%n");
 		
 	}
-
+	
 	public static void main(String... arg) {
-		testPattern("de", "Bundestagssitzung", "Wasser", "Hausstand", "schreien", "Silbentrennungsalgorithmus");
-		testPattern("en", "congress", "university", "crying", "hyphenation", "algorithm");
-		testPattern("la", "quarum", "appellantur", "institutis", "legibus", "prohibent");
+		PatternSet.testPattern("de", "Bundestagssitzung", "Wasser", "Hausstand",
+				"schreien", "Silbentrennungsalgorithmus");
+		PatternSet.testPattern("en", "congress", "university", "crying",
+				"hyphenation", "algorithm");
+		PatternSet.testPattern("la", "quarum", "appellantur", "institutis",
+				"legibus", "prohibent");
 	}
 	
 }

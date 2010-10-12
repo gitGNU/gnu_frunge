@@ -11,7 +11,7 @@ public class Formats {
 	public static void process(Format f, Reader r, Writer w, Converter c) {
 		try {
 			f.process(r, w, c);
-		} catch(IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
 			try {

@@ -3,50 +3,50 @@ package org.nongnu.frunge.core;
 import java.util.Formattable;
 import java.util.Formatter;
 
-
 public class Metric implements Formattable {
-
+	
 	/* Counter */
 
 	protected int sTotal;
 	
 	protected int ſTotal;
-
+	
 	protected int sCorrect;
 	
-	protected int ſCorrect;	
-	
+	protected int ſCorrect;
 	
 	public Metric() {
 		super();
 	}
 	
 	public void addCase(String expected, String actual) {
-		for(int pos=0; pos<expected.length(); pos++) {
+		for (int pos = 0; pos < expected.length(); pos++) {
 			char e = expected.charAt(pos);
-			if(e=='s') {
+			if (e == 's') {
 				char a = actual.charAt(pos);
 				this.sTotal++;
-				if(e==a) this.sCorrect++;
+				if (e == a) {
+					this.sCorrect++;
+				}
 			}
-			if(e=='ſ') {
+			if (e == 'ſ') {
 				char a = actual.charAt(pos);
 				this.ſTotal++;
-				if(e==a) this.ſCorrect++;
+				if (e == a) {
+					this.ſCorrect++;
+				}
 			}
 		}
 	}
 	
 	@Override
 	public void formatTo(Formatter f, int flags, int width, int precision) {
-		f.format("Result Metric (Correct: %s, s: %s, ſ: %s)",
-				percent(sCorrect+ſCorrect, sTotal+ſTotal),
-				percent(sCorrect, sTotal),
-				percent(ſCorrect, ſTotal)
-				);
+		f.format("Result Metric (Correct: %s, s: %s, ſ: %s)", percent(this.sCorrect
+				+ this.ſCorrect, this.sTotal + this.ſTotal), percent(this.sCorrect,
+				this.sTotal), percent(this.ſCorrect, this.ſTotal));
 	}
 	
 	protected String percent(int a, int b) {
-		return String.format("%.2f%% = %3d/%3d", (double) (100*a) / b, a, b);
+		return String.format("%.2f%% = %3d/%3d", (double) (100 * a) / b, a, b);
 	}
 }

@@ -1,91 +1,91 @@
 <project name="blacken" default="dist" basedir=".">
-  <description>
-  build file for the blacken program (s to ſ converter).
-  </description>
-  
-  <!-- set global directory properties for this build -->
-  
-  <property name="bin" location="bin"/>
-  <property name="src" location="src"/>
-  
-  <property name="res" location="res"/>
-  <property name="bld" location="${res}/build"/>
-  <property name="lib" location="${res}/lib"/> <!-- Libraries which are needed for the application at runtime. -->
-  
-  <property name="out" location="out"/>
-  <property name="api" location="${out}/api"/>
-  <property name="jar" location="${out}/blacken.jar"/>
-  <property name="jar.temp" location="${out}/blacken-temp.jar"/>
-  
-  <!-- other program specific properties -->
-  
-  <property name="p.main" value="org.nongnu.frunge.cli.Parser"/>
-  
-  <!-- Creates the used classpath(s)-->
-  
-  <path id="cp.jvm"> <!-- Java API library -->
-    <fileset dir="${java.home}">
-      <include name="**/rt.jar"/>
-    </fileset>
-  </path>
-  
-  <path id="cp.bld"> <!-- Build time libraries -->
-    <fileset dir="${bld}">
-      <include name="**/*.jar"/>
-    </fileset>
-  </path>
-  
-  <path id="cp.lib"> <!-- Run time libraries -->
-    <fileset dir="${lib}">
-      <include name="**/*.jar"/>
-    </fileset>
-  </path>
-  
-  <path id="cp.bin">
-    <dirset dir="${bin}"/>
-    <path refid="cp.lib"/>
-  </path>
-  
-  <!-- Adds the new Proguard task to Ant -->
-  <typedef resource="proguard/ant/task.properties" classpathref="cp.bld"/>
-  
-  <!-- The tasks -->
-  
-  <target name="clean" description="clean up the output directories">
-    <delete dir="${bin}"/>
-    <delete dir="${out}"/>
-  </target>
-  
-  <target name="init" depends="clean" description="create the output directories">
-    <mkdir dir="${bin}"/>
-    <mkdir dir="${out}"/>
-    <mkdir dir="${api}"/>
-  </target>
-  
-  <target name="normalize" depends="init" description="ensure linux file endings">
-    <fixcrlf srcdir="${src}" includes="**/*.java" encoding="UTF-8" eol="lf" eof="remove"/>
-  </target>
-  
-  <target name="compile" depends="init, normalize" description="compile the source">
-    <javac srcdir="${src}" destdir="${bin}" encoding="UTF-8" includeAntRuntime="false">
-      <classpath refid="cp.lib"/>
-      <compilerarg value="-Xlint"/> <!-- We want to see all warnings -->
-    </javac>
-    <copy todir="${bin}">
-      <fileset dir="${res}/data"/>
-    </copy>
-  </target>
-  
-  <target name="javadoc" depends="init" description="creates the deleloper javadoc">
-    <javadoc
-        sourcepath="${src}" destdir="${api}"
-        private="true" author="true" version="true" use="true" linksource="yes"
-        encoding="UTF-8" docencoding="utf-8"
-        overview="${bld}/overview.html"
-        windowtitle="Blacken Developer API">
-      <classpath refid="cp.lib"/>
-      <doctitle><![CDATA[<h1>Blacken Developer API</h1>]]></doctitle>
-      <bottom><![CDATA[<h2>Licence</h2>
+	<description>
+	build file for the blacken program (s to ſ converter).
+	</description>
+	
+	<!-- set global directory properties for this build -->
+	
+	<property name="bin" location="bin"/>
+	<property name="src" location="src"/>
+	
+	<property name="res" location="res"/>
+	<property name="bld" location="${res}/build"/>
+	<property name="lib" location="${res}/lib"/> <!-- Libraries which are needed for the application at runtime. -->
+	
+	<property name="out" location="out"/>
+	<property name="api" location="${out}/api"/>
+	<property name="jar" location="${out}/blacken.jar"/>
+	<property name="jar.temp" location="${out}/blacken-temp.jar"/>
+	
+	<!-- other program specific properties -->
+	
+	<property name="p.main" value="org.nongnu.frunge.cli.Parser"/>
+	
+	<!-- Creates the used classpath(s)-->
+	
+	<path id="cp.jvm"> <!-- Java API library -->
+		<fileset dir="${java.home}">
+			<include name="**/rt.jar"/>
+		</fileset>
+	</path>
+	
+	<path id="cp.bld"> <!-- Build time libraries -->
+		<fileset dir="${bld}">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	
+	<path id="cp.lib"> <!-- Run time libraries -->
+		<fileset dir="${lib}">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	
+	<path id="cp.bin">
+		<dirset dir="${bin}"/>
+		<path refid="cp.lib"/>
+	</path>
+	
+	<!-- Adds the new Proguard task to Ant -->
+	<typedef resource="proguard/ant/task.properties" classpathref="cp.bld"/>
+	
+	<!-- The tasks -->
+	
+	<target name="clean" description="clean up the output directories">
+		<delete dir="${bin}"/>
+		<delete dir="${out}"/>
+	</target>
+	
+	<target name="init" depends="clean" description="create the output directories">
+		<mkdir dir="${bin}"/>
+		<mkdir dir="${out}"/>
+		<mkdir dir="${api}"/>
+	</target>
+	
+	<target name="normalize" depends="init" description="ensure linux file endings">
+		<fixcrlf srcdir="${src}" includes="**/*.java" encoding="UTF-8" eol="lf" eof="remove"/>
+	</target>
+	
+	<target name="compile" depends="init, normalize" description="compile the source">
+		<javac srcdir="${src}" destdir="${bin}" encoding="UTF-8" includeAntRuntime="false">
+			<classpath refid="cp.lib"/>
+			<compilerarg value="-Xlint"/> <!-- We want to see all warnings -->
+		</javac>
+		<copy todir="${bin}">
+			<fileset dir="${res}/data"/>
+		</copy>
+	</target>
+	
+	<target name="javadoc" depends="init" description="creates the deleloper javadoc">
+		<javadoc
+				sourcepath="${src}" destdir="${api}"
+				private="true" author="true" version="true" use="true" linksource="yes"
+				encoding="UTF-8" docencoding="utf-8"
+				overview="${bld}/overview.html"
+				windowtitle="Blacken Developer API">
+			<classpath refid="cp.lib"/>
+			<doctitle><![CDATA[<h1>Blacken Developer API</h1>]]></doctitle>
+			<bottom><![CDATA[<h2>Licence</h2>
 <p>Copyright © 2009 Dennis Heidsiek</p>
 
 <p>This program is <em>free software</em>; you can redistribute it and/or modify it under the terms of the <strong>GNU General Public License</strong> as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.</p>
@@ -93,85 +93,85 @@
 <p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
 
 <p>You should have received a copy of the GNU General Public License along with this program; if not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/<a>.</p>]]></bottom>
-    </javadoc>
-    <!--
-      stylesheetfile=${res}/api/.css"
-      <link href="http://java.sun.com/j2se/1.6.0/docs/api/"/>
-      <link href="http://java.sun.com/j2se/1.6.0/docs/api/" offline="true" packagelistLoc="C:\tmp"/>
-      -->
-  </target>
-  
-  <target name="make-jar" depends="compile" description="creates the full fat jar file for distribution">
-    <!-- Put everything in ${bin} into the temp jar file and make it executable-->
-    <jar jarfile="${jar.temp}" basedir="${bin}">
-      <manifest>
-        <attribute name="Main-Class" value="${p.main}"/>
-      </manifest>
-    </jar>
-    
-    <!-- Create the final fat jar for distribution -->
-    <proguard
-      ignorewarnings = "false"
-      verbose = "true"
-      shrink = "true"
-      optimize = "true"
-      obfuscate = "true"
-      overloadaggressively = "false"
-      allowaccessmodification = "false"
-      mergeinterfacesaggressively = "false"
-      usemixedcaseclassnames = "true"
-      defaultpackage = "frg"
-      skipnonpubliclibraryclasses = "false"
-      skipnonpubliclibraryclassmembers = "false"
-      >
-      <libraryjar refid = "cp.jvm"/>
-      <injar file = "${jar.temp}"/>
-      <injar refid = "cp.lib" filter="!META-INF/**"/>
-      <outjar file = "${jar}"/>
-      <!-- Preserve all annotations. -->
-      -keepattributes *Annotation*
-      <!-- Preserve main class -->
-      -keep public class ${p.main} {
-         public static void main(java.lang.String[]);
-      }
-    </proguard>
-    
-    <!-- remove temp jar file -->
-    <delete file = "${jar.temp}"/>
-  </target>
-  
-  <target name="dist" depends="compile, javadoc, make-jar" description="generate the distribution">    
-    <!-- Pack the documentation -->
-    <tar destfile="${out}/api.tar.bz2" basedir="${api}" compression="bzip2"/>
-    
-    <!-- creates a shortcut skript for the Linux terminal -->
-    <concat destfile="${out}/blacken">#!/bin/sh
+		</javadoc>
+		<!--
+			stylesheetfile=${res}/api/.css"
+			<link href="http://java.sun.com/j2se/1.6.0/docs/api/"/>
+			<link href="http://java.sun.com/j2se/1.6.0/docs/api/" offline="true" packagelistLoc="C:\tmp"/>
+			-->
+	</target>
+	
+	<target name="make-jar" depends="compile" description="creates the full fat jar file for distribution">
+		<!-- Put everything in ${bin} into the temp jar file and make it executable-->
+		<jar jarfile="${jar.temp}" basedir="${bin}">
+			<manifest>
+				<attribute name="Main-Class" value="${p.main}"/>
+			</manifest>
+		</jar>
+		
+		<!-- Create the final fat jar for distribution -->
+		<proguard
+			ignorewarnings = "false"
+			verbose = "true"
+			shrink = "true"
+			optimize = "true"
+			obfuscate = "true"
+			overloadaggressively = "false"
+			allowaccessmodification = "false"
+			mergeinterfacesaggressively = "false"
+			usemixedcaseclassnames = "true"
+			defaultpackage = "frg"
+			skipnonpubliclibraryclasses = "false"
+			skipnonpubliclibraryclassmembers = "false"
+			>
+			<libraryjar refid = "cp.jvm"/>
+			<injar file = "${jar.temp}"/>
+			<injar refid = "cp.lib" filter="!META-INF/**"/>
+			<outjar file = "${jar}"/>
+			<!-- Preserve all annotations. -->
+			-keepattributes *Annotation*
+			<!-- Preserve main class -->
+			-keep public class ${p.main} {
+				 public static void main(java.lang.String[]);
+			}
+		</proguard>
+		
+		<!-- remove temp jar file -->
+		<delete file = "${jar.temp}"/>
+	</target>
+	
+	<target name="dist" depends="compile, javadoc, make-jar" description="generate the distribution">		
+		<!-- Pack the documentation -->
+		<tar destfile="${out}/api.tar.bz2" basedir="${api}" compression="bzip2"/>
+		
+		<!-- creates a shortcut skript for the Linux terminal -->
+		<concat destfile="${out}/blacken">#!/bin/sh
 java -jar blacken.jar -p "$@"</concat>
-    <chmod file="${out}/blacken" perm="744"/>
-
-    <!-- creates a shortcut skript for the Windows terminal -->
-    <concat destfile="${out}/blacken.cmd">java -jar blacken.jar %*</concat>
-  </target>
-  
-  <target name="test" description="runs the selftest of the jar file distribution">
-    <java jar="${jar}" fork="true">
-      <arg value="--test"/>
-    </java>
-  </target>
-  
-  <target name="testl" description="runs the selftest of the local bin files">
-    <java classname="${p.main}" fork="true">
-      <classpath refid="cp.bin"/>
-      <arg value="--test"/>
-    </java>
-  </target>
-  
-  <target name="testlv" description="runs the verbose selftest of the local bin files">
-    <java classname="${p.main}" fork="true">
-      <classpath refid="cp.bin"/>
-      <arg value="--verbose"/>
-      <arg value="--test"/>
-    </java>
-  </target>
-  
+		<chmod file="${out}/blacken" perm="744"/>
+		
+		<!-- creates a shortcut skript for the Windows terminal -->
+		<concat destfile="${out}/blacken.cmd">java -jar blacken.jar %*</concat>
+	</target>
+	
+	<target name="test" description="runs the selftest of the jar file distribution">
+		<java jar="${jar}" fork="true">
+			<arg value="--test"/>
+		</java>
+	</target>
+	
+	<target name="testl" description="runs the selftest of the local bin files">
+		<java classname="${p.main}" fork="true">
+			<classpath refid="cp.bin"/>
+			<arg value="--test"/>
+		</java>
+	</target>
+	
+	<target name="testlv" description="runs the verbose selftest of the local bin files">
+		<java classname="${p.main}" fork="true">
+			<classpath refid="cp.bin"/>
+			<arg value="--verbose"/>
+			<arg value="--test"/>
+		</java>
+	</target>
+	
 </project>

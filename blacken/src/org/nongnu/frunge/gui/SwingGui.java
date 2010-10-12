@@ -1,15 +1,16 @@
 package org.nongnu.frunge.gui;
 
-//import java.awt.*;
+// import java.awt.*;
 import java.io.File;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
 
 /**
  * @author Dennis Heidsiek
  */
 public class SwingGui {
-
+	
 	public SwingGui() {
 		
 		final JTextArea text = new JTextArea();
@@ -23,14 +24,14 @@ public class SwingGui {
 				}
 			}
 		});
-
+		
 		JFrame frame = new JFrame("Blacken – Drag and Drop GUI");
 		frame.add(text);
 		frame.setBounds(100, 100, 600, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 	}
-
+	
 	public static void main(String... arg) {
 		new SwingGui();
 	}
