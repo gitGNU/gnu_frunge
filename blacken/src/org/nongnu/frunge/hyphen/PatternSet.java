@@ -11,7 +11,7 @@ import java.util.Scanner;
 import java.util.TreeMap;
 
 import org.nongnu.frunge.util.Function;
-import org.nongnu.frunge.util.IO;
+import org.nongnu.frunge.util.Streams;
 
 public class PatternSet implements Formattable, Function<String, String> {
 	
@@ -52,7 +52,7 @@ public class PatternSet implements Formattable, Function<String, String> {
 		l = l.equalsIgnoreCase("de") ? "de-1901" : l;
 		l = l.equalsIgnoreCase("en") ? "en-gb" : l;
 		
-		this.load(IO.getReader("hyphen/hyph-" + l + ".tex"));
+		this.load(Streams.getReader("hyphen/hyph-" + l + ".tex"));
 	}
 	
 	protected void load(BufferedReader r) {

@@ -15,7 +15,7 @@ import org.nongnu.frunge.core.TestRunner;
 import org.nongnu.frunge.format.Formats;
 import org.nongnu.frunge.format.PlainTextFormat;
 import org.nongnu.frunge.gui.SwingGui;
-import org.nongnu.frunge.util.IO;
+import org.nongnu.frunge.util.Streams;
 
 import uk.co.flamingpenguin.jewel.cli.ArgumentValidationException;
 import uk.co.flamingpenguin.jewel.cli.Cli;
@@ -134,15 +134,15 @@ public class Parser {
 		}
 		
 		if (op.pipe()) {
-			Formats.process(new PlainTextFormat(), IO.asUTF8(System.in),
-					IO.asUTF8(System.out), Converters.get(op.getLang()));
+			Formats.process(new PlainTextFormat(), Streams.asUTF8(System.in),
+					Streams.asUTF8(System.out), Converters.get(op.getLang()));
 		}
 		
 		if (op.getUnparsed() != null) {
 			if (op.getUnparsed().size() == 2) {
 				Formats.process(new PlainTextFormat(),
-						IO.getReader(op.getUnparsed().get(0)),
-						IO.getWriter(op.getUnparsed().get(1)), Converters.get(op.getLang()));
+						Streams.getReader(op.getUnparsed().get(0)),
+						Streams.getWriter(op.getUnparsed().get(1)), Converters.get(op.getLang()));
 			}
 		}
 		

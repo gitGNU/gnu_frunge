@@ -5,7 +5,7 @@ import java.io.BufferedReader;
 import org.nongnu.frunge.converter.Converter;
 import org.nongnu.frunge.converter.Converters;
 import org.nongnu.frunge.hyphen.PatternSet;
-import org.nongnu.frunge.util.IO;
+import org.nongnu.frunge.util.Streams;
 
 /**
  * Executes some nasty s or ſ tests.
@@ -36,7 +36,7 @@ public class TestRunner {
 		}
 		
 		try {
-			BufferedReader r = IO.getReader("testcases/" + lang + ".csv");
+			BufferedReader r = Streams.getReader("testcases/" + lang + ".csv");
 			
 			String line;
 			while ((line = r.readLine()) != null) {
