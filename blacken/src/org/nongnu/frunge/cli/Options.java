@@ -21,7 +21,7 @@ public interface Options {
 	@Option(shortName = "t", longName = "test", description = "run some testsuits")
 	boolean test();
 	
-	@Option(shortName = "p", longName = "pipe", description = "run this program in the middle of a linux pipe")
+	@Option(shortName = "p", longName = "pipe", description = "run this program within a linux pipe")
 	boolean pipe();
 	
 	@Option(shortName = "f", longName = "format", description = "the file format to deal with", defaultValue = "plain", pattern = "plain|tex|html")
@@ -29,6 +29,9 @@ public interface Options {
 	
 	@Option(shortName = "l", longName = "lang", description = "the language of the input", defaultValue = "de", pattern = "de|en|la")
 	String getLang();
+	
+	@Option(longName = "charsets", description = "Lists all availible charsets.")
+	boolean charsets();
 	
 	@Unparsed(name = "[inputfile outputfile]")
 	List<String> getUnparsed();

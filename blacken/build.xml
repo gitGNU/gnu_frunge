@@ -138,6 +138,8 @@
 		
 		<!-- remove temp jar file -->
 		<delete file = "${jar.temp}"/>
+		
+		<chmod file="${jar}" perm="744"/>
 	</target>
 	
 	<target name="dist" depends="compile, javadoc, make-jar" description="generate the distribution">		
@@ -146,7 +148,7 @@
 		
 		<!-- creates a shortcut skript for the Linux terminal -->
 		<concat destfile="${out}/blacken">#!/bin/sh
-java -jar blacken.jar -p "$@"</concat>
+java -jar blacken.jar "$@"</concat>
 		<chmod file="${out}/blacken" perm="744"/>
 		
 		<!-- creates a shortcut skript for the Windows terminal -->

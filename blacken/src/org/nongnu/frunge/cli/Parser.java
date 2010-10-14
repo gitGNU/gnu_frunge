@@ -2,6 +2,12 @@ package org.nongnu.frunge.cli;
 
 import java.io.Console;
 import java.io.PrintStream;
+
+import java.nio.charset.Charset;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.SortedMap;
 import java.util.concurrent.TimeUnit;
 
 import org.nongnu.frunge.converter.Converters;
@@ -112,6 +118,21 @@ public class Parser {
 			new TestRunner(op.getLang(), op.verbose());
 		}
 		
+		if (op.charsets()) {
+			SortedMap<String, Charset> charsets = Charset.availableCharsets();
+			ArrayList<String> names = new ArrayList<String>(6 * charsets.size());
+			for (String s : charsets.keySet()) {
+				names.add(s);
+				for (String a : charsets.get(s).aliases()) {
+					names.add(String.format("%s (Alias of %s)", a, s));
+				}
+			}
+			Collections.sort(names);
+			for (String s : names) {
+				System.out.format("%s%n", s);
+			}
+		}
+		
 		if (op.pipe()) {
 			Formats.process(new PlainTextFormat(), IO.asUTF8(System.in),
 					IO.asUTF8(System.out), Converters.get(op.getLang()));
@@ -131,5 +152,6 @@ public class Parser {
 					TimeUnit.NANOSECONDS.toSeconds(timing),
 					TimeUnit.NANOSECONDS.toMillis(timing));
 		}
+		
 	}
 }
