@@ -21,6 +21,9 @@ public interface Options {
 	@Option(shortName = "t", longName = "test", description = "run some testsuits")
 	boolean test();
 	
+	@Option(shortName = "c", longName = "input-charset", description = "the charset of the input.", defaultValue = "automatic", pattern = ".*")
+	String inputCharset();
+	
 	@Option(shortName = "p", longName = "pipe", description = "run this program within a linux pipe")
 	boolean pipe();
 	

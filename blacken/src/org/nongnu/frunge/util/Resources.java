@@ -17,21 +17,21 @@ public class Resources {
 	protected final static ClassLoader SCL = ClassLoader.getSystemClassLoader();
 	
 	/**
-	 * @param s
+	 * @param res
 	 *          a relative link to a resource
 	 * @return null in case of an error
 	 */
-	public static InputStream getStream(String s) {
+	public static InputStream getStream(String res) {
 		InputStream is = null;
 		for (String p : Resources.PREFIXES) {
-			is = Resources.SCL.getResourceAsStream(p.concat(s));
+			is = Resources.SCL.getResourceAsStream(p.concat(res));
 			if (is != null) {
 				break;
 			}
 		}
 		if (is == null) {
 			try {
-				is = new FileInputStream(new File(s));
+				is = new FileInputStream(new File(res));
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}

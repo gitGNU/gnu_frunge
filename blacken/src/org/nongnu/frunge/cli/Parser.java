@@ -2,9 +2,7 @@ package org.nongnu.frunge.cli;
 
 import java.io.Console;
 import java.io.PrintStream;
-
 import java.nio.charset.Charset;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.SortedMap;
@@ -15,6 +13,8 @@ import org.nongnu.frunge.core.TestRunner;
 import org.nongnu.frunge.format.Formats;
 import org.nongnu.frunge.format.PlainTextFormat;
 import org.nongnu.frunge.gui.SwingGui;
+import org.nongnu.frunge.util.CharsetDetector;
+import org.nongnu.frunge.util.Resources;
 import org.nongnu.frunge.util.Streams;
 
 import uk.co.flamingpenguin.jewel.cli.ArgumentValidationException;
@@ -104,6 +104,8 @@ public class Parser {
 			if (con != null) {
 				con.writer().format("Console test: uiaeüöä UIAEÜÖÄ sſß%n");
 			}
+			System.out.format("System class path: %s%n",
+					System.getProperty("java.class.path"));
 			
 			System.out.format("Your typed %d argument(s):%n", arg.length);
 			for (int i = 0; i < arg.length; i++) {
@@ -112,6 +114,9 @@ public class Parser {
 			
 			System.out.format("Evaluated to:%n");
 			Parser.formatTo(System.out, op);
+			
+			System.out.format("Input Charset: %s%n", op.inputCharset());
+			System.out.format("Input Charset: %s%n", System.in);
 		}
 		
 		if (op.test()) {
@@ -134,15 +139,18 @@ public class Parser {
 		}
 		
 		if (op.pipe()) {
-			Formats.process(new PlainTextFormat(), Streams.asUTF8(System.in),
-					Streams.asUTF8(System.out), Converters.get(op.getLang()));
+			Formats.process(new PlainTextFormat(),
+					CharsetDetector.asReader(System.in), Streams.asWriter(System.out,
+							"UTF-8"), Converters.get(op.getLang()));
 		}
 		
 		if (op.getUnparsed() != null) {
 			if (op.getUnparsed().size() == 2) {
-				Formats.process(new PlainTextFormat(),
-						Streams.getReader(op.getUnparsed().get(0)),
-						Streams.getWriter(op.getUnparsed().get(1)), Converters.get(op.getLang()));
+				Formats.process(
+						new PlainTextFormat(),
+						CharsetDetector.asReader(Resources.getStream(op.getUnparsed().get(0))),
+						Streams.getWriter(op.getUnparsed().get(1)),
+						Converters.get(op.getLang()));
 			}
 		}
 		

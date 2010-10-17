@@ -18,20 +18,23 @@ import java.io.UnsupportedEncodingException;
  */
 public class Streams {
 	
-	public static BufferedReader asUTF8(InputStream is) {
+	/**
+	 * @return null in case of an error
+	 */
+	public static BufferedReader asReader(InputStream is, String charset) {
 		BufferedReader r = null;
 		try {
-			r = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+			r = new BufferedReader(new InputStreamReader(is, charset));
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 		return r;
 	}
 	
-	public static BufferedWriter asUTF8(OutputStream os) {
+	public static BufferedWriter asWriter(OutputStream os, String charset) {
 		BufferedWriter w = null;
 		try {
-			w = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+			w = new BufferedWriter(new OutputStreamWriter(os, charset));
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -44,13 +47,13 @@ public class Streams {
 	 * @return null in case of an error
 	 */
 	public static BufferedReader getReader(String s) {
-		return Streams.asUTF8(Resources.getStream(s));
+		return Streams.asReader(Resources.getStream(s), "UTF-8");
 	}
 	
 	public static BufferedWriter getWriter(String s) {
 		BufferedWriter w = null;
 		try {
-			w = Streams.asUTF8(new FileOutputStream(new File(s)));
+			w = Streams.asWriter(new FileOutputStream(new File(s)), "UTF-8");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

@@ -617,7 +617,7 @@ public class FileDrop {
 		}
 	} // end remove
 	
-	/*                          ******** I N N E R I N T E R F A C E L I S T E N E R ******** */
+	/* Inner Interface Listener */
 
 	/**
 	 * Implement this inner interface to listen for when files are dropped. For
@@ -646,7 +646,7 @@ public class FileDrop {
 		
 	} // end inner-interface Listener
 	
-	/*                          ******** I N N E R C L A S S ******** */
+	/* Inner Class */
 
 	/**
 	 * This is the event that is passed to the filesDropped(...) method in your
@@ -691,7 +691,7 @@ public class FileDrop {
 		
 	} // end inner class Event
 	
-	/*                          ******** I N N E R C L A S S ******** */
+	/* Inner Class */
 
 	/**
 	 * At last an easy way to encapsulate your custom objects for dragging and
@@ -829,7 +829,7 @@ public class FileDrop {
 			return this.customFlavor;
 		} // end getCustomDataFlavor
 		
-		/*                          ******** T R A N S F E R A B L E M E T H O D S ******** */
+		/* Transferable Methods */
 
 		/**
 		 * Returns a two- or three-element array containing first the custom data
@@ -910,7 +910,7 @@ public class FileDrop {
 			return false;
 		} // end isDataFlavorSupported
 		
-		/*                          ******** I N N E R I N T E R F A C E F E T C H E R ******** */
+		/* Inner Interface fetcher */
 
 		/**
 		 * Instead of passing your data directly to the {@link TransferableObject}
