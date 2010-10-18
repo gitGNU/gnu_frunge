@@ -153,6 +153,8 @@
 			-keep public class ${p.main} {
 				 public static void main(java.lang.String[]);
 			}
+			<!-- Preserve custom logging formats -->
+			-keep public class * extends java.util.logging.Formatter
 		</proguard>
 		<chmod file="${jar}" perm="744"/>
 	</target>

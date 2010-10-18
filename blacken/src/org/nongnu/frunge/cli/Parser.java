@@ -109,8 +109,7 @@ public class Parser {
 			if (con != null) {
 				con.writer().format("Console test: uiaeüöä UIAEÜÖÄ sſß%n");
 			}
-			log.info("System class path: {}",
-					System.getProperty("java.class.path"));
+			log.info("System class path: {}", System.getProperty("java.class.path"));
 			
 			log.info("Your typed {} argument(s):", arg.length);
 			for (int i = 0; i < arg.length; i++) {
