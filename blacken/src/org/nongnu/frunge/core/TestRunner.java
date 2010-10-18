@@ -5,7 +5,7 @@ import java.io.BufferedReader;
 import org.nongnu.frunge.converter.Converter;
 import org.nongnu.frunge.converter.Converters;
 import org.nongnu.frunge.hyphen.PatternSet;
-import org.nongnu.frunge.util.Streams;
+import org.nongnu.frunge.io.Streams;
 
 /**
  * Executes some nasty s or ſ tests.

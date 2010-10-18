@@ -1,4 +1,4 @@
-package org.nongnu.frunge.util;
+package org.nongnu.frunge.io;
 
 import java.io.File;
 import java.io.FileInputStream;

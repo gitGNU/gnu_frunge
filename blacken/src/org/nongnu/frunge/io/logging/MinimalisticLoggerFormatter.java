@@ -1,4 +1,4 @@
-package org.nongnu.frunge.util;
+package org.nongnu.frunge.io.logging;
 
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;

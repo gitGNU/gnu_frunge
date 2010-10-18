@@ -1,9 +1,8 @@
-package org.nongnu.frunge.cli;
+package org.nongnu.frunge.io.logging;
 
-import java.util.Date;
 import java.util.logging.LogManager;
 
-import org.nongnu.frunge.util.Resources;
+import org.nongnu.frunge.io.Resources;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,8 +14,6 @@ public class LoggingBinding {
 		LogManager lm = LogManager.getLogManager();
 		try {
 			lm.readConfiguration(Resources.getStream("blacken.logging.properties"));
-			log.info("Logging started for blacken at {}. Fraktur is cool!",
-					new Date());
 		} catch (Exception e) {
 			log.error("Cant't open logging file", e);
 		}

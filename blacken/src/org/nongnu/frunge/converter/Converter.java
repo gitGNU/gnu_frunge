@@ -1,6 +1,6 @@
 package org.nongnu.frunge.converter;
 
-import org.nongnu.frunge.util.Function;
+import org.nongnu.frunge.base.Function;
 
 /**
  * Converts a single word from antiqua to fraktur script. For the correct rules
