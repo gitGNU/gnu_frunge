@@ -36,7 +36,7 @@ public interface Options {
 	@Option(longName = "charsets", description = "Lists all availible charsets.")
 	boolean charsets();
 	
-	@Unparsed(name = "[inputfile outputfile]")
+	@Unparsed(name = "[inputfile [outputfile]]")
 	List<String> getUnparsed();
 	
 }

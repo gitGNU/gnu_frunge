@@ -9,8 +9,8 @@ import java.util.SortedMap;
 import java.util.concurrent.TimeUnit;
 
 import org.nongnu.frunge.converter.Converters;
+import org.nongnu.frunge.core.Task;
 import org.nongnu.frunge.core.TestRunner;
-import org.nongnu.frunge.format.Formats;
 import org.nongnu.frunge.format.PlainTextFormat;
 import org.nongnu.frunge.io.CharsetDetector;
 import org.nongnu.frunge.io.Resources;
@@ -133,28 +133,31 @@ public class Parser {
 			}
 		}
 		
+		Task.Builder job = new Task.Builder();
+		job.format(new PlainTextFormat()).converter(Converters.get(op.getLang()));
+		
 		if (op.pipe()) {
-			Formats.process(new PlainTextFormat(),
-					CharsetDetector.asReader(System.in), Streams.asWriter(System.out,
-							"UTF-8"), Converters.get(op.getLang()));
+			job.in(CharsetDetector.asReader(System.in));
+			job.out(Streams.asWriter(System.out, "UTF-8"));
 		}
 		
 		if (op.getUnparsed() != null) {
 			if (op.getUnparsed().size() == 2) {
-				Formats.process(
-						new PlainTextFormat(),
-						CharsetDetector.asReader(Resources.getStream(op.getUnparsed().get(0))),
-						Streams.getWriter(op.getUnparsed().get(1)),
-						Converters.get(op.getLang()));
+				job.in(CharsetDetector.asReader(Resources.getStream(op.getUnparsed().get(
+						0))));
+				job.out(Streams.getWriter(op.getUnparsed().get(1)));
 			}
 		}
+		
+		// Let’s start the real action!
+		job.create().run();
 		
 		if (op.verbose()) {
 			timing = System.nanoTime() - timing;
 			log.info(
 					"Time elapsed: {} ſeconds (and {} milliſeconds). Frunge ſays Goodby!",
 					TimeUnit.NANOSECONDS.toSeconds(timing),
-					TimeUnit.NANOSECONDS.toMillis(timing));
+					TimeUnit.NANOSECONDS.toMillis(timing) % 1000);
 		}
 		
 	}
