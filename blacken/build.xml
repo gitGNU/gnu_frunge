@@ -15,7 +15,7 @@
 	<property name="out" location="out"/>
 	<property name="api" location="${out}/api"/>
 	<property name="jar" location="${out}/blacken.jar"/>
-	<property name="jar.temp" location="${out}/blacken-temp.jar"/>
+	<property name="jar.lib" location="${out}/blacken-library.jar"/>
 	
 	<!-- other program specific properties -->
 	
@@ -56,17 +56,17 @@
 		<delete dir="${out}"/>
 	</target>
 	
-	<target name="init" depends="clean" description="create the output directories">
+	<target name="init" description="create the output directories">
 		<mkdir dir="${bin}"/>
 		<mkdir dir="${out}"/>
 		<mkdir dir="${api}"/>
 	</target>
 	
-	<target name="normalize" depends="init" description="ensure linux file endings">
+	<target name="normalize" description="ensure linux file endings">
 		<fixcrlf srcdir="${src}" includes="**/*.java" encoding="UTF-8" eol="lf" eof="remove"/>
 	</target>
 	
-	<target name="compile" depends="init, normalize" description="compile the source">
+	<target name="compile" depends="init" description="compile the source">
 		<javac srcdir="${src}" destdir="${bin}" encoding="UTF-8" includeAntRuntime="false">
 			<classpath refid="cp.lib"/>
 			<compilerarg value="-Xlint"/> <!-- We want to see all warnings -->
@@ -76,7 +76,7 @@
 		</copy>
 	</target>
 	
-	<target name="javadoc" depends="init" description="creates the deleloper javadoc">
+	<target name="javadoc" depends="init" description="creates the developer javadoc">
 		<javadoc
 				sourcepath="${src}" destdir="${api}"
 				private="true" author="true" version="true" use="true" linksource="yes"
@@ -101,15 +101,34 @@
 			-->
 	</target>
 	
-	<target name="make-jar" depends="compile" description="creates the full fat jar file for distribution">
-		<!-- Put everything in ${bin} into the temp jar file and make it executable-->
-		<jar jarfile="${jar.temp}" basedir="${bin}">
+	<target name="make-lib-jar" depends="compile">
+		<!-- Put everything in ${bin} into the lib jar file -->
+		<jar jarfile="${jar.lib}" basedir="${bin}">
 			<manifest>
 				<attribute name="Main-Class" value="${p.main}"/>
 			</manifest>
 		</jar>
-		
-		<!-- Create the final fat jar for distribution -->
+	</target>
+	
+	<target name="make-big-jar" depends="make-lib-jar" description="creates the full, but fat jar file for developers">
+		<proguard
+			ignorewarnings = "false"
+			verbose = "true"
+			shrink = "false"
+			optimize = "false"
+			obfuscate = "false"
+			skipnonpubliclibraryclasses = "false"
+			skipnonpubliclibraryclassmembers = "false"
+			>
+			<libraryjar refid = "cp.jvm"/>
+			<injar file = "${jar.lib}"/>
+			<injar refid = "cp.lib" filter="!META-INF/**"/>
+			<outjar file = "${jar}"/>
+		</proguard>
+		<chmod file="${jar}" perm="744"/>
+	</target>
+	
+	<target name="make-small-jar" depends="make-lib-jar" description="creates the full, but shrinked jar file for distribution">
 		<proguard
 			ignorewarnings = "false"
 			verbose = "true"
@@ -125,7 +144,7 @@
 			skipnonpubliclibraryclassmembers = "false"
 			>
 			<libraryjar refid = "cp.jvm"/>
-			<injar file = "${jar.temp}"/>
+			<injar file = "${jar.lib}"/>
 			<injar refid = "cp.lib" filter="!META-INF/**"/>
 			<outjar file = "${jar}"/>
 			<!-- Preserve all annotations. -->
@@ -135,14 +154,13 @@
 				 public static void main(java.lang.String[]);
 			}
 		</proguard>
-		
-		<!-- remove temp jar file -->
-		<delete file = "${jar.temp}"/>
-		
 		<chmod file="${jar}" perm="744"/>
 	</target>
 	
-	<target name="dist" depends="compile, javadoc, make-jar" description="generate the distribution">		
+	<target name="dist" depends="clean, normalize, compile, javadoc, make-small-jar" description="generate the distribution">
+		<!-- remove lib jar file -->
+		<delete file = "${jar.lib}"/>
+		
 		<!-- Pack the documentation -->
 		<tar destfile="${out}/api.tar.bz2" basedir="${api}" compression="bzip2"/>
 		
