@@ -12,7 +12,7 @@ public class Converters {
 	 * @return a list of all supported languages
 	 */
 	public static List<String> supportedLanguages() {
-		return LANGUAGES;
+		return Converters.LANGUAGES;
 	}
 	
 	/**

@@ -16,6 +16,8 @@ import org.nongnu.frunge.gui.SwingGui;
 import org.nongnu.frunge.util.CharsetDetector;
 import org.nongnu.frunge.util.Resources;
 import org.nongnu.frunge.util.Streams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import uk.co.flamingpenguin.jewel.cli.ArgumentValidationException;
 import uk.co.flamingpenguin.jewel.cli.Cli;
@@ -27,6 +29,8 @@ import uk.co.flamingpenguin.jewel.cli.CliFactory;
  * @author Dennis Heidsiek
  */
 public class Parser {
+	
+	final static Logger log = LoggerFactory.getLogger(Parser.class);
 	
 	protected static String getName() {
 		return String.format("Blacken (s to ſ converter)%n"
@@ -62,13 +66,14 @@ public class Parser {
 	}
 	
 	public static void main(String... arg) {
+		long timing = System.nanoTime();
+		
+		LoggingBinding.init();
 		
 		if ((arg.length == 0) && (System.console() == null)) {
 			// program was launched from a graphical entourage without console
 			new SwingGui();
 		}
-		
-		long timing = System.nanoTime();
 		
 		Cli<Options> cli = CliFactory.createCli(Options.class);
 		if (arg.length == 0) {
@@ -80,15 +85,16 @@ public class Parser {
 		try {
 			op = cli.parseArguments(arg);
 		} catch (ArgumentValidationException e) {
-			System.err.format("%s%nError:%n%s%n%n%s%n", Parser.getName(),
-					e.getMessage(), cli.getHelpMessage());
+			log.error("Invalid command line argument", e);
+			System.err.format("%n%s%n%n%s%n", Parser.getName(), e.getMessage(),
+					cli.getHelpMessage());
 			return;
 		}
 		
 		// Now we can interpret the options
 		
 		if (op.silent()) {
-			System.out.format("Shush!%n");
+			log.info("Shush!");
 		}
 		
 		if (op.help()) {
@@ -99,24 +105,22 @@ public class Parser {
 		
 		if (op.verbose()) {
 			Console con = System.console();
-			System.out.format("Console found: %s%n", (con == null) ? "No :-("
-					: "Yes!");
+			log.info("Console found: {}", (con == null) ? "No :-(" : "Yes!");
 			if (con != null) {
 				con.writer().format("Console test: uiaeüöä UIAEÜÖÄ sſß%n");
 			}
-			System.out.format("System class path: %s%n",
+			log.info("System class path: {}",
 					System.getProperty("java.class.path"));
 			
-			System.out.format("Your typed %d argument(s):%n", arg.length);
+			log.info("Your typed {} argument(s):", arg.length);
 			for (int i = 0; i < arg.length; i++) {
-				System.out.format("arg[%d]=%s%n", i, arg[i]);
+				log.info("arg[{}]={}", i, arg[i]);
 			}
 			
-			System.out.format("Evaluated to:%n");
+			log.info("Evaluated to:");
 			Parser.formatTo(System.out, op);
 			
-			System.out.format("Input Charset: %s%n", op.inputCharset());
-			System.out.format("Input Charset: %s%n", System.in);
+			log.info("Input Charset: {}", op.inputCharset());
 		}
 		
 		if (op.test()) {

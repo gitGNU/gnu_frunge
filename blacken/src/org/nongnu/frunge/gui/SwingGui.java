@@ -6,12 +6,18 @@ import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @author Dennis Heidsiek
  */
 public class SwingGui {
 	
+	final static Logger log = LoggerFactory.getLogger(SwingGui.class);
+	
 	public SwingGui() {
+		log.info("Launching Swing Gui");
 		
 		final JTextArea text = new JTextArea();
 		
@@ -19,8 +25,11 @@ public class SwingGui {
 			public void filesDropped(File[] files) {
 				for (File f : files) {
 					try {
-						text.append(f.getCanonicalPath() + "\n");
+						String s = f.getCanonicalPath();
+						log.info("Dropped file {} into window", s);
+						text.append(s + "\n");
 					} catch (java.io.IOException e) {
+						log.error("Can't find file", e);
 					}
 				}
 			}

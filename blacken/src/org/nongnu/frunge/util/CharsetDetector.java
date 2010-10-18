@@ -5,8 +5,12 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 
 import org.mozilla.intl.chardet.nsDetector;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CharsetDetector {
+	
+	final static Logger log = LoggerFactory.getLogger(CharsetDetector.class);
 	
 	public static BufferedReader asReader(InputStream is) {
 		String charset = "UTF-8";
@@ -16,22 +20,23 @@ public class CharsetDetector {
 				charset = CharsetDetector.guess(is);
 				is.reset();
 			} else {
-				System.err.format("This stream doesn’t support mark!%n");
+				log.error("This stream doesn’t support mark!");
 			}
 		} catch (Exception e) {
-			System.err.format("CharsetDetector is in big trouble.%n");
+			log.error("CharsetDetector is in big trouble.", e);
 		}
 		
 		try {
 			return Streams.asReader(is, charset);
 		} catch (Exception e) {
+			log.error("Can’t open Resource", e);
 			return null;
 		}
 	}
 	
 	public static String guess(InputStream is) {
 		try {
-			return analyse(new BufferedInputStream(is));
+			return CharsetDetector.analyse(new BufferedInputStream(is));
 		} catch (Exception e) {
 			return "UNKNOWN FILE ENCODING!";
 		}
@@ -64,7 +69,7 @@ public class CharsetDetector {
 		
 		String prob[] = det.getProbableCharsets();
 		for (int i = 0; i < prob.length; i++) {
-			System.out.format("%d. charset guess is: %s%n", (i + 1), prob[i]);
+			log.debug("{}. charset guess is: {}%n", (i + 1), prob[i]);
 		}
 		
 		return prob[0];
