@@ -12,8 +12,8 @@ public class MinimalisticLoggerFormatter extends Formatter {
 	@Override
 	public String format(LogRecord record) {
 		// ToDo: Rewrite onto StringBuilder for better performance
-		return String.format("%d %10s: %s%n", record.getMillis(),
-				record.getLevel(), record.getMessage());
+		return String.format("%d %6s: %s%n", record.getMillis(), record.getLevel(),
+				record.getMessage());
 	}
 	
 }

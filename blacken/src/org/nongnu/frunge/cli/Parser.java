@@ -5,7 +5,6 @@ import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.SortedMap;
 import java.util.concurrent.TimeUnit;
 
@@ -13,11 +12,9 @@ import org.nongnu.frunge.converter.Converters;
 import org.nongnu.frunge.core.TestRunner;
 import org.nongnu.frunge.format.Formats;
 import org.nongnu.frunge.format.PlainTextFormat;
-import org.nongnu.frunge.gui.SwingGui;
 import org.nongnu.frunge.io.CharsetDetector;
 import org.nongnu.frunge.io.Resources;
 import org.nongnu.frunge.io.Streams;
-import org.nongnu.frunge.io.logging.LoggingBinding;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -69,14 +66,6 @@ public class Parser {
 	
 	public static void main(String... arg) {
 		long timing = System.nanoTime();
-		
-		LoggingBinding.init();
-		log.info("Logging ſtarted for blacken at {}. Fraktur is cool!", new Date());
-		
-		if ((arg.length == 0) && (System.console() == null)) {
-			// program was launched from a graphical entourage without console
-			new SwingGui();
-		}
 		
 		Cli<Options> cli = CliFactory.createCli(Options.class);
 		if (arg.length == 0) {
