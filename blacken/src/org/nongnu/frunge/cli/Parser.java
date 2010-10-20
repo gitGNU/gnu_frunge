@@ -131,6 +131,7 @@ public class Parser {
 			for (String s : names) {
 				System.out.format("%s%n", s);
 			}
+			return;
 		}
 		
 		Task.Builder job = new Task.Builder();

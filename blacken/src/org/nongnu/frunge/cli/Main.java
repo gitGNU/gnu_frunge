@@ -1,6 +1,7 @@
 package org.nongnu.frunge.cli;
 
 import java.util.Date;
+import java.util.Map;
 import java.util.Properties;
 import java.util.TreeSet;
 
@@ -21,6 +22,11 @@ public class Main {
 		Properties prop = System.getProperties();
 		for (String key : new TreeSet<String>(prop.stringPropertyNames())) {
 			log.debug("System property {} = {}", key, prop.getProperty(key));
+		}
+		
+		Map<String, String> env = System.getenv();
+		for (String key : new TreeSet<String>(env.keySet())) {
+			log.debug("System env {} = {}", key, env.get(key));
 		}
 		
 		if ((arg.length == 0) && (System.console() == null)) {
