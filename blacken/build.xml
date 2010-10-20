@@ -19,7 +19,7 @@
 	
 	<!-- other program specific properties -->
 	
-	<property name="p.main" value="org.nongnu.frunge.cli.Main"/>
+	<property name="p.main" value="org.nongnu.frunge.Main"/>
 	
 	<!-- Creates the used classpath(s)-->
 	
@@ -90,7 +90,8 @@
 
 <p>This program is <em>free software</em>; you can redistribute it and/or modify it under the terms of the <strong>GNU General Public License</strong> as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.</p>
 
-<p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
+<p>This program is distributed in
+				the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
 
 <p>You should have received a copy of the GNU General Public License along with this program; if not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/<a>.</p>]]></bottom>
 		</javadoc>
@@ -102,17 +103,27 @@
 	</target>
 	
 	<target name="make-lib-jar" depends="compile">
+		<!-- Creates a build timestamp -->
+		<tstamp>
+			<format property="p.buildtime" pattern="yyyy.MM.dd 'at' HH:mm:ss z" />
+		</tstamp>
+
 		<!-- Reads git version of the build environment (if possible) -->
-		<property name="p.gitsha" value="unknown-git-revision!"/>
 		<exec dir="${src}" executable="git" outputproperty="p.gitsha" failifexecutionfails="false">
 			<arg line="rev-parse HEAD"/>
 		</exec>
+		<echo message="This build is based on git SHA1: ${p.gitsha}"/>
 		
 		<!-- Put everything in ${bin} into the lib jar file -->
 		<jar jarfile="${jar.lib}" basedir="${bin}">
 			<manifest>
 				<attribute name="Main-Class" value="${p.main}"/>
-				<attribute name="Build-On-Git-Sha1" value="${p.gitsha}"/>
+				<attribute name="Created-At" value="${p.buildtime}"/>
+				<attribute name="Implementation-Title" value="blacken"/>
+				<attribute name="Implementation-Vendor" value="Frunge Font Project"/>
+				<attribute name="Implementation-URL" value="http://frunge.nongnu.org/"/>
+				<attribute name="Implementation-Version" value="${p.gitsha}"/> 
+				<attribute name="Implementation-Date" value="${p.buildtime}"/> 
 			</manifest>
 		</jar>
 	</target>
@@ -146,7 +157,7 @@
 			allowaccessmodification = "false"
 			mergeinterfacesaggressively = "false"
 			usemixedcaseclassnames = "true"
-			defaultpackage = "frg"
+			defaultpackage = "smallclasses"
 			skipnonpubliclibraryclasses = "false"
 			skipnonpubliclibraryclassmembers = "false"
 			>

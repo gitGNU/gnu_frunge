@@ -22,7 +22,7 @@ public class Resources {
 	protected final static String[] PREFIXES = new String[] { "", "bin/", "out/" };
 	
 	protected final static ClassLoader SCL = ClassLoader.getSystemClassLoader();
-
+	
 	final static Logger log = LoggerFactory.getLogger(Resources.class);
 	
 	/**
@@ -38,6 +38,7 @@ public class Resources {
 				break;
 			}
 		}
+		
 		if (is == null) {
 			try {
 				is = new FileInputStream(new File(res));
@@ -53,14 +54,15 @@ public class Resources {
 		InputStream is = null;
 		try {
 			for (URL u : Collections.list(Resources.SCL.getResources(res))) {
+				log.debug("Reading resources from {}", u);
 				if (p.matcher(u.toString()).matches()) {
-					log.debug("Reading stream from {}", u);
+					log.debug("URL matches {}!", jarPattern);
 					is = u.openStream();
 					break;
 				}
 			}
 		} catch (IOException e) {
-			log.error("Can’t open tesources", e);
+			log.error("Can’t open resources", e);
 		}
 		return is;
 	}

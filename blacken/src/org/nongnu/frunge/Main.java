@@ -1,10 +1,11 @@
-package org.nongnu.frunge.cli;
+package org.nongnu.frunge;
 
 import java.util.Date;
 import java.util.Map;
 import java.util.Properties;
 import java.util.TreeSet;
 
+import org.nongnu.frunge.cli.Parser;
 import org.nongnu.frunge.gui.SwingGui;
 import org.nongnu.frunge.io.Resources;
 import org.nongnu.frunge.io.logging.LoggingBinding;
@@ -27,14 +28,7 @@ public class Main {
 				log.debug("MANIFEST.MF {} = {}", key, prop.getProperty(key));
 			}
 		} catch (Exception e) {
-		}
-		
-		try {
-			prop.load(Resources.getStream("META-INF/MANIFEST.MF"));
-			for (String key : new TreeSet<String>(prop.stringPropertyNames())) {
-				log.debug("MANIFEST.MF {} = {}", key, prop.getProperty(key));
-			}
-		} catch (Exception e) {
+			;
 		}
 		
 		prop = System.getProperties();
@@ -54,5 +48,4 @@ public class Main {
 			Parser.main(arg);
 		}
 	}
-	
 }
