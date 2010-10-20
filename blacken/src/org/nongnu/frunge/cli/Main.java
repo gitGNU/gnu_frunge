@@ -6,6 +6,7 @@ import java.util.Properties;
 import java.util.TreeSet;
 
 import org.nongnu.frunge.gui.SwingGui;
+import org.nongnu.frunge.io.Resources;
 import org.nongnu.frunge.io.logging.LoggingBinding;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +20,24 @@ public class Main {
 		
 		log.info("Logging ſtarted for blacken at {}. Fraktur is cool!", new Date());
 		
-		Properties prop = System.getProperties();
+		Properties prop = new Properties();
+		try {
+			prop.load(Resources.getStream("META-INF/MANIFEST.MF", ".*blacken.jar.*"));
+			for (String key : new TreeSet<String>(prop.stringPropertyNames())) {
+				log.debug("MANIFEST.MF {} = {}", key, prop.getProperty(key));
+			}
+		} catch (Exception e) {
+		}
+		
+		try {
+			prop.load(Resources.getStream("META-INF/MANIFEST.MF"));
+			for (String key : new TreeSet<String>(prop.stringPropertyNames())) {
+				log.debug("MANIFEST.MF {} = {}", key, prop.getProperty(key));
+			}
+		} catch (Exception e) {
+		}
+		
+		prop = System.getProperties();
 		for (String key : new TreeSet<String>(prop.stringPropertyNames())) {
 			log.debug("System property {} = {}", key, prop.getProperty(key));
 		}
